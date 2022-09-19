@@ -1,0 +1,10 @@
+name: ols-program-paper
+channels:
+- conda-forge
+- defaults
+dependencies:
+- jupyter
+- matplotlib
+- pandas
+- pygithub
+- pyyaml

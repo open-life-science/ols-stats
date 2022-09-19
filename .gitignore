@@ -1,0 +1,11 @@
+*.swp
+*.pdf
+*.aux
+*.dvi
+*.log
+*.out
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.ipynb_checkpoints
