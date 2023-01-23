@@ -13,13 +13,12 @@ ajstewartlang,Manchester,United Kingdom,Andrew,Stewart,he/him,"expert, mentor, s
 akalikadien,Delft,Netherlands,Adarsh,Kalikadien,,,,,,participant,
 aldenc,London,United Kingdom,Alden,Conner,,,,,,,participant
 aleesteele,London,United Kingdom,Anne Lee,Steele,she/her,,,,,participant,"expert, mentor"
-ali-humayun,London,,Ali,Humayun,He/Him,,,participant,,,
+alihumayun,London,United Kingdom,Ali,Humayun,He/Him,,,participant,participant,,
 aliaslaurel,Córdoba,Argentina,Laura,Ascenzi,She/her/ella,,,,,,expert
-alihumayun,London,United Kingdom,Ali,Humayun,He/Him,,,,participant,,
 amangoel185,New Delhi,India,Aman,Goel,,,,,,,participant
 anayan321,Bangkok,Thailand,Anunya,Opasawatchai,"She, her",participant,,,expert,,
 andre-vargas-de,Cochabamba,Bolivia,Alvaro Andre,Vargas Aguilar,,,,,,participant,
-andreasancheztapia,"Merced, Ca",United Statesa,Andrea,Sánchez-Tapia,she/her,,,,,,"expert, mentor, mentor"
+andreasancheztapia,"Merced, CA",United States,Andrea,Sánchez-Tapia,she/her,,,,,,"expert, mentor, mentor"
 andreea-avramescu,Manchester,United Kingdom,Andreea,Avramescu,,,,,participant,,
 anelda,Overberg,South Africa,Anelda,Van Der Walt,she/her,,mentor,"mentor, speaker",,speaker,participant
 anenadic,Manchester,United Kingdom,Aleksandra,Nenadic,she/her/hers,expert,"expert, speaker",expert,,,
@@ -36,7 +35,7 @@ augustincaitlin,Orlando,United States,Caitlin,Augustin,she/her,,,,participant,,
 ayeshadunk,London,United Kingdom,Ayesha,Dunk,She/her,,,,,participant,
 b14-rsa,Johannesburg,South Africa,Biandri,Joubert,She/Her,,,,,participant,
 babasaraki,Bauchi,Nigeria,Umar,Ahmad,Data Science,,speaker,,,participant,participant
-batoolmm,Liverpool,Saudi Arabia,Batool,Almarzouq,She/Her,,,participant,"facilitator, participant, speaker","facilitator, mentor","expert, mentor"
+batoolmm,Liverpool,Saudi Arabia,Batool,Almarzouq,She/Her,,,participant,"facilitator, participant, speaker","facilitator, mentor","expert, facilitator, mentor"
 bduckles,"Portland, Oregon",United States,Beth,Duckles,"she, her",speaker,expert,"expert, mentor","expert, mentor",,
 beatrizserrano,Freiburg,Germany,Beatriz,Serrano-Solano,she/her,,participant,expert,,mentor,
 bebatut,Freiburg,Germany,Bérénice,Batut,she/her,"organizer, speaker","expert, organizer, speaker","expert, organizer, mentor, mentor, mentor, mentor, speaker","expert, organizer, mentor, speaker",organizer,organizer
@@ -56,9 +55,10 @@ christinerogers,Montreal,Canada,Christine,Rogers,she/her,participant,"expert, sp
 chucklesongithub,Buenos Aires,Argentina,Cecilia,Herbert,She/Her,,,,participant,,
 cl379,Barcelona,Spain,Carla,Lancelotti,she-her,,,participant,,participant,
 codito22,Lima,Peru,Rodrigo,Gallegos,,,,,,participant,
-complexbrains,Reading,United Kingdom,Isil Poyraz,Bilgin,She/her,,,,,participant,
+complexbrains,Reading,United Kingdom,Isil Poyraz,Bilgin,She/her,,,,,participant,facilitator
 coopersmout,Brisbane,Australia,Cooper,Smout,He/him,,participant,,expert,,
 da5nsy,Washington Dc,United States,Danny,Garside,he/him,,participant,expert,facilitator,,
+dadditolu,Glasgow,United Kingdom,John,Ogunsola,he/him,,,participant,,,mentor
 darwin-diaz,Lima,Peru,Darwin,Diaz,She/Her,,,,,participant,
 david-selassie-opoku,Berlin,Germany,David Selassie,Opoku,,,,,expert,,
 deepakunni3,Basel,Switzerland,Deepak,Unni,He/Him,,,,,"expert, mentor",expert
@@ -112,12 +112,12 @@ irena-maus,Bielefeld,Germany,Irena,Maus,,,,,participant,,
 iris-san-pedro,Madrid,Spain,Iris,San Pedro,,,,,,,
 irisbotas,Majadahonda,Spain,Iris,San Pedro,She/her,,,participant,,,
 isahmadbbr,Kano,Nigeria,Ibrahim Said,Ahmad,,,,participant,,,
-ismael-kg,London,United Kingdom,Ismael,Kherroubi Garcia,He/him,,participant,,,participant,
+ismael-kg,London,United Kingdom,Ismael,Kherroubi Garcia,He/him,,participant,,,participant,facilitator
 ivotron,Hermosillo,Mexico,Ivo,Jimenez,he/him,,mentor,expert,,,
-jafsia,Yaounde,Cameroon,Elisee,Jafsia,he/him,,,,,participant,mentor
+jafsia,Yaounde,Cameroon,Elisee,Jafsia,He/his/him,,,,,participant,mentor
 javier-ruiz-pérez,Barcelona,Spain,Javier,Ruiz Pérez,,,,participant,,,
 jcolomb,Berlin,Germany,Julien,Colomb,he/his,,expert,,"expert, mentor",mentor,
-jesperdramsch,Bonn,Germany,Jesper,Dramsch,they,,,,,expert,
+jesperdramsch,Bonn,Germany,Jesper,Dramsch,they/them,,,,,expert,
 jessica-sims,London,United Kingdom,Jessica,Sims,She/her,,,participant,,,
 jessicas11,Durham,United States,Jessica,Scheick,she/her,,,,"expert, mentor",,
 jezcope,Harrogate,United Kingdom,Jez,Cope,he/him,,"expert, mentor","expert, mentor",,expert,expert
@@ -126,18 +126,16 @@ jmmaok,"Cary, Nc",United States,Jennifer,Miller,,,,participant,expert,,
 joelfan,Milan,Italy,Dario,Basset,,,,,,,participant
 joelostblom,Vancouver,Canada,Joel,Ostblom,he/him,expert,,expert,,,
 johav,Berlin,Germany,Jo,Havemann,,,,expert,,,
-john-ogunsola,Glasgow,United Kingdom,John,Ogunsola,he/him,,,participant,,,mentor
 jonny-heath,Brighton,United Kingdom,Jonny,Heath,He/him,,,expert,,,
 joyceykao,Aachen,Germany,Joyce,Kao,she/her,,participant,"expert, mentor",expert,expert,"expert, mentor"
 jruizperez,College Station,United States,Javier,Ruiz-Pérez,,,,,,participant,
 jsheunis,Juelich,Germany,Stephan,Heunis,he/him,,,,,"expert, mentor",
-juan-josé-garcía-granero,Barcelona,Spain,Juan José,García-Granero,He/him/his,,,participant,,,
-juanjo-garcía-granero,Barcelona,Spain,Juanjo,García-Granero,he/his,,,,,participant,
+juanjo-garcía-granero,Barcelona,Spain,Juan José,García-Granero,He/him/his,,,participant,,participant,
 jvillcavillegas,Bolivia,Bolivia,Jose Luis,Villca Villegas,Bolivia,,,,,participant,
 jyoti-bhogal,"Ahmednagar, Maharashtra",India,Jyoti,Bhogal,she/her,,,,,participant,
 k-c-martin,Stellenbosch,South Africa,Kim,Martin,,,,,,participant,mentor
 k8hertweck,"Seattle, Wa",United States,Kate,Hertweck,perceived pronouns (anything works),,,,expert,,
-karegapauline,Nairobi,Kenya,Pauline,Karega,she/her,,participant,,,,participant
+karegapauline,Nairobi,Kenya,Pauline,Karega,she/her,,participant,,,,"facilitator, participant"
 karvovskaya,Amsterdam,Netherlands,Lena,Karvovskaya,"she, her",participant,"expert, mentor",expert,"expert, mentor","expert, mentor","expert, mentor"
 katesimpson,London/ Great Union Canal/ Leeds,United Kingdom,Kate,Simpson,She/her,,participant,"expert, mentor",mentor,,
 katoss,Paris,France,Katharina,Kloppenborg,she/her,,participant,participant,expert,,
@@ -159,8 +157,7 @@ luispedro,Shanghai,China,Luis Pedro,Coelho,he/them,"expert, mentor","expert, men
 lukehare,London,United Kingdom,Luke,Hare,he/him,,,,participant,participant,
 lwbwalma,Delft,The Netherlands,Lisanne,Walma,she/her,,,,,,
 lwinfree,Austin,United States,Lilly,Winfree,she/her,speaker,"expert, speaker",,"expert, mentor",speaker,expert
-lydia-france,London,United Kingdom,Lydia,France,,,,,participant,,
-lydiafrance,London,United Kingdom,Lydia,France,,,,,,participant,
+lydiafrance,London,United Kingdom,Lydia,France,,,,,participant,participant,
 macelik,Istanbul,Turkey,Muhammet,Celik,He/Him,,,,,,
 macziatko,Dublin,Ireland,Nina,Trubanova,,,,,,,participant
 mai-alajaji,Riyadh,Saudi Arabia,Mai,Alajaji,,,,,participant,,
@@ -168,7 +165,6 @@ malloryfreeberg,Cambridge,United Kingdom,Mallory,Freeberg,she/her,,mentor,mentor
 malvikasharan,London,United Kingdom,Malvika,Sharan,she/her,"organizer, mentor, mentor, mentor, speaker, speaker","expert, organizer, mentor, mentor, speaker","expert, organizer, mentor, mentor, mentor, speaker, speaker, speaker","organizer, speaker","organizer, participant, mentor, mentor, mentor, speaker","organizer, mentor"
 manulera,Paris,France,Manuel,Lera Ramirez,He/him,,,,"facilitator, participant",facilitator,
 marco-madella,Barcelona,Spain,Marco,Madella,he/his,,,participant,,,
-margaret-wanjiku,Nairobi,Kenya,Margaret,Wanjiku,,,,expert,,,
 maria-andrea-gonzales-castillo,Lima,Peru,Maria Andrea,Gonzales Castillo,She/Her,,,,,participant,
 mariangelap,Genova,Italy,Mariangela,Panniello,she/her,,,,,participant,
 marie-nugent,London,United Kingdom,Marie,Nugent,,,,,,,participant
@@ -187,7 +183,7 @@ mehak-chopra,Puducherry,India,Mehak,Chopra,she/her,,,participant,,,
 melibleq,São Paulo,Brazil,Melissa,Black,she/her,,,,,,expert
 melissawm,Florianópolis,Brasil,Melissa,Weber Mendonça,,,,,,,
 merrcury,Kurukshetra,India,Himanshu,Garg,He / Him,,,,expert,,
-mgawe-cavin,"Nairobi, Kenya",Kenya,Cavin,Mgawe,He,,,,,participant,
+mgawe-cavin,"Nairobi, Kenya",Kenya,Cavin,Mgawe,He,,,,,participant,facilitator
 michael-addy,Kumasi,Ghana,Michael,Addy,He,,,,participant,mentor,
 michal-javornik,Brno,Czech Republic,Michal,Javornik,,,,participant,,,
 michal-ruzicka,Brno,Czech Republic,Michal,Růžička,,,,participant,,,
@@ -195,15 +191,14 @@ mihaelanemes,London,United Kingdom,Mishka,Nemes,she/her,,,participant,,,
 mishrose123,Cambridge,United Kingdom,Michelle,Mendonca,she/her,,,expert,,,
 mlagisz,Sydney,Australia,Malgorzata,Lagisz,,,,,,,participant
 mohan-gupta,Kathmandu,Nepal,Mohan,Gupta,He/Him,,,participant,,,
-msundukova,Bilbao,Spain,Mayya,Sundukova,she/her,,,facilitator,facilitator,"expert, facilitator, mentor","expert, mentor, participant"
+msundukova,Bilbao,Spain,Mayya,Sundukova,she/her,,,facilitator,facilitator,"expert, facilitator, mentor","expert, facilitator, mentor, participant"
 mxrtinez,Bucaramanga,Colombia,Alexander,Martinez Mendez,,,,participant,"expert, mentor",mentor,expert
 nadia-odaliz-chamana-chura,Lima,Peru,Nadia Odaliz,Chamana Chura,She/her/hers,,,,,participant,
 nadinespy,Brighton,United Kingdom,Nadine,Spychala,she/her,,,,participant,,"expert, mentor"
 natalie-banner,London,United Kingdom,Natalie,Banner,she/her,,,,,,mentor
 nea-bridget,London,United Kingdom,Bridget,Nea,she/her/hers,,,,,participant,
 nelson-franco,Cochabamba,Bolivia,Nelson Franco,Condori Salluco,Nelson,,,,,participant,
-nihan-sultan-milat,İstanbul,Turkey,Nihan Sultan,Milat,,,,participant,,,
-nihansultan,İstanbul,Turkey,Nihan Sultan,Milat,,,,,,participant,
+nihansultan,İstanbul,Turkey,Nihan Sultan,Milat,,,,participant,,participant,
 nodiraibrogimova,Tashkent,Uzbekistan,Nodira,Ibrogimova,She/Hers,,,,,participant,
 nomadscientist,Cambridge,United Kingdom,Wendi,Bacon,She/her,,,expert,,,
 nomalu,Pretoria,South Africa,Nomalungelo Octavia,Maphanga,,,,,,,participant
@@ -246,7 +241,7 @@ sayalaruano,Maastricht,The Netherlands,Sebastián,Ayala Ruano,He/him,,,,particip
 selgebali,Gothenburg,Sweden,Sara,El-Gebali,"She, her",,,,"expert, speaker","expert, mentor","expert, mentor"
 serahrono,Tallinn,Estonia,Serah,Rono,"she, her, hers",,,expert,,,
 sgibson91,London,United Kingdom,Sarah,Gibson,she/her,,"expert, mentor","expert, participant, mentor",,,
-shmuhammad2004,Kano,Nigeria,Shamsuddeen,Muhamamd,He/Him,,,participant,,,
+shmuhammad2004,Kano,Nigeria,Shamsuddeen,Muhammad,He/Him,,,participant,,,
 shubhamrj7,Bhopal,India,Shubham,Jathar,he/him,,,,,,
 sjb287,Urbana,United States,Steven,Burgess,He/His/Him,,,participant,,,
 sladjana-lukic,New York City,United States,Sladjana,Lukic,she/her,,,,,participant,
@@ -279,7 +274,7 @@ aath0,,Switzerland,Athina,Tzovara,she/her,expert,expert,,,,
 afzal442,,India,Afzal,Ansari,he/him,,,participant,,,
 agbeltran,,United Kingdom,Alejandra,Gonzalez-Beltran,,,expert,,,,
 alecandian,,The Netherlands,Alessandra,Candian,she/her/hers,,,,,participant,"expert, mentor"
-alexandra-holinski,,United Kingdom,Alexandra,Holinski,She/her,,,"expert, speaker","expert, mentor",,
+alexholinski,,United Kingdom,Alexandra,Holinski,She/her,,,expert,"expert, mentor",expert,
 alexwlchan,,United Kingdom,Alex,Chan,they/she,speaker,"expert, speaker",expert,"expert, speaker",expert,
 amchagas,,United Kingdom,Andre,Maia Chagas,,,,speaker,,,
 anita-broellochs,,United States,Anita,Bröllochs,she/her,speaker,"expert, mentor",,,,
@@ -299,7 +294,7 @@ billbrod,,United States,Billy,(William) Broderick,he/him,participant,,,,,
 boi-kone,,Mali,Boï,Kone,,,participant,,,,
 bonetcarne,,Spain,Elisenda,Bonet-Carne,she/her,participant,,,,,
 brainonsilicon,,United Kingdom,Sophia,Batchelor,she/her,,participant,,,,participant
-burceelbasan,,Germany,Burce,Elbasan,,,,,,mentor,
+burceelbasan,,Germany,Burce,Elbasan,,,,,participant,mentor,
 chadsansing,,United States,Chad,Sansing,he/him,,,,speaker,speaker,
 chiarabertipaglia,,United States,Chiara,Bertipaglia,she/her,participant,expert,,,,
 christina-ambrosi,,Switzerland,Christina,Ambrosi,,,participant,,,,
@@ -320,7 +315,7 @@ evaherbst,,Switzerland,Eva,Herbst,she/her,,participant,,,,
 evelyngreeves,,United Kingdom,Evelyn,Greeves,she/her,,,,,participant,
 ewa-leś,,Poland,Ewa,Leś,,,,,participant,,
 ewuramaminka,,United Kingdom,Deborah,Akuoko,she/her,participant,,,,,
-fnyasimi,,Kenya,Festus,Nyasimi,He/Him,participant,,,facilitator,facilitator,
+fnyasimi,,Kenya,Festus,Nyasimi,He/Him,participant,,,facilitator,facilitator,facilitator
 gabimusaubach,,Argentina,Maria Gabriela,Musaubach,,,,,,participant,
 ganleyemma,,United Kingdom,Emma,Ganley,,,speaker,,,,
 hdinkel,,Germany,Holger,Dinkel,he/him,"expert, mentor","expert, mentor",,,,
@@ -400,15 +395,12 @@ vickynembaware,,South Africa,Vicky,Nembaware,she/her,"expert, mentor",expert,,,,
 wasifarahman,,Bangladesh,Wasifa,Rahman,,,participant,,,,
 yochannah,,United Kingdom,Yo,Yehudi,they/them,"organizer, mentor, speaker, speaker","expert, organizer, mentor, mentor, speaker","expert, organizer, mentor, mentor, mentor, speaker, speaker, speaker","organizer, mentor, speaker, speaker","organizer, mentor, mentor, speaker","organizer, mentor"
 zebetus,,United Kingdom,Harry,Smith,,mentor,expert,,,,
-alexholinski,,,Alexandra,Holinski,,,,,,expert,
 ariana-bethany-subroyen,,,Ariana Bethany,Subroyen,,,,,,,participant
 aurigandrea,,,Andrea,Kocsis,she/her,,,,,participant,
 biscuitnapper,,,Florence,Okoye,She/her,,,,participant,,
 bresearcher101,,,Aswathi,Surendran,,,,,,,participant
-burce-elbasan,,,Burce,Elbasan,,,,,participant,,
 cassmurph,,,Cassandra,Murphy,,,,,,,participant
 chiara-damiani,,,Chiara,Damiani,,,,participant,,,
-dadditolu,,,John,Ogunsola,,,,,,,
 gugy89,,,Gudrun,Gygli,,,,,,expert,
 harisood,,,Hari,Sood,,,,,,,participant
 kabobbo,,,Khatijat,Bobbo,Git/GitHub,,,,,,
