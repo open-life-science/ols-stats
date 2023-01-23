@@ -1,6 +1,8 @@
 # OLS program paper
 
-This GitHub repository store sources (scripts, data, images) for the OLS program paper
+This GitHub repository store sources (scripts, data, images) for the OLS program paper.
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/open-life-science/ols-program-paper/main)
 
 ## Structure of the repository
 
