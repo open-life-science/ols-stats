@@ -1,0 +1,62 @@
+name: Update data
+
+on:
+  schedule:
+    # We'll run this weekly
+    - cron:  '1,30 * * * *'
+  workflow_dispatch:
+
+jobs:
+  runner-job:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Cache conda
+        uses: actions/cache@v2
+        env:
+          # Increase this value to reset cache if etc/example-environment.yml has not changed
+          CACHE_NUMBER: 0
+        with:
+          path: ~/conda_pkgs_dir
+          key:
+            ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('environment.yml') }}
+
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: ols-program-paper
+          environment-file: environment.yml
+          python-version: 3.8
+          mamba-version: "*"
+          auto-activate-base: false
+          use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
+
+      - run: conda info
+      - run: conda list
+      - run: conda config --show
+
+      - name: Update data
+        run: |
+          cd src
+          for i in {extract_data_from_website.ipynb}; do
+            jupyter nbconvert "$i" --to python --output "$i.py"
+            python "$i.py"
+          done
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+
+      - name: Commit files
+        run: |
+          git config --local user.email "bot@github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data
+          git commit -m "Updated data ($(date -I))" || true
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.TOKEN }}
+          branch: ${{ github.ref }}
