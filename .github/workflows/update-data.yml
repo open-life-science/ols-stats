@@ -11,22 +11,27 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        shell: bash -l {0}
+        shell: bash -el {0}
     steps:
       - uses: actions/checkout@v2
-      - uses: conda-incubator/setup-miniconda@v2
+      - name: Setup Miniconda
+        uses: conda-incubator/setup-miniconda@v2.2.0
         with:
           mamba-version: "*"
           channels: conda-forge,defaults
           channel-priority: true
           activate-environment: ols-program-paper
-          environment-file: environment.yml
+          #environment-file: environment.yml
 
-      - run: conda info
-      - run: conda list
-      - run: conda config --show
+      - shell: bash -el {0}
+        run: |
+          conda info
+          conda list
+          conda config --show-sources
+          conda config --show
 
       - name: Update data
+        shell: bash -el {0}
         run: |
           cd src
           for i in {extract_data_from_website.ipynb}; do
@@ -37,6 +42,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
 
       - name: Commit files
+        shell: bash -el {0}
         run: |
           git config --local user.email "bot@github.com"
           git config --local user.name "github-actions[bot]"
@@ -44,6 +50,7 @@ jobs:
           git commit -m "Updated data ($(date -I))" || true
 
       - name: Push changes
+        shell: bash -el {0}
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.TOKEN }}
