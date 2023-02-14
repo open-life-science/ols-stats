@@ -16,11 +16,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: Setup Miniconda
         uses: conda-incubator/setup-miniconda@v2.2.0
-        with:
-          mamba-version: "*"
-          channels: conda-forge,defaults
-          channel-priority: true
-          activate-environment: ols-program-paper
+        #with:
+        #  channels: conda-forge,defaults
+        #  channel-priority: true
+         # activate-environment: ols-program-paper
           #environment-file: environment.yml
 
       - shell: bash -el {0}
