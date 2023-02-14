@@ -32,8 +32,9 @@ jobs:
       - name: Update data
         shell: bash -el {0}
         run: |
-          jupyter nbconvert src/extract_data_from_website.ipynb --to python --output extract_data_from_website.py
-          python src/extract_data_from_website.py
+          cd src
+          jupyter nbconvert extract_data_from_website.ipynb --to python --output extract_data_from_website.py
+          python extract_data_from_website.py
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
 
