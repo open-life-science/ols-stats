@@ -9,15 +9,9 @@ This GitHub repository store sources (scripts, data, images) for the OLS program
 Folders:
 - `data` with CSVs containing the data
 - `images` with images generated from the data, and also sources (SVG) for any images in the paper
-- `src` with Jupyter Notebooks used to get, explore, analyze and visualize data
+- `src` with scripts and Jupyter Notebooks used to get, explore, analyze and visualize data
 
-## Generation of graphs for the paper
-
-Jupyter Notebooks have been used to generate the graphs for the paper. They are stored in the `src` folder
-
-- [`src/extract_data_from_website.ipynb`](src/extract_data_from_website.ipynb): Extract information from the website to create CSVs in `data` folder
-
-### Requirements
+## Requirements
 
 - Install [conda](https://conda.io/miniconda.html)
 
@@ -31,9 +25,29 @@ Jupyter Notebooks have been used to generate the graphs for the paper. They are 
     $ make create-env
     ```
 
-- (Only for ) Generate a Personal access token on GitHub (Settings - Developer settings - Personal access token ) and copy it to [`config.yml` file](config.yaml)
 
-### Usage
+
+## Extract and format data
+
+Data from the OLS website is automatically extracted **every week** and then formatted to be stored as CSV files in the `data` folder and really to be explored and visualized.
+
+To run the data extraction and formatting manually
+
+- Generate a Personal access token on GitHub (Settings - Developer settings - Personal access token ) and copy it to [`config.yml` file](config.yaml)
+- Run
+
+    ```
+    $ python src/extract_data_from_website.py --token <TOKEN> --out data
+    ```
+
+## Explore and visualize data
+
+Jupyter Notebooks have been used to generate the graphs for the paper. They are stored in the `src` folder
+
+- [`src/extract_data_from_website.ipynb`](src/extract_data_from_website.ipynb): Extract information from the website to create CSVs in `data` folder
+
+
+Usage
 
 - Launch [Jupyter](https://jupyter.org/) to access the notebooks to generate graphs
 
