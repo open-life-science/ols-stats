@@ -7,6 +7,7 @@ import pandas as pd
 import pycountry
 import yaml
 
+from geopy.geocoders import Nominatim
 from github import Github
 from pathlib import Path
 
@@ -319,6 +320,8 @@ def get_people():
     print("Get and format people information")
     # get people information
     people = read_yaml_file("_data/people.yaml", "main")
+    # initialize Nominatim API
+    geolocator = Nominatim(user_agent="MyApp")
     # format information
     for key, value in people.items():
         # remove some keys
@@ -331,8 +334,6 @@ def get_people():
         value.pop('title', None)
         value.pop('expertise', None)
         # get country alpha_3 and continent
-        value['country-alpha_3'] = None
-        value['continent'] = None
         if 'country' in value:
             country = pycountry.countries.get(name=value['country'])
             if country is None:
@@ -340,11 +341,19 @@ def get_people():
                 if country is None:
                     print(f"{value['country']} not found")
             else:
-                value[f'country-alpha_3'] = country.alpha_3
+                value['country-alpha_3'] = country.alpha_3
                 if country.alpha_2 not in COUNTRY_ALPHA2_TO_CONTINENT:
                     print(f"No continent found for {value['country']} / {country.alpha_2}")
                 else:
                     value['continent'] = COUNTRY_ALPHA2_TO_CONTINENT[country.alpha_2]
+        # get city 
+        if 'city' in value:
+            location = geolocator.geocode(value['city'])
+            if location is None:
+                print(f"{value['city']} not found")
+            else:
+                value['longitude'] = location.longitude
+                value['latitude'] = location.latitude
         # add space for cohorts
         for i in range(1, ACTUAL_COHORT+1):
             value[f'ols-{i}'] = []
