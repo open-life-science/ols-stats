@@ -50,7 +50,6 @@ jobs:
           git commit -m "Updated data ($(date -I))" || true
 
       - name: Push changes
-        shell: bash -el {0}
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.TOKEN }}
