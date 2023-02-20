@@ -297,7 +297,7 @@ def update_people_info(p_list, p_dict, status, cohort_id):
 def get_people_names(p_list, p_dict):
     '''
     Get names of peoke
-    
+
     :param p_list: list of people id
     :param p_dict: dictionary with people information
     '''
@@ -346,7 +346,7 @@ def get_people():
                     print(f"No continent found for {value['country']} / {country.alpha_2}")
                 else:
                     value['continent'] = COUNTRY_ALPHA2_TO_CONTINENT[country.alpha_2]
-        # get city 
+        # get city
         if 'city' in value:
             location = geolocator.geocode(value['city'])
             if location is None:
@@ -357,7 +357,7 @@ def get_people():
         # add space for cohorts
         for i in range(1, ACTUAL_COHORT+1):
             value[f'ols-{i}'] = []
-        
+
     return people
 
 
@@ -400,6 +400,29 @@ def extract_cohort_information(people):
     return projects, people
 
 
+def format_people_per_cohort(people, projects):
+    '''
+    Format to get people with their location and cohort and role
+    (1 entry per person, per cohort, per role)
+    '''
+    people_per_cohort = []
+    for key, value in people.items():
+        info = {'id': key}
+        # get localisation information
+        for e in ['country', 'country-alpha_3', 'city', 'longitude', 'latitude']:
+            info[e] = value[e] if e in value else None
+        # get cohort participation
+        for i in range(1, ACTUAL_COHORT+1):
+            cohort = f'ols-{i}'
+            if cohort in value and len( value[cohort]) > 0:
+                for r in value[cohort]:
+                    t_info = copy.copy(info)
+                    t_info['cohort'] = i
+                    t_info['role'] = r
+                    people_per_cohort.append(t_info)
+    return people_per_cohort
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Extract data from website into CSV files')
     parser.add_argument('-t', '--token', help="GitHub token", required=True)
@@ -418,6 +441,9 @@ if __name__ == '__main__':
     # get cohort and project informations
     projects, people = extract_cohort_information(people)
 
+    # format people / project information per cohort
+    people_per_cohort = format_people_per_cohort(people, projects)
+
     # export people information to CSV file
     people_df = pd.DataFrame.from_dict(people, orient='index')
     for i in range(1, ACTUAL_COHORT+1):
@@ -433,12 +459,7 @@ if __name__ == '__main__':
     project_fp = Path(args.out) / Path('projects.csv')
     project_df.to_csv(project_fp)
 
-
-
-
-
-
-
-
-
-    
+    # export people per cohort
+    people_per_cohort_df = pd.DataFrame(people_per_cohort)
+    people_per_cohort_fp = Path(args.out) / Path('people_per_cohort.csv')
+    people_per_cohort_df.to_csv(people_per_cohort_fp)
