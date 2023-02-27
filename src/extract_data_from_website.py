@@ -276,13 +276,13 @@ def read_yaml_file(fp, ref):
     return yaml.load(decoded_file_content, Loader=yaml.FullLoader)
 
 
-def update_people_info(p_list, p_dict, status, cohort_id):
+def update_people_info(p_list, p_dict, cohort_id, role, value):
     '''
     Update people attribute for a cohort
 
     :param p_list: list of people id to update
     :param p_dict: dictionary with people information
-    :param status: status to add
+    :param role: status to add
     :param cohort_id: concerned cohort
     '''
     for p in p_list:
@@ -291,7 +291,11 @@ def update_people_info(p_list, p_dict, status, cohort_id):
         if p not in p_dict:
             print(f"{p} not found in people")
             continue
-        p_dict[p][f'ols-{cohort_id}'].append(status)
+        p_dict[p][f'ols-{cohort_id}-role'].append(role)
+        if role == 'participant' or role == 'mentor':
+            p_dict[p][f'ols-{cohort_id}-{role}'].append(value)
+        else:
+            p_dict[p][f'ols-{cohort_id}-{role}'] = value
 
 
 def get_people_names(p_list, p_dict):
@@ -356,7 +360,13 @@ def get_people():
                 value['latitude'] = location.latitude
         # add space for cohorts
         for i in range(1, ACTUAL_COHORT+1):
-            value[f'ols-{i}'] = []
+            value[f'ols-{i}-role'] = []
+            value[f'ols-{i}-participant'] = []
+            value[f'ols-{i}-mentor'] = []
+            value[f'ols-{i}-expert'] = None
+            value[f'ols-{i}-speaker'] = None
+            value[f'ols-{i}-facilitator'] =  None
+            value[f'ols-{i}-organizer'] =  None
 
     return people
 
@@ -371,17 +381,17 @@ def extract_cohort_information(people):
         print(f"OLS {i}")
         # extract experts, facilitators, organizers from metadata
         metadata = read_yaml_file(f"_data/ols-{i}-metadata.yaml" , "main")
-        update_people_info(metadata['experts'], people, 'expert', i)
+        update_people_info(metadata['experts'], people, i, 'expert', 'expert')
         if 'facilitators' in metadata:
-            update_people_info(metadata['facilitators'], people, 'facilitator', i)
-        update_people_info(metadata['organizers'], people, 'organizer', i)
+            update_people_info(metadata['facilitators'], people, i, 'facilitator', 'facilitator')
+        update_people_info(metadata['organizers'], people, i, 'organizer',  'organizer')
         # extract participants, mentors from projects
         # extract project details
         cohort_projects = read_yaml_file(f"_data/ols-{i}-projects.yaml", "main")
         for p in cohort_projects:
             # update participant and mentor information
-            update_people_info(p['participants'], people, 'participant', i)
-            update_people_info(p['mentors'], people, 'mentor', i)
+            update_people_info(p['participants'], people, i, 'participant', p['name'])
+            update_people_info(p['mentors'], people, i, 'mentor', p['name'])
             # get project details
             pr = copy.copy(p)
             pr['participants'] = get_people_names(p['participants'], people)
@@ -396,7 +406,7 @@ def extract_cohort_information(people):
                 if c['type'] == 'Cohort' and 'resources' in c and c['resources'] is not None:
                     for r in c['resources']:
                         if r['type'] == 'slides' and 'speaker' in r and r['speaker'] is not None:
-                            update_people_info([r['speaker']], people, 'speaker', i)
+                            update_people_info([r['speaker']], people, i,'speaker', 'speaker')
     return projects, people
 
 
@@ -414,8 +424,9 @@ def format_people_per_cohort(people, projects):
         # get cohort participation
         for i in range(1, ACTUAL_COHORT+1):
             cohort = f'ols-{i}'
-            if cohort in value and len( value[cohort]) > 0:
-                for r in value[cohort]:
+            el = f'ols-{i}-role'
+            if el in value and len( value[el]) > 0:
+                for r in value[el]:
                     t_info = copy.copy(info)
                     t_info['cohort'] = i
                     t_info['role'] = r
@@ -447,7 +458,9 @@ if __name__ == '__main__':
     # export people information to CSV file
     people_df = pd.DataFrame.from_dict(people, orient='index')
     for i in range(1, ACTUAL_COHORT+1):
-        people_df[f'ols-{i}'] = people_df[f'ols-{i}'].apply(lambda x: ', '.join([str(i) for i in x]))
+        people_df[f'ols-{i}-role'] = people_df[f'ols-{i}-role'].apply(lambda x: ', '.join([str(i) for i in x]))
+        people_df[f'ols-{i}-participant'] = people_df[f'ols-{i}-participant'].apply(lambda x: ', '.join([str(i) for i in x]))
+        people_df[f'ols-{i}-mentor'] = people_df[f'ols-{i}-mentor'].apply(lambda x: ', '.join([str(i) for i in x]))
     people_fp = Path(args.out) / Path('people.csv')
     people_df.to_csv(people_fp)
 
