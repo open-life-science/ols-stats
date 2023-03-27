@@ -1,954 +1,1047 @@
 ,id,country,country-alpha_3,city,longitude,latitude,cohort,role
 0,0sahene,Ghana,GHA,Tamale,-0.8423986,9.4051992,5,participant
 1,0x174,United States,USA,Boston,-71.060511,42.3554334,3,participant
-2,aath0,Switzerland,CHE,,,,1,expert
-3,aath0,Switzerland,CHE,,,,2,expert
-4,abdulelahsm,Saudi Arabia,SAU,Dammam,50.1039991,26.4367824,3,participant
-5,abraham-dabengwa,South Africa,ZAF,Johannesburg,28.049722,-26.205,5,participant
-6,abretaud,France,FRA,Rennes,-1.6800198,48.1113387,4,mentor
-7,acocac,United Kingdom,GBR,London,-0.12765,51.5073359,4,participant
-8,acocac,United Kingdom,GBR,London,-0.12765,51.5073359,5,mentor
-9,adam-gristwood,Germany,DEU,Heidelberg,8.694724,49.4093582,3,expert
-10,afzal442,India,IND,,,,3,participant
-11,agbeltran,United Kingdom,GBR,,,,2,expert
-12,agossoubido2021,Benin,BEN,Abomey Calavi,2.3303076367454025,6.51096225,5,participant
-13,aida-turing,United Kingdom,GBR,London,-0.12765,51.5073359,3,participant
-14,aidanbudd,Germany,DEU,Heidelberg,8.694724,49.4093582,1,expert
-15,aidanbudd,Germany,DEU,Heidelberg,8.694724,49.4093582,1,mentor
-16,aidanbudd,Germany,DEU,Heidelberg,8.694724,49.4093582,2,expert
-17,aidanbudd,Germany,DEU,Heidelberg,8.694724,49.4093582,2,mentor
-18,aidanbudd,Germany,DEU,Heidelberg,8.694724,49.4093582,3,expert
-19,ajstewartlang,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,1,expert
-20,ajstewartlang,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,1,mentor
-21,ajstewartlang,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,1,speaker
-22,ajstewartlang,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,2,expert
-23,ajstewartlang,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,2,mentor
-24,ajstewartlang,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,2,speaker
-25,ajstewartlang,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,4,expert
-26,ajstewartlang,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,5,speaker
-27,akalikadien,Netherlands,NLD,Delft,4.362724538543995,51.999457199999995,5,participant
-28,aldenc,United Kingdom,GBR,London,-0.12765,51.5073359,6,participant
-29,alecandian,Netherlands,NLD,,,,5,participant
-30,alecandian,Netherlands,NLD,,,,6,expert
-31,alecandian,Netherlands,NLD,,,,6,mentor
-32,aleesteele,United Kingdom,GBR,London,-0.12765,51.5073359,5,participant
-33,aleesteele,United Kingdom,GBR,London,-0.12765,51.5073359,6,expert
-34,aleesteele,United Kingdom,GBR,London,-0.12765,51.5073359,6,mentor
-35,alexholinski,United Kingdom,GBR,,,,3,expert
-36,alexholinski,United Kingdom,GBR,,,,3,speaker
-37,alexholinski,United Kingdom,GBR,,,,4,expert
-38,alexholinski,United Kingdom,GBR,,,,4,mentor
-39,alexholinski,United Kingdom,GBR,,,,5,expert
-40,alexwlchan,United Kingdom,GBR,,,,1,speaker
-41,alexwlchan,United Kingdom,GBR,,,,2,expert
-42,alexwlchan,United Kingdom,GBR,,,,2,speaker
-43,alexwlchan,United Kingdom,GBR,,,,3,expert
-44,alexwlchan,United Kingdom,GBR,,,,4,expert
-45,alexwlchan,United Kingdom,GBR,,,,4,speaker
-46,alexwlchan,United Kingdom,GBR,,,,5,expert
-47,alexwlchan,United Kingdom,GBR,,,,6,speaker
-48,alihumayun,United Kingdom,GBR,London,-0.12765,51.5073359,3,participant
-49,alihumayun,United Kingdom,GBR,London,-0.12765,51.5073359,4,participant
+2,4iro,Argentina,ARG,"Rancagua, Provincia De Buenos Aires",-60.5045833,-34.0299629,7,participant
+3,aath0,Switzerland,CHE,,,,1,expert
+4,aath0,Switzerland,CHE,,,,2,expert
+5,abdulelahsm,Saudi Arabia,SAU,Dammam,50.1039991,26.4367824,3,participant
+6,abraham-dabengwa,South Africa,ZAF,Johannesburg,28.049722,-26.205,5,participant
+7,abretaud,France,FRA,Rennes,-1.6800198,48.1113387,4,mentor
+8,acocac,United Kingdom,GBR,London,-0.12765,51.5073359,4,participant
+9,acocac,United Kingdom,GBR,London,-0.12765,51.5073359,5,mentor
+10,adam-gristwood,Germany,DEU,Heidelberg,8.694724,49.4093582,3,expert
+11,afzal442,India,IND,,,,3,participant
+12,agbeltran,United Kingdom,GBR,,,,2,expert
+13,agossoubido2021,Benin,BEN,Abomey Calavi,2.3303076367454025,6.51096225,5,participant
+14,aida-turing,United Kingdom,GBR,London,-0.12765,51.5073359,3,participant
+15,aidanbudd,Germany,DEU,Heidelberg,8.694724,49.4093582,1,expert
+16,aidanbudd,Germany,DEU,Heidelberg,8.694724,49.4093582,1,mentor
+17,aidanbudd,Germany,DEU,Heidelberg,8.694724,49.4093582,2,expert
+18,aidanbudd,Germany,DEU,Heidelberg,8.694724,49.4093582,2,mentor
+19,aidanbudd,Germany,DEU,Heidelberg,8.694724,49.4093582,3,expert
+20,ailís-o'carroll,Ireland,IRL,,,,7,mentor
+21,ajstewartlang,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,1,expert
+22,ajstewartlang,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,1,mentor
+23,ajstewartlang,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,1,speaker
+24,ajstewartlang,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,2,expert
+25,ajstewartlang,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,2,mentor
+26,ajstewartlang,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,2,speaker
+27,ajstewartlang,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,4,expert
+28,ajstewartlang,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,5,speaker
+29,akalikadien,Netherlands,NLD,Delft,4.362724538543995,51.999457199999995,5,participant
+30,aldenc,United Kingdom,GBR,London,-0.12765,51.5073359,6,participant
+31,alecandian,Netherlands,NLD,,,,5,participant
+32,alecandian,Netherlands,NLD,,,,6,expert
+33,alecandian,Netherlands,NLD,,,,6,mentor
+34,aleesteele,United Kingdom,GBR,London,-0.12765,51.5073359,5,participant
+35,aleesteele,United Kingdom,GBR,London,-0.12765,51.5073359,6,expert
+36,aleesteele,United Kingdom,GBR,London,-0.12765,51.5073359,6,mentor
+37,alexholinski,United Kingdom,GBR,,,,3,expert
+38,alexholinski,United Kingdom,GBR,,,,3,speaker
+39,alexholinski,United Kingdom,GBR,,,,4,expert
+40,alexholinski,United Kingdom,GBR,,,,4,mentor
+41,alexholinski,United Kingdom,GBR,,,,5,expert
+42,alexwlchan,United Kingdom,GBR,,,,1,speaker
+43,alexwlchan,United Kingdom,GBR,,,,2,expert
+44,alexwlchan,United Kingdom,GBR,,,,2,speaker
+45,alexwlchan,United Kingdom,GBR,,,,3,expert
+46,alexwlchan,United Kingdom,GBR,,,,4,expert
+47,alexwlchan,United Kingdom,GBR,,,,4,speaker
+48,alexwlchan,United Kingdom,GBR,,,,5,expert
+49,alexwlchan,United Kingdom,GBR,,,,6,speaker
 50,aliaslaurel,Argentina,ARG,Córdoba,-4.7760138,37.8845813,6,expert
-51,amangoel185,India,IND,New Delhi,77.2090057,28.6138954,6,participant
-52,amchagas,United Kingdom,GBR,,,,3,speaker
-53,anayan321,Thailand,THA,Bangkok,100.4935089,13.7524938,1,participant
-54,anayan321,Thailand,THA,Bangkok,100.4935089,13.7524938,4,expert
-55,andre-vargas-de,Bolivia,,Cochabamba,-66.16756808852,-17.401245799999998,5,participant
-56,andreasancheztapia,United States,USA,"Merced, CA",-120.7678602,37.1641544,6,expert
-57,andreasancheztapia,United States,USA,"Merced, CA",-120.7678602,37.1641544,6,mentor
-58,andreasancheztapia,United States,USA,"Merced, CA",-120.7678602,37.1641544,6,mentor
-59,andreea-avramescu,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,4,participant
-60,anelda,South Africa,ZAF,Overberg,5.4964645,52.0390484,2,mentor
-61,anelda,South Africa,ZAF,Overberg,5.4964645,52.0390484,3,mentor
-62,anelda,South Africa,ZAF,Overberg,5.4964645,52.0390484,3,speaker
-63,anelda,South Africa,ZAF,Overberg,5.4964645,52.0390484,5,speaker
-64,anelda,South Africa,ZAF,Overberg,5.4964645,52.0390484,6,participant
-65,anenadic,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,1,expert
-66,anenadic,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,2,expert
-67,anenadic,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,2,speaker
-68,anenadic,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,3,expert
-69,anita-broellochs,United States,USA,,,,1,speaker
-70,anita-broellochs,United States,USA,,,,2,expert
-71,anita-broellochs,United States,USA,,,,2,mentor
-72,anjali-mazumder,United Kingdom,GBR,,,,2,mentor
-73,annakrystalli,United Kingdom,GBR,Sheffield,-1.4702278,53.3806626,1,expert
-74,annakrystalli,United Kingdom,GBR,Sheffield,-1.4702278,53.3806626,3,expert
-75,annakrystalli,United Kingdom,GBR,Sheffield,-1.4702278,53.3806626,3,mentor
-76,annalee-sekulic,United States,USA,Columbus,-83.0007065,39.9622601,3,participant
-77,anneclinio,Brazil,BRA,,,,1,expert
-78,annefou,Norway,NOR,Oslo,10.7389701,59.9133301,4,expert
-79,annefou,Norway,NOR,Oslo,10.7389701,59.9133301,4,mentor
-80,annefou,Norway,NOR,Oslo,10.7389701,59.9133301,5,mentor
-81,annemtreasure,South Africa,ZAF,Cape Town,18.417396,-33.928992,5,expert
-82,annemtreasure,South Africa,ZAF,Cape Town,18.417396,-33.928992,5,mentor
-83,annemtreasure,South Africa,ZAF,Cape Town,18.417396,-33.928992,6,mentor
-84,anproulx,Canada,CAN,,,,2,participant
-85,anshika-sah,India,IND,New Delhi,77.2090057,28.6138954,3,participant
-86,antonioggsousa,Portugal,PRT,Oeiras,-9.271300382407272,38.7124971,3,participant
-87,arentkievits,Netherlands,NLD,Delft,4.362724538543995,51.999457199999995,4,participant
-88,ariana-bethany-subroyen,,,,,,6,participant
-89,arielle-bennett,United Kingdom,GBR,Stevenage,-0.2027155,51.9016663,2,expert
-90,arielle-bennett,United Kingdom,GBR,Stevenage,-0.2027155,51.9016663,2,mentor
-91,arielle-bennett,United Kingdom,GBR,Stevenage,-0.2027155,51.9016663,3,expert
-92,arielle-bennett,United Kingdom,GBR,Stevenage,-0.2027155,51.9016663,4,expert
-93,arielle-bennett,United Kingdom,GBR,Stevenage,-0.2027155,51.9016663,4,mentor
-94,arielle-bennett,United Kingdom,GBR,Stevenage,-0.2027155,51.9016663,5,mentor
-95,arielle-bennett,United Kingdom,GBR,Stevenage,-0.2027155,51.9016663,6,expert
-96,arielle-bennett,United Kingdom,GBR,Stevenage,-0.2027155,51.9016663,6,mentor
-97,arvinpreet-kaur,India,IND,,,,3,participant
-98,ashutosh-tiwari,India,IND,"Bilaspur, Chhattisgarh",82.10996498737376,21.98934025,3,participant
-99,astroakanksha24,India,IND,,,,5,participant
-100,augustincaitlin,United States,USA,Orlando,-81.3790304,28.5421109,4,participant
-101,aurigandrea,,,,,,5,participant
-102,ayeshadunk,United Kingdom,GBR,London,-0.12765,51.5073359,5,participant
-103,b14-rsa,South Africa,ZAF,Johannesburg,28.049722,-26.205,5,participant
-104,babasaraki,Nigeria,NGA,Bauchi,10.0287754,10.6228284,2,speaker
-105,babasaraki,Nigeria,NGA,Bauchi,10.0287754,10.6228284,5,participant
-106,babasaraki,Nigeria,NGA,Bauchi,10.0287754,10.6228284,6,participant
-107,bailey-harrington,United States,USA,,,,2,participant
-108,bakary-n'tji diallo,Mali,MLI,,,,2,participant
-109,banshee1221,South Africa,ZAF,,,,2,participant
-110,batoolmm,Saudi Arabia,SAU,Liverpool,-2.99168,53.4071991,3,participant
-111,batoolmm,Saudi Arabia,SAU,Liverpool,-2.99168,53.4071991,4,facilitator
-112,batoolmm,Saudi Arabia,SAU,Liverpool,-2.99168,53.4071991,4,participant
-113,batoolmm,Saudi Arabia,SAU,Liverpool,-2.99168,53.4071991,4,speaker
-114,batoolmm,Saudi Arabia,SAU,Liverpool,-2.99168,53.4071991,5,facilitator
-115,batoolmm,Saudi Arabia,SAU,Liverpool,-2.99168,53.4071991,5,mentor
-116,batoolmm,Saudi Arabia,SAU,Liverpool,-2.99168,53.4071991,6,expert
-117,batoolmm,Saudi Arabia,SAU,Liverpool,-2.99168,53.4071991,6,facilitator
-118,batoolmm,Saudi Arabia,SAU,Liverpool,-2.99168,53.4071991,6,mentor
-119,bduckles,United States,USA,"Portland, Oregon",-122.674194,45.5202471,1,speaker
-120,bduckles,United States,USA,"Portland, Oregon",-122.674194,45.5202471,2,expert
-121,bduckles,United States,USA,"Portland, Oregon",-122.674194,45.5202471,3,expert
-122,bduckles,United States,USA,"Portland, Oregon",-122.674194,45.5202471,3,mentor
-123,bduckles,United States,USA,"Portland, Oregon",-122.674194,45.5202471,4,expert
-124,bduckles,United States,USA,"Portland, Oregon",-122.674194,45.5202471,4,mentor
-125,beapdk,Canada,CAN,,,,2,participant
-126,beatrizserrano,Germany,DEU,Freiburg,7.8494005,47.9960901,2,participant
-127,beatrizserrano,Germany,DEU,Freiburg,7.8494005,47.9960901,3,expert
-128,beatrizserrano,Germany,DEU,Freiburg,7.8494005,47.9960901,5,mentor
-129,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,1,organizer
-130,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,1,speaker
-131,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,2,expert
-132,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,2,organizer
-133,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,2,speaker
-134,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,3,expert
-135,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,3,organizer
-136,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,3,mentor
-137,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,3,mentor
-138,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,3,mentor
-139,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,3,mentor
-140,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,3,speaker
-141,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,4,expert
-142,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,4,organizer
-143,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,4,mentor
-144,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,4,speaker
-145,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,5,organizer
-146,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,6,organizer
-147,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,7,organizer
-148,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,7,speaker
-149,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,7,speaker
-150,benkrikler,United Kingdom,GBR,,,,2,speaker
-151,bethaniley,United Kingdom,GBR,Belfast,-5.9301829,54.596391,6,speaker
-152,bgruening,Germany,DEU,,,,1,expert
-153,bgruening,Germany,DEU,,,,1,mentor
-154,bgruening,Germany,DEU,,,,2,expert
-155,bhuvanameenakshik,India,IND,,,,1,expert
-156,billbrod,United States,USA,,,,1,participant
-157,birgül-çolak-al,Turkey,TUR,Istanbul,28.9662187,41.0091982,5,participant
-158,biscuitnapper,,,,,,4,participant
-159,boi-kone,Mali,MLI,,,,2,participant
-160,bonetcarne,Spain,ESP,,,,1,participant
-161,brainonsilicon,United Kingdom,GBR,,,,2,participant
-162,brainonsilicon,United Kingdom,GBR,,,,6,participant
-163,bresearcher101,,,,,,6,participant
-164,bruno-soares,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,1,participant
-165,bruno-soares,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,2,mentor
-166,bruno-soares,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,3,mentor
-167,bruno-soares,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,4,expert
-168,bruno-soares,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,4,mentor
-169,burceelbasan,Germany,DEU,,,,4,participant
-170,burceelbasan,Germany,DEU,,,,5,mentor
-171,burkemlou,Australia,AUS,Brisbane,153.0234991,-27.4689682,2,expert
-172,burkemlou,Australia,AUS,Brisbane,153.0234991,-27.4689682,2,speaker
-173,burkemlou,Australia,AUS,Brisbane,153.0234991,-27.4689682,3,expert
-174,burkemlou,Australia,AUS,Brisbane,153.0234991,-27.4689682,3,mentor
-175,c-martinez,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,3,expert
-176,c-martinez,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,3,speaker
-177,callummole,United Kingdom,GBR,London,-0.12765,51.5073359,4,participant
-178,callummole,United Kingdom,GBR,London,-0.12765,51.5073359,5,participant
-179,camachoreina,France,FRA,Paris,2.3200410217200766,48.8588897,3,participant
-180,camachoreina,France,FRA,Paris,2.3200410217200766,48.8588897,4,expert
-181,camila-gómez,Bolivia,,Cochabamba,-66.16756808852,-17.401245799999998,5,participant
-182,cassgvp,United Kingdom,GBR,Oxford,-1.2578499,51.7520131,1,participant
-183,cassgvp,United Kingdom,GBR,Oxford,-1.2578499,51.7520131,2,expert
-184,cassgvp,United Kingdom,GBR,Oxford,-1.2578499,51.7520131,2,speaker
-185,cassgvp,United Kingdom,GBR,Oxford,-1.2578499,51.7520131,5,expert
-186,cassmurph,,,,,,6,participant
-187,cbolibaugh,United Kingdom,GBR,York,-1.0815361,53.9590555,4,participant
-188,cel31,Spain,ESP,Barcelona,2.1774322,41.3828939,5,participant
-189,cemonks,Australia,AUS,Perth,115.8605801,-31.9558964,3,participant
-190,cemonks,Australia,AUS,Perth,115.8605801,-31.9558964,4,mentor
-191,cgentemann,United States,USA,Santa Rosa,-122.7141049,38.4404925,6,expert
-192,chadsansing,United States,USA,,,,4,speaker
-193,chadsansing,United States,USA,,,,5,speaker
-194,chadsansing,United States,USA,,,,6,speaker
-195,chiara-damiani,,,,,,3,participant
-196,chiarabertipaglia,United States,USA,,,,1,participant
-197,chiarabertipaglia,United States,USA,,,,2,expert
-198,christina-ambrosi,Switzerland,CHE,,,,2,participant
-199,christinerogers,Canada,CAN,Montreal,-73.5698065,45.5031824,1,participant
-200,christinerogers,Canada,CAN,Montreal,-73.5698065,45.5031824,2,expert
-201,christinerogers,Canada,CAN,Montreal,-73.5698065,45.5031824,2,speaker
-202,christinerogers,Canada,CAN,Montreal,-73.5698065,45.5031824,3,expert
-203,chucklesongithub,Argentina,ARG,Buenos Aires,-58.4370894,-34.6075682,4,participant
-204,cl379,Spain,ESP,Barcelona,2.1774322,41.3828939,3,participant
-205,cl379,Spain,ESP,Barcelona,2.1774322,41.3828939,5,participant
-206,codito22,Peru,PER,Lima,-77.0365256,-12.0621065,5,participant
-207,complexbrains,United Kingdom,GBR,Reading,-0.9696512,51.456659,5,participant
-208,complexbrains,United Kingdom,GBR,Reading,-0.9696512,51.456659,6,facilitator
-209,contraexemplo,Brazil,BRA,,,,6,speaker
-210,coopersmout,Australia,AUS,Brisbane,153.0234991,-27.4689682,2,participant
-211,coopersmout,Australia,AUS,Brisbane,153.0234991,-27.4689682,4,expert
-212,crangelsmith,United Kingdom,GBR,,,,2,participant
-213,da5nsy,United States,USA,Washington Dc,-77.0365427,38.8950368,2,participant
-214,da5nsy,United States,USA,Washington Dc,-77.0365427,38.8950368,3,expert
-215,da5nsy,United States,USA,Washington Dc,-77.0365427,38.8950368,4,facilitator
-216,dadditolu,United Kingdom,GBR,Glasgow,-4.2497933,55.8606182,3,participant
-217,dadditolu,United Kingdom,GBR,Glasgow,-4.2497933,55.8606182,6,mentor
-218,danae-carelis-davila-espinoza,Bolivia,,,,,5,participant
-219,dannycolin,Canada,CAN,,,,1,participant
-220,darwin-diaz,Peru,PER,Lima,-77.0365256,-12.0621065,5,participant
-221,dasaderi,United States,USA,,,,1,expert
-222,dasaderi,United States,USA,,,,1,mentor
-223,dasaderi,United States,USA,,,,2,expert
-224,dasaptaerwin,India,IND,,,,6,speaker
-225,david-selassie-opoku,Germany,DEU,Berlin,13.3888599,52.5170365,4,expert
-226,davidbeavan,United Kingdom,GBR,,,,2,participant
-227,davidviryachen,Japan,JPN,,,,1,participant
-228,deepakunni3,Switzerland,CHE,Basel,7.5878261,47.5581077,5,expert
-229,deepakunni3,Switzerland,CHE,Basel,7.5878261,47.5581077,5,mentor
-230,deepakunni3,Switzerland,CHE,Basel,7.5878261,47.5581077,6,expert
-231,delphine-l,United States,USA,Raleigh,-78.6390989,35.7803977,2,mentor
-232,delphine-l,United States,USA,Raleigh,-78.6390989,35.7803977,4,expert
-233,delphine-l,United States,USA,Raleigh,-78.6390989,35.7803977,4,mentor
-234,demellina,United Kingdom,GBR,London,-0.12765,51.5073359,1,expert
-235,demellina,United Kingdom,GBR,London,-0.12765,51.5073359,1,speaker
-236,demellina,United Kingdom,GBR,London,-0.12765,51.5073359,2,expert
-237,demellina,United Kingdom,GBR,London,-0.12765,51.5073359,3,expert
-238,didik-utomo,Indonesia,IDN,Malang,112.6340291,-7.9771206,3,participant
-239,diegoonna,Argentina,ARG,Ciudad Autónoma De Buenos Aires,-58.4370894,-34.6075682,4,participant
-240,diegoonna,Argentina,ARG,Ciudad Autónoma De Buenos Aires,-58.4370894,-34.6075682,5,mentor
-241,diegoonna,Argentina,ARG,Ciudad Autónoma De Buenos Aires,-58.4370894,-34.6075682,6,mentor
-242,dimmestp,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,3,mentor
-243,dimmestp,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,4,expert
-244,dimmestp,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,4,mentor
-245,dimmestp,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,6,expert
-246,dingaaling,United Kingdom,GBR,London,-0.12765,51.5073359,6,participant
-247,dlebauer,United States,USA,,,,1,participant
-248,dsarahstamps,United States,USA,,,,5,speaker
-249,dudova,Czechia,CZE,Brno,16.6113382,49.1922443,3,participant
-250,duerrsimon,Switzerland,CHE,Lausanne,6.6327025,46.5218269,3,participant
-251,duerrsimon,Switzerland,CHE,Lausanne,6.6327025,46.5218269,4,expert
-252,dylan-bastiaans,Switzerland,CHE,,,,2,participant
-253,ealescak,United States,USA,Anchorage,-149.894852,61.2163129,3,expert
-254,ealescak,United States,USA,Anchorage,-149.894852,61.2163129,3,mentor
-255,ealescak,United States,USA,Anchorage,-149.894852,61.2163129,4,expert
-256,ealescak,United States,USA,Anchorage,-149.894852,61.2163129,4,mentor
-257,ecsalomon,United States,USA,"Chicago, Il",-87.6244212,41.8755616,4,participant
-258,eirini-zormpa,United Kingdom,GBR,,,,6,participant
-259,eirinibotsari,Netherlands,NLD,Dem Haag,4.3113461,52.0799838,5,participant
-260,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,2,participant
-261,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,3,expert
-262,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,3,mentor
-263,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,4,expert
-264,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,4,facilitator
-265,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,4,mentor
-266,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,4,speaker
-267,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,5,mentor
-268,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,5,participant
-269,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,6,expert
-270,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,6,mentor
-271,ekin-bolukbasi,United Kingdom,GBR,London,-0.12765,51.5073359,2,speaker
-272,ekeluv,South Africa,ZAF,,,,2,participant
-273,elena-giglia,Italy,ITA,Turin,7.6824892,45.0677551,6,participant
-274,elisa-on-github,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,4,participant
-275,elisa-on-github,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,6,expert
-276,elsasci,United Kingdom,GBR,,,,1,participant
-277,emma-anne-harris,Germany,DEU,Berlin,13.3888599,52.5170365,3,expert
-278,emma-anne-harris,Germany,DEU,Berlin,13.3888599,52.5170365,3,speaker
-279,emma-lawrence,United Kingdom,GBR,London,-0.12765,51.5073359,3,participant
-280,emma-lawrence,United Kingdom,GBR,London,-0.12765,51.5073359,4,expert
-281,emmanuel19-ada,Nigeria,NGA,Ogbomosho,4.25,8.133,4,participant
-282,emmanuel19-ada,Nigeria,NGA,Ogbomosho,4.25,8.133,5,participant
-283,emmanuel19-ada,Nigeria,NGA,Ogbomosho,4.25,8.133,6,participant
-284,emmyft,Netherlands,NLD,,,,1,expert
-285,emmyft,Netherlands,NLD,,,,2,expert
-286,emmyft,Netherlands,NLD,,,,3,organizer
-287,emmyft,Netherlands,NLD,,,,3,speaker
-288,emmyft,Netherlands,NLD,,,,3,speaker
-289,emmyft,Netherlands,NLD,,,,3,speaker
-290,emmyft,Netherlands,NLD,,,,4,organizer
-291,emmyft,Netherlands,NLD,,,,4,mentor
-292,emmyft,Netherlands,NLD,,,,4,speaker
-293,emmyft,Netherlands,NLD,,,,4,speaker
-294,emmyft,Netherlands,NLD,,,,5,organizer
-295,emmyft,Netherlands,NLD,,,,5,mentor
-296,emmyft,Netherlands,NLD,,,,5,speaker
-297,emmyft,Netherlands,NLD,,,,6,organizer
-298,emmyft,Netherlands,NLD,,,,7,organizer
-299,emmyft,Netherlands,NLD,,,,7,speaker
-300,esbusis,Turkey,TUR,Istanbul,28.9662187,41.0091982,5,participant
-301,estherplomp,Netherlands,NLD,The Hague,4.3113461,52.0799838,3,expert
-302,estherplomp,Netherlands,NLD,The Hague,4.3113461,52.0799838,3,mentor
-303,estherplomp,Netherlands,NLD,The Hague,4.3113461,52.0799838,3,speaker
-304,estherplomp,Netherlands,NLD,The Hague,4.3113461,52.0799838,4,expert
-305,estherplomp,Netherlands,NLD,The Hague,4.3113461,52.0799838,4,mentor
-306,estherplomp,Netherlands,NLD,The Hague,4.3113461,52.0799838,4,mentor
-307,estherplomp,Netherlands,NLD,The Hague,4.3113461,52.0799838,5,mentor
-308,estherplomp,Netherlands,NLD,The Hague,4.3113461,52.0799838,6,expert
-309,estherplomp,Netherlands,NLD,The Hague,4.3113461,52.0799838,6,mentor
-310,evaherbst,Switzerland,CHE,,,,2,participant
-311,evelyngreeves,United Kingdom,GBR,,,,5,participant
-312,ewa-leś,Poland,POL,,,,4,participant
-313,ewallace,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,3,expert
-314,ewallace,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,4,expert
-315,ewallace,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,5,expert
-316,ewuramaminka,United Kingdom,GBR,,,,1,participant
-317,fabienne-lucas,United States,USA,Boston,-71.060511,42.3554334,3,participant
-318,fabioperdigao,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,6,participant
-319,fadanka,Cameroon,CMR,Yaounde,11.5213344,3.8689867,5,participant
-320,fadanka,Cameroon,CMR,Yaounde,11.5213344,3.8689867,6,mentor
-321,farukustunel,Turkey,TUR,Istanbul,28.9662187,41.0091982,5,participant
-322,federico-cestares,Argentina,ARG,Buenos Aires,-58.4370894,-34.6075682,5,participant
-323,fnyasimi,Kenya,KEN,,,,1,participant
-324,fnyasimi,Kenya,KEN,,,,4,facilitator
-325,fnyasimi,Kenya,KEN,,,,5,facilitator
-326,fnyasimi,Kenya,KEN,,,,6,facilitator
-327,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,1,expert
-328,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,1,mentor
-329,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,1,speaker
-330,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,2,expert
-331,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,2,speaker
-332,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,3,expert
-333,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,3,mentor
-334,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,4,expert
-335,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,4,mentor
-336,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,5,mentor
-337,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,5,mentor
-338,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,6,mentor
-339,fredbelliard,Netherlands,NLD,Delft,4.362724538543995,51.999457199999995,5,participant
-340,gabimusaubach,Argentina,ARG,,,,5,participant
-341,ganleyemma,United Kingdom,GBR,,,,2,speaker
-342,gareth-j,United Kingdom,GBR,Bristol,-2.5972985,51.4538022,5,participant
-343,gedaloop,Spain,ESP,Barcelona,2.1774322,41.3828939,4,participant
-344,gedankenstuecke,France,FRA,Paris,2.3200410217200766,48.8588897,1,expert
-345,gedankenstuecke,France,FRA,Paris,2.3200410217200766,48.8588897,1,speaker
-346,gedankenstuecke,France,FRA,Paris,2.3200410217200766,48.8588897,2,expert
-347,gedankenstuecke,France,FRA,Paris,2.3200410217200766,48.8588897,2,speaker
-348,gedankenstuecke,France,FRA,Paris,2.3200410217200766,48.8588897,3,expert
-349,gemmaturon,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,5,participant
-350,georgiahca,United Kingdom,GBR,London,-0.12765,51.5073359,2,participant
-351,georgiahca,United Kingdom,GBR,London,-0.12765,51.5073359,3,speaker
-352,georgiahca,United Kingdom,GBR,London,-0.12765,51.5073359,5,expert
-353,georgiahca,United Kingdom,GBR,London,-0.12765,51.5073359,5,mentor
-354,ghammad,Belgium,BEL,Liège,5.5736112,50.6450944,3,participant
-355,gill-francis,United Kingdom,GBR,York,-1.0815361,53.9590555,4,participant
-356,glado718,Kenya,KEN,Nairobi,36.8172449,-1.2832533,6,participant
-357,graciellehigino,Canada,CAN,Vancouver,-123.113952,49.2608724,2,expert
-358,graciellehigino,Canada,CAN,Vancouver,-123.113952,49.2608724,4,expert
-359,graciellehigino,Canada,CAN,Vancouver,-123.113952,49.2608724,4,mentor
-360,graciellehigino,Canada,CAN,Vancouver,-123.113952,49.2608724,5,mentor
-361,graciellehigino,Canada,CAN,Vancouver,-123.113952,49.2608724,5,mentor
-362,graciellehigino,Canada,CAN,Vancouver,-123.113952,49.2608724,6,expert
-363,graciellehigino,Canada,CAN,Vancouver,-123.113952,49.2608724,6,mentor
-364,gugy89,,,,,,5,expert
-365,guille1107,Argentina,ARG,Buenos Aires,-58.4370894,-34.6075682,4,participant
-366,ha0ye,United States,USA,Gainesville,-82.3249846,29.6519684,1,expert
-367,ha0ye,United States,USA,Gainesville,-82.3249846,29.6519684,1,mentor
-368,ha0ye,United States,USA,Gainesville,-82.3249846,29.6519684,2,expert
-369,ha0ye,United States,USA,Gainesville,-82.3249846,29.6519684,3,expert
-370,ha0ye,United States,USA,Gainesville,-82.3249846,29.6519684,3,speaker
-371,ha0ye,United States,USA,Gainesville,-82.3249846,29.6519684,4,expert
-372,ha0ye,United States,USA,Gainesville,-82.3249846,29.6519684,5,expert
-373,ha0ye,United States,USA,Gainesville,-82.3249846,29.6519684,5,speaker
-374,ha0ye,United States,USA,Gainesville,-82.3249846,29.6519684,6,expert
-375,harinilakshminarayanan,Switzerland,CHE,Zurich,8.5410422,47.3744489,6,participant
-376,harisood,,,,,,6,participant
-377,harpreetsingh05,India,IND,Jalandhar,75.56805772253911,31.29201065,3,expert
-378,harpreetsingh05,India,IND,Jalandhar,75.56805772253911,31.29201065,3,participant
-379,harpreetsingh05,India,IND,Jalandhar,75.56805772253911,31.29201065,3,mentor
-380,harpreetsingh05,India,IND,Jalandhar,75.56805772253911,31.29201065,3,mentor
-381,harpreetsingh05,India,IND,Jalandhar,75.56805772253911,31.29201065,4,mentor
-382,hdinkel,Germany,DEU,,,,1,expert
-383,hdinkel,Germany,DEU,,,,1,mentor
-384,hdinkel,Germany,DEU,,,,2,expert
-385,hdinkel,Germany,DEU,,,,2,mentor
-386,hexylena,Netherlands,NLD,Rotterdam,4.47775,51.9244424,3,speaker
-387,heylf,Germany,DEU,Freiburg,7.8494005,47.9960901,3,participant
-388,hilyatuz-zahroh,Indonesia,IDN,,,,2,participant
-389,homo-sapiens34,Russian Federation,RUS,,,,1,participant
-390,hpdang,Singapore,SGP,,,,4,speaker
-391,hpdang,Singapore,SGP,,,,5,speaker
-392,hrhotz,Switzerland,CHE,Basel,7.5878261,47.5581077,2,mentor
-393,hrhotz,Switzerland,CHE,Basel,7.5878261,47.5581077,3,mentor
-394,hrhotz,Switzerland,CHE,Basel,7.5878261,47.5581077,4,mentor
-395,hrhotz,Switzerland,CHE,Basel,7.5878261,47.5581077,6,expert
-396,hrhotz,Switzerland,CHE,Basel,7.5878261,47.5581077,6,mentor
-397,hzahroh,Indonesia,IDN,Jakarta,106.827183,-6.1753942,3,participant
-398,ibrahssali1,Uganda,UGA,,,,2,participant
-399,inquisitivevi,Germany,DEU,,,,1,expert
-400,iramosp,Mexico,MEX,Mexico City,-99.1331785,19.4326296,3,participant
-401,iramosp,Mexico,MEX,Mexico City,-99.1331785,19.4326296,4,expert
-402,iramosp,Mexico,MEX,Mexico City,-99.1331785,19.4326296,5,expert
-403,iramosp,Mexico,MEX,Mexico City,-99.1331785,19.4326296,6,expert
-404,iratxepuebla,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,3,expert
-405,iratxepuebla,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,3,mentor
-406,iratxepuebla,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,3,speaker
-407,iratxepuebla,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,4,expert
-408,iratxepuebla,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,4,mentor
-409,iratxepuebla,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,5,expert
-410,irena-maus,Germany,DEU,Bielefeld,8.531007,52.0191005,4,participant
-411,irisbotas,Spain,ESP,Majadahonda,-3.8724138,40.473055,3,participant
-412,isahmadbbr,Nigeria,NGA,Kano,8.5364136,11.8948389,3,participant
-413,ismael-kg,United Kingdom,GBR,London,-0.12765,51.5073359,2,participant
-414,ismael-kg,United Kingdom,GBR,London,-0.12765,51.5073359,5,participant
-415,ismael-kg,United Kingdom,GBR,London,-0.12765,51.5073359,6,facilitator
-416,ivotron,Mexico,MEX,Hermosillo,-110.9692202,29.0948207,2,mentor
-417,ivotron,Mexico,MEX,Hermosillo,-110.9692202,29.0948207,3,expert
-418,jafsia,Cameroon,CMR,Yaounde,11.5213344,3.8689867,5,participant
-419,jafsia,Cameroon,CMR,Yaounde,11.5213344,3.8689867,6,mentor
-420,jasonjwilliamsny,United States,USA,,,,1,expert
-421,jasonjwilliamsny,United States,USA,,,,1,speaker
-422,jasonjwilliamsny,United States,USA,,,,2,expert
-423,javier-ruiz-pérez,Spain,ESP,Barcelona,2.1774322,41.3828939,3,participant
-424,jcolomb,Germany,DEU,Berlin,13.3888599,52.5170365,2,expert
-425,jcolomb,Germany,DEU,Berlin,13.3888599,52.5170365,4,expert
-426,jcolomb,Germany,DEU,Berlin,13.3888599,52.5170365,4,mentor
-427,jcolomb,Germany,DEU,Berlin,13.3888599,52.5170365,5,mentor
-428,jelioth-muthoni,Kenya,KEN,,,,2,participant
-429,jesperdramsch,Germany,DEU,Bonn,7.10066,50.735851,5,expert
-430,jessica-sims,United Kingdom,GBR,London,-0.12765,51.5073359,3,participant
-431,jessicas11,United States,USA,Durham,-78.9018053,35.996653,4,expert
-432,jessicas11,United States,USA,Durham,-78.9018053,35.996653,4,mentor
-433,jezcope,United Kingdom,GBR,Harrogate,-1.5391039,53.9921491,2,expert
-434,jezcope,United Kingdom,GBR,Harrogate,-1.5391039,53.9921491,2,mentor
-435,jezcope,United Kingdom,GBR,Harrogate,-1.5391039,53.9921491,3,expert
-436,jezcope,United Kingdom,GBR,Harrogate,-1.5391039,53.9921491,3,mentor
-437,jezcope,United Kingdom,GBR,Harrogate,-1.5391039,53.9921491,5,expert
-438,jezcope,United Kingdom,GBR,Harrogate,-1.5391039,53.9921491,6,expert
-439,jhon-anderson-pérez-silva,Peru,PER,Lima,-77.0365256,-12.0621065,5,participant
-440,jmmaok,United States,USA,"Cary, Nc",-78.7812081,35.7882893,3,participant
-441,jmmaok,United States,USA,"Cary, Nc",-78.7812081,35.7882893,4,expert
-442,joel-hancock,Austria,AUT,,,,2,participant
-443,joelfan,Italy,ITA,Milan,9.1896346,45.4641943,6,participant
-444,joelostblom,Canada,CAN,Vancouver,-123.113952,49.2608724,1,expert
-445,joelostblom,Canada,CAN,Vancouver,-123.113952,49.2608724,3,expert
-446,johav,Germany,DEU,Berlin,13.3888599,52.5170365,3,expert
-447,jonny-heath,United Kingdom,GBR,Brighton,-0.1400561,50.8214626,3,expert
-448,joshsimmons,United States,USA,,,,1,speaker
-449,joyceykao,Germany,DEU,Aachen,6.083862,50.776351,2,participant
-450,joyceykao,Germany,DEU,Aachen,6.083862,50.776351,3,expert
-451,joyceykao,Germany,DEU,Aachen,6.083862,50.776351,3,mentor
-452,joyceykao,Germany,DEU,Aachen,6.083862,50.776351,4,expert
-453,joyceykao,Germany,DEU,Aachen,6.083862,50.776351,5,expert
-454,joyceykao,Germany,DEU,Aachen,6.083862,50.776351,6,expert
-455,joyceykao,Germany,DEU,Aachen,6.083862,50.776351,6,mentor
-456,jruizperez,United States,USA,College Station,-96.3071042,30.5955289,5,participant
-457,jsheunis,Germany,DEU,Juelich,6.3611015,50.9220931,5,expert
-458,jsheunis,Germany,DEU,Juelich,6.3611015,50.9220931,5,mentor
-459,juanjo-garcía-granero,Spain,ESP,Barcelona,2.1774322,41.3828939,3,participant
-460,juanjo-garcía-granero,Spain,ESP,Barcelona,2.1774322,41.3828939,5,participant
-461,jvillcavillegas,Bolivia,,Bolivia,-64.9912286,-17.0568696,5,participant
-462,jyoti-bhogal,India,IND,"Ahmednagar, Maharashtra",74.85802430085195,19.162772500000003,5,participant
-463,jywarren,United States,USA,"Providence, RI",-71.4128343,41.8239891,6,speaker
-464,k-c-martin,South Africa,ZAF,Stellenbosch,18.869167,-33.934444,5,participant
-465,k-c-martin,South Africa,ZAF,Stellenbosch,18.869167,-33.934444,6,mentor
-466,k8hertweck,United States,USA,"Seattle, Wa",-122.330062,47.6038321,4,expert
-467,karegapauline,Kenya,KEN,Nairobi,36.8172449,-1.2832533,2,participant
-468,karegapauline,Kenya,KEN,Nairobi,36.8172449,-1.2832533,6,facilitator
-469,karegapauline,Kenya,KEN,Nairobi,36.8172449,-1.2832533,6,participant
-470,kariljordan,United States,USA,,,,1,expert
-471,kariljordan,United States,USA,,,,2,expert
-472,karinlag,Norway,NOR,,,,1,speaker
-473,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,1,participant
-474,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,2,expert
-475,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,2,mentor
-476,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,3,expert
-477,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,4,expert
-478,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,4,mentor
-479,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,5,expert
-480,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,5,mentor
-481,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,6,expert
-482,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,6,mentor
-483,katesimpson,United Kingdom,GBR,London/ Great Union Canal/ Leeds,,,2,participant
-484,katesimpson,United Kingdom,GBR,London/ Great Union Canal/ Leeds,,,3,expert
-485,katesimpson,United Kingdom,GBR,London/ Great Union Canal/ Leeds,,,3,mentor
-486,katesimpson,United Kingdom,GBR,London/ Great Union Canal/ Leeds,,,4,mentor
-487,katoss,France,FRA,Paris,2.3200410217200766,48.8588897,2,participant
-488,katoss,France,FRA,Paris,2.3200410217200766,48.8588897,3,participant
-489,katoss,France,FRA,Paris,2.3200410217200766,48.8588897,4,expert
-490,katrinleinweber,Germany,DEU,,,,1,expert
-491,katrinleinweber,Germany,DEU,,,,1,mentor
-492,kaythaney,United States,USA,,,,4,speaker
-493,kenmurithi,Kenya,KEN,Chogoria,37.631994,-0.228851,6,participant
-494,kevinxufs,United Kingdom,GBR,,,,2,participant
-495,khanteymoori,Germany,DEU,Freiburg,7.8494005,47.9960901,3,participant
-496,kipkurui,Kenya,KEN,,,,1,expert
-497,kipkurui,Kenya,KEN,,,,1,mentor
-498,kipkurui,Kenya,KEN,,,,1,speaker
-499,kipkurui,Kenya,KEN,,,,2,expert
-500,kipkurui,Kenya,KEN,,,,2,mentor
-501,kipkurui,Kenya,KEN,,,,2,mentor
-502,kipkurui,Kenya,KEN,,,,5,mentor
-503,kipkurui,Kenya,KEN,,,,6,expert
-504,kipkurui,Kenya,KEN,,,,6,mentor
-505,kiragu-mwaura,Kenya,KEN,,,,1,participant
-506,kiri93,Switzerland,CHE,,,,2,participant
-507,kirstiejane,United Kingdom,GBR,,,,1,expert
-508,kirstiejane,United Kingdom,GBR,,,,1,speaker
-509,kirstiejane,United Kingdom,GBR,,,,2,expert
-510,klauer2207,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,2,expert
-511,klauer2207,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,2,mentor
-512,klauer2207,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,5,expert
-513,klauer2207,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,5,mentor
-514,kmexter,Belgium,BEL,Oostende,2.919496,51.2258565,3,expert
-515,koerding,United States,USA,Philadelphia,-75.1635262,39.9527237,6,expert
-516,kon0925,Greece,GRC,Heraklion,25.1332843,35.33908,3,participant
-517,koudyk,Canada,CAN,,,,2,participant
-518,kristinariemer,United States,USA,,,,1,participant
-519,kswhitney,United States,USA,Rochester,-77.615214,43.157285,1,expert
-520,kswhitney,United States,USA,Rochester,-77.615214,43.157285,3,expert
-521,kswhitney,United States,USA,Rochester,-77.615214,43.157285,4,expert
-522,lalmehlisy,Saudi Arabia,SAU,Riyadh,46.7160104,24.638916,4,participant
-523,landimi2,Kenya,KEN,Nairobi,36.8172449,-1.2832533,1,participant
-524,landimi2,Kenya,KEN,Nairobi,36.8172449,-1.2832533,3,mentor
-525,landimi2,Kenya,KEN,Nairobi,36.8172449,-1.2832533,4,facilitator
-526,landimi2,Kenya,KEN,Nairobi,36.8172449,-1.2832533,5,facilitator
-527,landimi2,Kenya,KEN,Nairobi,36.8172449,-1.2832533,6,mentor
-528,lauracarter,United Kingdom,GBR,London,-0.12765,51.5073359,2,participant
-529,lauracarter,United Kingdom,GBR,London,-0.12765,51.5073359,3,expert
-530,lauracarter,United Kingdom,GBR,London,-0.12765,51.5073359,3,mentor
-531,lauracarter,United Kingdom,GBR,London,-0.12765,51.5073359,4,expert
-532,lauracarter,United Kingdom,GBR,London,-0.12765,51.5073359,5,expert
-533,lauracarter,United Kingdom,GBR,London,-0.12765,51.5073359,6,expert
-534,lauracion,Argentina,ARG,Ciudad Autónoma De Buenos Aires,-58.4370894,-34.6075682,2,expert
-535,lauracion,Argentina,ARG,Ciudad Autónoma De Buenos Aires,-58.4370894,-34.6075682,2,speaker
-536,lauracion,Argentina,ARG,Ciudad Autónoma De Buenos Aires,-58.4370894,-34.6075682,3,expert
-537,lauracion,Argentina,ARG,Ciudad Autónoma De Buenos Aires,-58.4370894,-34.6075682,3,mentor
-538,lauracion,Argentina,ARG,Ciudad Autónoma De Buenos Aires,-58.4370894,-34.6075682,5,participant
-539,laurichi13,Spain,ESP,,,,2,participant
-540,lazycipher,India,IND,,,,1,participant
-541,lenny-teytelman,,,,,,3,speaker
-542,lilian9,Kenya,KEN,,,,1,participant
-543,lilian9,Kenya,KEN,,,,2,mentor
-544,lisanna,Germany,DEU,Heidelberg,8.694724,49.4093582,4,participant
-545,lisanna,Germany,DEU,Heidelberg,8.694724,49.4093582,5,mentor
-546,lisanna,Germany,DEU,Heidelberg,8.694724,49.4093582,6,mentor
-547,lomaxboydphd,United States,USA,New York,-74.0060152,40.7127281,3,participant
-548,loubez,South Africa,ZAF,Cape Town,18.417396,-33.928992,3,expert
-549,loubez,South Africa,ZAF,Cape Town,18.417396,-33.928992,3,mentor
-550,lpantano,Spain,ESP,,,,2,mentor
-551,luispedro,China,CHN,Shanghai,121.4692071,31.2322758,1,expert
-552,luispedro,China,CHN,Shanghai,121.4692071,31.2322758,1,mentor
-553,luispedro,China,CHN,Shanghai,121.4692071,31.2322758,2,expert
-554,luispedro,China,CHN,Shanghai,121.4692071,31.2322758,2,mentor
-555,luispedro,China,CHN,Shanghai,121.4692071,31.2322758,5,expert
-556,luispedro,China,CHN,Shanghai,121.4692071,31.2322758,5,mentor
-557,luispedro,China,CHN,Shanghai,121.4692071,31.2322758,6,speaker
-558,lukehare,United Kingdom,GBR,London,-0.12765,51.5073359,4,participant
-559,lukehare,United Kingdom,GBR,London,-0.12765,51.5073359,5,participant
-560,lwbwalma,Netherlands,NLD,Delft,4.362724538543995,51.999457199999995,5,participant
-561,lwinfree,United States,USA,Austin,-97.7436995,30.2711286,1,speaker
-562,lwinfree,United States,USA,Austin,-97.7436995,30.2711286,2,expert
-563,lwinfree,United States,USA,Austin,-97.7436995,30.2711286,2,speaker
-564,lwinfree,United States,USA,Austin,-97.7436995,30.2711286,4,expert
-565,lwinfree,United States,USA,Austin,-97.7436995,30.2711286,4,mentor
-566,lwinfree,United States,USA,Austin,-97.7436995,30.2711286,5,speaker
-567,lwinfree,United States,USA,Austin,-97.7436995,30.2711286,6,expert
-568,lydiafrance,United Kingdom,GBR,London,-0.12765,51.5073359,4,participant
-569,lydiafrance,United Kingdom,GBR,London,-0.12765,51.5073359,5,participant
-570,macziatko,Ireland,IRL,Dublin,-6.2602964,53.3498006,6,participant
-571,magicmilly,United States,USA,,,,1,participant
-572,mai-alajaji,Saudi Arabia,SAU,Riyadh,46.7160104,24.638916,4,participant
-573,malloryfreeberg,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,2,mentor
-574,malloryfreeberg,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,3,mentor
-575,malloryfreeberg,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,6,expert
-576,malloryfreeberg,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,6,mentor
-577,malloryfreeberg,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,6,speaker
-578,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,1,organizer
-579,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,1,mentor
-580,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,1,mentor
-581,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,1,mentor
-582,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,1,speaker
-583,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,1,speaker
-584,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,2,expert
-585,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,2,organizer
-586,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,2,mentor
-587,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,2,mentor
-588,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,2,speaker
-589,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,3,expert
-590,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,3,organizer
-591,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,3,mentor
-592,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,3,mentor
-593,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,3,mentor
-594,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,3,speaker
-595,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,3,speaker
-596,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,3,speaker
-597,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,4,organizer
-598,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,4,speaker
-599,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,5,organizer
-600,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,5,participant
-601,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,5,mentor
-602,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,5,mentor
-603,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,5,mentor
-604,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,5,speaker
-605,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,6,organizer
-606,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,6,mentor
-607,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,6,speaker
-608,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,7,organizer
-609,manulera,France,FRA,Paris,2.3200410217200766,48.8588897,4,facilitator
-610,manulera,France,FRA,Paris,2.3200410217200766,48.8588897,4,participant
-611,manulera,France,FRA,Paris,2.3200410217200766,48.8588897,5,facilitator
-612,marco-madella,Spain,ESP,Barcelona,2.1774322,41.3828939,3,participant
-613,marcoanteghini,Germany,DEU,Berlin,13.3888599,52.5170365,6,speaker
-614,maria-andrea-gonzales-castillo,Peru,PER,Lima,-77.0365256,-12.0621065,5,participant
-615,mariangelap,Italy,ITA,Genova,8.9338624,44.40726,5,participant
-616,marie-nugent,United Kingdom,GBR,London,-0.12765,51.5073359,6,participant
-617,marimeireles,Germany,DEU,Berlin,13.3888599,52.5170365,6,expert
-618,marimeireles,Germany,DEU,Berlin,13.3888599,52.5170365,6,mentor
-619,markuskonk,Netherlands,NLD,Enschede,6.8940537,52.2209855,4,expert
-620,marta-lloret-llinares,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,3,expert
-621,marta-marin,Spain,ESP,Madrid,-3.7035825,40.4167047,3,participant
-622,martenson,Czechia,CZE,,,,2,expert
-623,martinagvilas,Germany,DEU,Frankfurt Am Main,8.6820917,50.1106444,2,expert
-624,martinagvilas,Germany,DEU,Frankfurt Am Main,8.6820917,50.1106444,2,mentor
-625,martinagvilas,Germany,DEU,Frankfurt Am Main,8.6820917,50.1106444,3,expert
-626,martinagvilas,Germany,DEU,Frankfurt Am Main,8.6820917,50.1106444,3,participant
-627,martlj,United Kingdom,GBR,London,-0.12765,51.5073359,4,mentor
-628,martlj,United Kingdom,GBR,London,-0.12765,51.5073359,6,expert
-629,marzia-di-filippo,Italy,ITA,Milano,9.1896346,45.4641943,3,participant
-630,masako-kaufmann,Germany,DEU,Freiburg,7.8494005,47.9960901,3,participant
-631,matouse,United Kingdom,GBR,London,-0.12765,51.5073359,6,expert
-632,matuskalas,Norway,NOR,,,,1,participant
-633,mblue9,Australia,AUS,,,,2,expert
-634,meagdoh,United States,USA,Washington,-77.0365427,38.8950368,2,expert
-635,meagdoh,United States,USA,Washington,-77.0365427,38.8950368,2,mentor
-636,meagdoh,United States,USA,Washington,-77.0365427,38.8950368,3,expert
-637,meagdoh,United States,USA,Washington,-77.0365427,38.8950368,3,mentor
-638,meagdoh,United States,USA,Washington,-77.0365427,38.8950368,4,expert
-639,meagdoh,United States,USA,Washington,-77.0365427,38.8950368,4,mentor
-640,meagdoh,United States,USA,Washington,-77.0365427,38.8950368,5,mentor
-641,megan-lisa-stock,,,,,,6,participant
-642,megmugure,Kenya,KEN,Nairobi,36.8172449,-1.2832533,1,participant
-643,megmugure,Kenya,KEN,Nairobi,36.8172449,-1.2832533,3,expert
-644,mehak-chopra,India,IND,Puducherry,79.80694879844232,10.91564885,3,participant
-645,melibleq,Brazil,BRA,São Paulo,-46.6333824,-23.5506507,6,expert
-646,melibleq,Brazil,BRA,São Paulo,-46.6333824,-23.5506507,6,speaker
-647,merrcury,India,IND,Kurukshetra,76.8482787,29.9693747,4,expert
-648,mesfind,Ethiopia,ETH,,,,2,mentor
-649,mgawe-cavin,Kenya,KEN,"Nairobi, Kenya",36.8172449,-1.2832533,5,participant
-650,mgawe-cavin,Kenya,KEN,"Nairobi, Kenya",36.8172449,-1.2832533,6,facilitator
-651,michael-addy,Ghana,GHA,Kumasi,-1.6233086,6.6985605,4,participant
-652,michael-addy,Ghana,GHA,Kumasi,-1.6233086,6.6985605,5,mentor
-653,michal-javornik,Czechia,CZE,Brno,16.6113382,49.1922443,3,participant
-654,michal-ruzicka,Czechia,CZE,Brno,16.6113382,49.1922443,3,participant
-655,mihaelanemes,United Kingdom,GBR,London,-0.12765,51.5073359,3,participant
-656,mishrose123,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,3,expert
-657,mkuzak,Netherlands,NLD,,,,1,expert
-658,mkuzak,Netherlands,NLD,,,,1,mentor
-659,mkuzak,Netherlands,NLD,,,,1,speaker
-660,mkuzak,Netherlands,NLD,,,,2,expert
-661,mkuzak,Netherlands,NLD,,,,2,speaker
-662,mlagisz,Australia,AUS,Sydney,151.2082848,-33.8698439,6,participant
-663,mloning,United Kingdom,GBR,,,,2,mentor
-664,mloning,United Kingdom,GBR,,,,2,participant
-665,moengels,,,,,,6,participant
-666,mohan-gupta,Nepal,NPL,Kathmandu,85.3205817,27.708317,3,participant
-667,morphofun,United States,USA,,,,1,participant
-668,mruizvelley,Germany,DEU,,,,1,expert
-669,msundukova,Spain,ESP,Bilbao,-2.9350039,43.2630018,3,facilitator
-670,msundukova,Spain,ESP,Bilbao,-2.9350039,43.2630018,4,facilitator
-671,msundukova,Spain,ESP,Bilbao,-2.9350039,43.2630018,5,expert
-672,msundukova,Spain,ESP,Bilbao,-2.9350039,43.2630018,5,facilitator
-673,msundukova,Spain,ESP,Bilbao,-2.9350039,43.2630018,5,mentor
-674,msundukova,Spain,ESP,Bilbao,-2.9350039,43.2630018,6,expert
-675,msundukova,Spain,ESP,Bilbao,-2.9350039,43.2630018,6,facilitator
-676,msundukova,Spain,ESP,Bilbao,-2.9350039,43.2630018,6,mentor
-677,msundukova,Spain,ESP,Bilbao,-2.9350039,43.2630018,6,participant
-678,muhammetcelik,Turkey,TUR,,,,2,participant
-679,muhammetcelik,Turkey,TUR,,,,3,participant
-680,muhammetcelik,Turkey,TUR,,,,5,mentor
-681,mvdbeek,France,FRA,,,,1,expert
-682,mxrtinez,Colombia,COL,Bucaramanga,-73.1113562,7.1188675,3,participant
-683,mxrtinez,Colombia,COL,Bucaramanga,-73.1113562,7.1188675,4,expert
-684,mxrtinez,Colombia,COL,Bucaramanga,-73.1113562,7.1188675,4,mentor
-685,mxrtinez,Colombia,COL,Bucaramanga,-73.1113562,7.1188675,5,mentor
-686,mxrtinez,Colombia,COL,Bucaramanga,-73.1113562,7.1188675,6,expert
-687,mxrtinez,Colombia,COL,Bucaramanga,-73.1113562,7.1188675,6,speaker
-688,myreille-larouche,Canada,CAN,,,,2,participant
-689,nadia-odaliz-chamana-chura,Peru,PER,Lima,-77.0365256,-12.0621065,5,participant
-690,nadinespy,United Kingdom,GBR,Brighton,-0.1400561,50.8214626,4,participant
-691,nadinespy,United Kingdom,GBR,Brighton,-0.1400561,50.8214626,6,expert
-692,nadinespy,United Kingdom,GBR,Brighton,-0.1400561,50.8214626,6,mentor
-693,naralb,Brazil,BRA,,,,1,participant
-694,natalie-banner,United Kingdom,GBR,London,-0.12765,51.5073359,6,mentor
-695,natasha_wood,South Africa,ZAF,Cape Town,18.417396,-33.928992,2,speaker
-696,natty2012,Kenya,KEN,,,,2,participant
-697,nea-bridget,United Kingdom,GBR,London,-0.12765,51.5073359,5,participant
-698,nehamoopen,Netherlands,NLD,,,,2,participant
-699,nelson-franco,Bolivia,,Cochabamba,-66.16756808852,-17.401245799999998,5,participant
-700,nerantzis,Greece,GRC,,,,1,expert
-701,nerantzis,Greece,GRC,,,,2,expert
-702,nick-barlow,United Kingdom,GBR,,,,4,speaker
-703,nickynicolson,,,,,,6,participant
-704,nihansultan,Turkey,TUR,İstanbul,28.9662187,41.0091982,3,participant
-705,nihansultan,Turkey,TUR,İstanbul,28.9662187,41.0091982,5,participant
-706,nilabha1512,,,,,,6,participant
-707,nina-roux,,,,,,6,participant
-708,nodiraibrogimova,Uzbekistan,UZB,Tashkent,69.2787079,41.3123363,5,participant
-709,nomadscientist,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,3,expert
-710,nomalu,South Africa,ZAF,Pretoria,28.1879101,-25.7459277,6,participant
-711,npalopoli,Argentina,ARG,Bernal,-58.2977925,-34.716571,2,expert
-712,npalopoli,Argentina,ARG,Bernal,-58.2977925,-34.716571,3,expert
-713,npch,,,,,,3,speaker
-714,npscience,United Kingdom,GBR,,,,1,expert
-715,npscience,United Kingdom,GBR,,,,1,mentor
-716,npscience,United Kingdom,GBR,,,,2,expert
-717,npscience,United Kingdom,GBR,,,,2,mentor
-718,npscience,United Kingdom,GBR,,,,4,expert
-719,nsoranzo,United Kingdom,GBR,,,,1,expert
-720,nyasita,Kenya,KEN,Nairobi,36.8172449,-1.2832533,6,participant
-721,olayile,South Africa,ZAF,Pretoria,28.1879101,-25.7459277,3,participant
-722,olsjuju,South Korea,,Seoul,126.9782914,37.5666791,5,participant
-723,olsjuju,South Korea,,Seoul,126.9782914,37.5666791,6,mentor
-724,orchid00,Australia,AUS,,,,1,expert
-725,orchid00,Australia,AUS,,,,2,expert
-726,orchid00,Australia,AUS,,,,2,speaker
-727,osatashamim,Kenya,KEN,Nairobi,36.8172449,-1.2832533,6,participant
-728,paolo-pedaletti,Italy,ITA,Milano,9.1896346,45.4641943,3,participant
-729,paulineligonie,Canada,CAN,,,,2,participant
-730,paulowoicho,Nigeria,NGA,,,,2,participant
-731,paulvill,France,FRA,,,,2,expert
-732,pazbc,Argentina,ARG,,,,5,organizer
-733,pazbc,Argentina,ARG,,,,6,organizer
-734,pazbc,Argentina,ARG,,,,6,speaker
-735,pazbc,Argentina,ARG,,,,7,organizer
-736,pescini,Italy,ITA,Milan,9.1896346,45.4641943,3,participant
-737,pescini,Italy,ITA,Milan,9.1896346,45.4641943,4,mentor
-738,pherterich,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,1,expert
-739,pherterich,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,1,mentor
-740,pherterich,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,1,mentor
-741,pherterich,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,2,expert
-742,pherterich,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,2,mentor
-743,pherterich,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,5,expert
-744,pherterich,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,5,mentor
-745,pherterich,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,6,expert
-746,piero-beraun,Peru,PER,Lima,-77.0365256,-12.0621065,5,participant
-747,pinheirochagas,United States,USA,San Francisco,-122.419906,37.7790262,5,participant
-748,pivg,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,2,mentor
-749,pivg,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,3,expert
-750,pivg,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,3,mentor
-751,pivg,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,6,speaker
-752,pol-arranz-gibert,,,,,,6,participant
-753,pradeep-eranti,France,FRA,,,,2,participant
-754,prakriti-karki,Nepal,NPL,Kathmandu,85.3205817,27.708317,3,participant
-755,prashbio,India,IND,Jaipur,75.8189817,26.9154576,3,expert
-756,prashbio,India,IND,Jaipur,75.8189817,26.9154576,3,participant
-757,prashbio,India,IND,Jaipur,75.8189817,26.9154576,3,mentor
-758,princehoodie,Argentina,ARG,Buenos Aires,-58.4370894,-34.6075682,4,participant
-759,proccaserra,United Kingdom,GBR,Oxford,-1.2578499,51.7520131,2,speaker
-760,proccaserra,United Kingdom,GBR,Oxford,-1.2578499,51.7520131,3,expert
-761,proccaserra,United Kingdom,GBR,Oxford,-1.2578499,51.7520131,5,speaker
-762,profgiuseppe,Italy,ITA,Bologna,11.3426327,44.4938203,1,expert
-763,profgiuseppe,Italy,ITA,Bologna,11.3426327,44.4938203,2,expert
-764,profgiuseppe,Italy,ITA,Bologna,11.3426327,44.4938203,3,expert
-765,profgiuseppe,Italy,ITA,Bologna,11.3426327,44.4938203,4,expert
-766,profgiuseppe,Italy,ITA,Bologna,11.3426327,44.4938203,6,expert
-767,pvanheus,South Africa,ZAF,,,,2,participant
-768,pvanheus,South Africa,ZAF,,,,6,participant
-769,r-huo,Netherlands,NLD,Delft,4.362724538543995,51.999457199999995,6,participant
-770,rainsworth,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,1,expert
-771,rainsworth,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,2,expert
-772,rainsworth,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,2,speaker
-773,rainsworth,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,3,expert
-774,raoofphysics,United Kingdom,GBR,Bristol,-2.5972985,51.4538022,5,participant
-775,raphaels1,United Kingdom,GBR,London,-0.12765,51.5073359,5,expert
-776,rgaiacs,Brazil,BRA,,,,2,expert
-777,rgaiacs,Brazil,BRA,,,,2,mentor
-778,rgaiacs,Brazil,BRA,,,,5,speaker
-779,rhoné-roux,,,,,,6,participant
-780,robandeep-kaur,India,IND,Jalandhar,75.56805772253911,31.29201065,3,participant
-781,robert-schreiber,South Africa,ZAF,Hermanus,19.2361111,-34.4175,5,participant
-782,robin-lewando,Ireland,IRL,Drimoleague,-9.2599704,51.6608501,3,participant
-783,rodrigocam,Brazil,BRA,,,,1,mentor
-784,romullo-lima,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,6,participant
-785,rossmounce,United Kingdom,GBR,,,,2,expert
-786,rowland-mosbergen,Australia,AUS,,,,3,speaker
-787,rowland-mosbergen,Australia,AUS,,,,5,speaker
-788,rukynas,Portugal,PRT,Porto,-8.6107884,41.1494512,3,participant
-789,rushda-patel,India,IND,,,,6,participant
-790,sairajdillikar,India,IND,Mysore,76.6553609,12.3051828,5,participant
-791,samguay,Canada,CAN,,,,1,participant
-792,samguay,Canada,CAN,,,,2,mentor
-793,samuelorion,Canada,CAN,,,,2,participant
-794,samvanstroud,United Kingdom,GBR,London,-0.12765,51.5073359,2,participant
-795,samvanstroud,United Kingdom,GBR,London,-0.12765,51.5073359,3,expert
-796,samvanstroud,United Kingdom,GBR,London,-0.12765,51.5073359,4,speaker
-797,sandra-larriega,Peru,PER,Ñima,86.6931042,32.537561,5,participant
-798,santi-rello-varona,Spain,ESP,Madrid,-3.7035825,40.4167047,3,participant
-799,santosrac,Brazil,BRA,Piracicaba,-47.6493269,-22.725165,2,expert
-800,santosrac,Brazil,BRA,Piracicaba,-47.6493269,-22.725165,5,expert
-801,sapetti9,Italy,ITA,Bologna,11.3426327,44.4938203,6,expert
-802,sapetti9,Italy,ITA,Bologna,11.3426327,44.4938203,6,speaker
-803,sarah-nietopski,United Kingdom,GBR,London,-0.12765,51.5073359,5,participant
-804,saranjeetkaur,India,IND,Pune,73.8544541,18.521428,4,participant
-805,saranjeetkaur,India,IND,Pune,73.8544541,18.521428,6,participant
-806,saravilla,United Kingdom,GBR,London,-0.12765,51.5073359,4,participant
-807,saravilla,United Kingdom,GBR,London,-0.12765,51.5073359,5,mentor
-808,saravilla,United Kingdom,GBR,London,-0.12765,51.5073359,6,expert
-809,saravilla,United Kingdom,GBR,London,-0.12765,51.5073359,6,mentor
-810,sarenaz,Kazakhstan,KAZ,Astana (Nursultan),71.4306682,51.1282205,5,participant
-811,satagopam7,Luxembourg,LUX,,,,1,expert
-812,sayalaruano,Netherlands,NLD,Maastricht,5.6969881818221095,50.85798545,4,participant
-813,sayalaruano,Netherlands,NLD,Maastricht,5.6969881818221095,50.85798545,5,mentor
-814,sayalaruano,Netherlands,NLD,Maastricht,5.6969881818221095,50.85798545,6,expert
-815,sayalaruano,Netherlands,NLD,Maastricht,5.6969881818221095,50.85798545,6,speaker
-816,sdopoku,Ghana,GHA,,,,2,expert
-817,sdopoku,Ghana,GHA,,,,2,mentor
-818,sdopoku,Ghana,GHA,,,,2,speaker
-819,sebastianeggert,Germany,DEU,,,,2,participant
-820,selgebali,Sweden,SWE,Gothenburg,11.9670171,57.7072326,4,expert
-821,selgebali,Sweden,SWE,Gothenburg,11.9670171,57.7072326,4,speaker
-822,selgebali,Sweden,SWE,Gothenburg,11.9670171,57.7072326,5,expert
-823,selgebali,Sweden,SWE,Gothenburg,11.9670171,57.7072326,5,mentor
-824,selgebali,Sweden,SWE,Gothenburg,11.9670171,57.7072326,6,expert
-825,selgebali,Sweden,SWE,Gothenburg,11.9670171,57.7072326,6,mentor
-826,serahrono,Estonia,EST,Tallinn,24.7453688,59.4372155,3,expert
-827,sgibson91,United Kingdom,GBR,London,-0.12765,51.5073359,2,expert
-828,sgibson91,United Kingdom,GBR,London,-0.12765,51.5073359,2,mentor
-829,sgibson91,United Kingdom,GBR,London,-0.12765,51.5073359,3,expert
-830,sgibson91,United Kingdom,GBR,London,-0.12765,51.5073359,3,participant
-831,sgibson91,United Kingdom,GBR,London,-0.12765,51.5073359,3,mentor
-832,sgsfak,,,,,,3,participant
-833,shmuhammad2004,Nigeria,NGA,Kano,8.5364136,11.8948389,3,participant
-834,sithyphus,United States,USA,,,,1,participant
-835,sjb287,United States,USA,Urbana,-88.207301,40.1117174,3,participant
-836,sk-sahu,India,IND,,,,2,participant
-837,sladjana-lukic,United States,USA,New York City,-74.0060152,40.7127281,5,participant
-838,slldec,Argentina,ARG,Buenos Aires,-58.4370894,-34.6075682,5,participant
-839,smhall97,United Kingdom,GBR,Oxford,-1.2578499,51.7520131,6,mentor
-840,smklusza,United States,USA,Morrow,-82.7771661,40.4574358,2,participant
-841,smklusza,United States,USA,Morrow,-82.7771661,40.4574358,3,expert
-842,smklusza,United States,USA,Morrow,-82.7771661,40.4574358,3,mentor
-843,smklusza,United States,USA,Morrow,-82.7771661,40.4574358,4,expert
-844,smklusza,United States,USA,Morrow,-82.7771661,40.4574358,5,mentor
-845,sofia-kirke-forslund,Germany,DEU,Berlin,13.3888599,52.5170365,2,expert
-846,sonibk,Kenya,KEN,,,,2,participant
-847,spitschan,United Kingdom,GBR,Oxford,-1.2578499,51.7520131,3,participant
-848,stefan-gaillard,Netherlands,NLD,,,,2,participant
-849,stefaniebutland,Canada,CAN,Kamloops,-120.339415,50.6758269,3,expert
-850,stefaniebutland,Canada,CAN,Kamloops,-120.339415,50.6758269,5,expert
-851,sudarshangc,Nepal,NPL,,,,1,participant
-852,susana465,United Kingdom,GBR,,,,6,participant
-853,tai-rocha,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,2,participant
-854,tai-rocha,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,3,expert
-855,tallmar,,,,,,6,expert
-856,teresa-cisneros,United Kingdom,GBR,London,-0.12765,51.5073359,5,expert
-857,teresa-m,Germany,DEU,Freiburg,7.8494005,47.9960901,3,participant
-858,thatspacegirl,India,IND,Bengaluru,77.590082,12.9767936,4,participant
-859,thatspacegirl,India,IND,Bengaluru,77.590082,12.9767936,5,participant
-860,thessaly,United Kingdom,GBR,Bristol,-2.5972985,51.4538022,1,speaker
-861,thessaly,United Kingdom,GBR,Bristol,-2.5972985,51.4538022,2,expert
-862,thessaly,United Kingdom,GBR,Bristol,-2.5972985,51.4538022,2,speaker
-863,thessaly,United Kingdom,GBR,Bristol,-2.5972985,51.4538022,3,expert
-864,thessaly,United Kingdom,GBR,Bristol,-2.5972985,51.4538022,4,expert
-865,tklingstrom,Sweden,SWE,,,,2,expert
-866,tlaguna,Spain,ESP,Madrid,-3.7035825,40.4167047,2,participant
-867,tlaguna,Spain,ESP,Madrid,-3.7035825,40.4167047,3,mentor
-868,tnabtaf,United States,USA,,,,2,expert
-869,tnabtaf,United States,USA,,,,2,mentor
-870,tnabtaf,United States,USA,,,,4,expert
-871,tnabtaf,United States,USA,,,,4,mentor
-872,tobyhodges,Germany,DEU,Heidelberg,8.694724,49.4093582,1,mentor
-873,tobyhodges,Germany,DEU,Heidelberg,8.694724,49.4093582,2,expert
-874,tobyhodges,Germany,DEU,Heidelberg,8.694724,49.4093582,3,expert
-875,tobyhodges,Germany,DEU,Heidelberg,8.694724,49.4093582,3,mentor
-876,tobyhodges,Germany,DEU,Heidelberg,8.694724,49.4093582,3,mentor
-877,tobyhodges,Germany,DEU,Heidelberg,8.694724,49.4093582,6,expert
-878,trallard,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,2,speaker
-879,tsonika,Australia,AUS,Melbourne,144.9631608,-37.8142176,2,expert
-880,tsonika,Australia,AUS,Melbourne,144.9631608,-37.8142176,2,mentor
-881,tsonika,Australia,AUS,Melbourne,144.9631608,-37.8142176,3,expert
-882,tsonika,Australia,AUS,Melbourne,144.9631608,-37.8142176,3,mentor
-883,ujwal-shrestha,Nepal,NPL,Kathmandu,85.3205817,27.708317,3,participant
-884,umar-farouk-ahmad,,,,,,6,participant
-885,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,1,expert
-886,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,1,mentor
-887,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,1,participant
-888,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,2,expert
-889,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,2,mentor
-890,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,2,speaker
-891,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,3,expert
-892,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,3,mentor
-893,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,3,mentor
-894,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,3,speaker
-895,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,4,expert
-896,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,4,mentor
-897,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,5,mentor
-898,usmood,,,,,,6,participant
-899,valerie-parent,Canada,CAN,,,,2,participant
-900,vborghe,Canada,CAN,Montréal,-73.5698065,45.5031824,5,participant
-901,vcheplygina,Netherlands,NLD,,,,2,expert
-902,veroxgithub,Argentina,ARG,Avellaneda,-58.3628061,-34.6648394,5,participant
-903,vhellon,United Kingdom,GBR,London,-0.12765,51.5073359,5,participant
-904,vickygisel,Argentina,ARG,Oro Verde,-64.29891743033643,-31.132197599999998,5,participant
-905,vickynembaware,South Africa,ZAF,,,,1,expert
-906,vickynembaware,South Africa,ZAF,,,,1,mentor
-907,vickynembaware,South Africa,ZAF,,,,2,expert
-908,wasifarahman,Bangladesh,BGD,,,,2,participant
-909,wykhuh,United States,USA,Los Angeles,-118.242766,34.0536909,4,participant
-910,yochannah,United Kingdom,GBR,,,,1,organizer
-911,yochannah,United Kingdom,GBR,,,,1,mentor
-912,yochannah,United Kingdom,GBR,,,,1,speaker
-913,yochannah,United Kingdom,GBR,,,,1,speaker
-914,yochannah,United Kingdom,GBR,,,,2,expert
-915,yochannah,United Kingdom,GBR,,,,2,organizer
-916,yochannah,United Kingdom,GBR,,,,2,mentor
-917,yochannah,United Kingdom,GBR,,,,2,mentor
-918,yochannah,United Kingdom,GBR,,,,2,speaker
-919,yochannah,United Kingdom,GBR,,,,3,expert
-920,yochannah,United Kingdom,GBR,,,,3,organizer
-921,yochannah,United Kingdom,GBR,,,,3,mentor
-922,yochannah,United Kingdom,GBR,,,,3,mentor
-923,yochannah,United Kingdom,GBR,,,,3,mentor
-924,yochannah,United Kingdom,GBR,,,,3,speaker
-925,yochannah,United Kingdom,GBR,,,,3,speaker
-926,yochannah,United Kingdom,GBR,,,,3,speaker
-927,yochannah,United Kingdom,GBR,,,,4,organizer
-928,yochannah,United Kingdom,GBR,,,,4,mentor
-929,yochannah,United Kingdom,GBR,,,,4,speaker
-930,yochannah,United Kingdom,GBR,,,,4,speaker
-931,yochannah,United Kingdom,GBR,,,,5,organizer
-932,yochannah,United Kingdom,GBR,,,,5,mentor
-933,yochannah,United Kingdom,GBR,,,,5,mentor
-934,yochannah,United Kingdom,GBR,,,,5,speaker
-935,yochannah,United Kingdom,GBR,,,,6,organizer
-936,yochannah,United Kingdom,GBR,,,,6,mentor
-937,yochannah,United Kingdom,GBR,,,,6,speaker
-938,yochannah,United Kingdom,GBR,,,,6,speaker
-939,yochannah,United Kingdom,GBR,,,,6,speaker
-940,yochannah,United Kingdom,GBR,,,,6,speaker
-941,yochannah,United Kingdom,GBR,,,,7,organizer
-942,yvanlebras,France,FRA,Concarneau,-3.9223889,47.8757017,2,expert
-943,yvanlebras,France,FRA,Concarneau,-3.9223889,47.8757017,2,mentor
-944,yvanlebras,France,FRA,Concarneau,-3.9223889,47.8757017,2,mentor
-945,yvanlebras,France,FRA,Concarneau,-3.9223889,47.8757017,3,expert
-946,yvanlebras,France,FRA,Concarneau,-3.9223889,47.8757017,3,mentor
-947,yvanlebras,France,FRA,Concarneau,-3.9223889,47.8757017,4,mentor
-948,yvanlebras,France,FRA,Concarneau,-3.9223889,47.8757017,4,speaker
-949,zdunseth,United States,USA,Providence,-71.4128343,41.8239891,5,participant
-950,zebetus,United Kingdom,GBR,,,,1,mentor
-951,zebetus,United Kingdom,GBR,,,,2,expert
-952,zenita-milla-luthfiya,Indonesia,IDN,Solo,110.828448,-7.5692489,3,participant
+51,alihumayun,United Kingdom,GBR,London,-0.12765,51.5073359,3,participant
+52,alihumayun,United Kingdom,GBR,London,-0.12765,51.5073359,4,participant
+53,amangoel185,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,6,participant
+54,amangoel185,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,7,facilitator
+55,amchagas,United Kingdom,GBR,,,,3,speaker
+56,anafinovas,Hungary,HUN,Budapest,19.14609412691246,47.48138955,7,participant
+57,anayan321,Thailand,THA,Bangkok,100.4935089,13.7524938,1,participant
+58,anayan321,Thailand,THA,Bangkok,100.4935089,13.7524938,4,expert
+59,andre-vargas-de,Bolivia,,Cochabamba,-66.16756808852,-17.401245799999998,5,participant
+60,andreasancheztapia,Colombia,COL,"Merced, CA",-120.7678602,37.1641544,6,expert
+61,andreasancheztapia,Colombia,COL,"Merced, CA",-120.7678602,37.1641544,6,mentor
+62,andreasancheztapia,Colombia,COL,"Merced, CA",-120.7678602,37.1641544,6,mentor
+63,andreea-avramescu,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,4,participant
+64,anelda,South Africa,ZAF,Overberg,5.4964645,52.0390484,2,mentor
+65,anelda,South Africa,ZAF,Overberg,5.4964645,52.0390484,3,mentor
+66,anelda,South Africa,ZAF,Overberg,5.4964645,52.0390484,3,speaker
+67,anelda,South Africa,ZAF,Overberg,5.4964645,52.0390484,5,speaker
+68,anelda,South Africa,ZAF,Overberg,5.4964645,52.0390484,6,participant
+69,anenadic,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,1,expert
+70,anenadic,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,2,expert
+71,anenadic,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,2,speaker
+72,anenadic,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,3,expert
+73,angelicamaineri,Netherlands,NLD,,,,7,participant
+74,anita-broellochs,United States,USA,,,,1,speaker
+75,anita-broellochs,United States,USA,,,,2,expert
+76,anita-broellochs,United States,USA,,,,2,mentor
+77,anjali-mazumder,United Kingdom,GBR,,,,2,mentor
+78,annakrystalli,United Kingdom,GBR,Sheffield,-1.4702278,53.3806626,1,expert
+79,annakrystalli,United Kingdom,GBR,Sheffield,-1.4702278,53.3806626,3,expert
+80,annakrystalli,United Kingdom,GBR,Sheffield,-1.4702278,53.3806626,3,mentor
+81,annalee-sekulic,United States,USA,Columbus,-83.0007065,39.9622601,3,participant
+82,annambiller,Germany,DEU,Munich,11.5753822,48.1371079,7,participant
+83,anneclinio,Brazil,BRA,,,,1,expert
+84,annefou,Norway,NOR,Oslo,10.7389701,59.9133301,4,expert
+85,annefou,Norway,NOR,Oslo,10.7389701,59.9133301,4,mentor
+86,annefou,Norway,NOR,Oslo,10.7389701,59.9133301,5,mentor
+87,annemtreasure,South Africa,ZAF,Cape Town,18.417396,-33.928992,5,expert
+88,annemtreasure,South Africa,ZAF,Cape Town,18.417396,-33.928992,5,mentor
+89,annemtreasure,South Africa,ZAF,Cape Town,18.417396,-33.928992,6,mentor
+90,anproulx,Canada,CAN,,,,2,participant
+91,anshika-sah,India,IND,New Delhi,77.2090057,28.6138954,3,participant
+92,antonioggsousa,Portugal,PRT,Oeiras,-9.271300382407272,38.7124971,3,participant
+93,arentkievits,Netherlands,NLD,Delft,4.362724538543995,51.999457199999995,4,participant
+94,ariana-bethany-subroyen,,,,,,6,participant
+95,arianna-cortesi,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,7,participant
+96,arielle-bennett,United Kingdom,GBR,Stevenage,-0.2027155,51.9016663,2,expert
+97,arielle-bennett,United Kingdom,GBR,Stevenage,-0.2027155,51.9016663,2,mentor
+98,arielle-bennett,United Kingdom,GBR,Stevenage,-0.2027155,51.9016663,3,expert
+99,arielle-bennett,United Kingdom,GBR,Stevenage,-0.2027155,51.9016663,4,expert
+100,arielle-bennett,United Kingdom,GBR,Stevenage,-0.2027155,51.9016663,4,mentor
+101,arielle-bennett,United Kingdom,GBR,Stevenage,-0.2027155,51.9016663,5,mentor
+102,arielle-bennett,United Kingdom,GBR,Stevenage,-0.2027155,51.9016663,6,expert
+103,arielle-bennett,United Kingdom,GBR,Stevenage,-0.2027155,51.9016663,6,mentor
+104,arielle-bennett,United Kingdom,GBR,Stevenage,-0.2027155,51.9016663,7,mentor
+105,arvinpreet-kaur,India,IND,,,,3,participant
+106,ashutosh-tiwari,India,IND,"Bilaspur, Chhattisgarh",82.10996498737376,21.98934025,3,participant
+107,astroakanksha24,India,IND,,,,5,participant
+108,augustincaitlin,United States,USA,Orlando,-81.3790304,28.5421109,4,participant
+109,aurigandrea,,,,,,5,participant
+110,ayeshadunk,United Kingdom,GBR,London,-0.12765,51.5073359,5,participant
+111,b14-rsa,South Africa,ZAF,Johannesburg,28.049722,-26.205,5,participant
+112,babari-a-babari-michelle-freddia,Cameroon,CMR,Yaoundé,11.5213344,3.8689867,7,participant
+113,babasaraki,Nigeria,NGA,Bauchi,10.0287754,10.6228284,2,speaker
+114,babasaraki,Nigeria,NGA,Bauchi,10.0287754,10.6228284,5,participant
+115,babasaraki,Nigeria,NGA,Bauchi,10.0287754,10.6228284,6,participant
+116,bailey-harrington,United States,USA,,,,2,participant
+117,bakary-n'tji diallo,Mali,MLI,,,,2,participant
+118,banshee1221,South Africa,ZAF,,,,2,participant
+119,batoolmm,Saudi Arabia,SAU,Liverpool,-2.99168,53.4071991,3,participant
+120,batoolmm,Saudi Arabia,SAU,Liverpool,-2.99168,53.4071991,4,facilitator
+121,batoolmm,Saudi Arabia,SAU,Liverpool,-2.99168,53.4071991,4,participant
+122,batoolmm,Saudi Arabia,SAU,Liverpool,-2.99168,53.4071991,4,speaker
+123,batoolmm,Saudi Arabia,SAU,Liverpool,-2.99168,53.4071991,5,facilitator
+124,batoolmm,Saudi Arabia,SAU,Liverpool,-2.99168,53.4071991,5,mentor
+125,batoolmm,Saudi Arabia,SAU,Liverpool,-2.99168,53.4071991,6,expert
+126,batoolmm,Saudi Arabia,SAU,Liverpool,-2.99168,53.4071991,6,facilitator
+127,batoolmm,Saudi Arabia,SAU,Liverpool,-2.99168,53.4071991,6,mentor
+128,bduckles,United States,USA,"Portland, Oregon",-122.674194,45.5202471,1,speaker
+129,bduckles,United States,USA,"Portland, Oregon",-122.674194,45.5202471,2,expert
+130,bduckles,United States,USA,"Portland, Oregon",-122.674194,45.5202471,3,expert
+131,bduckles,United States,USA,"Portland, Oregon",-122.674194,45.5202471,3,mentor
+132,bduckles,United States,USA,"Portland, Oregon",-122.674194,45.5202471,4,expert
+133,bduckles,United States,USA,"Portland, Oregon",-122.674194,45.5202471,4,mentor
+134,beapdk,Canada,CAN,,,,2,participant
+135,beatrizserrano,Germany,DEU,Freiburg,7.8494005,47.9960901,2,participant
+136,beatrizserrano,Germany,DEU,Freiburg,7.8494005,47.9960901,3,expert
+137,beatrizserrano,Germany,DEU,Freiburg,7.8494005,47.9960901,5,mentor
+138,beatrizserrano,Germany,DEU,Freiburg,7.8494005,47.9960901,7,participant
+139,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,1,organizer
+140,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,1,speaker
+141,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,2,expert
+142,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,2,organizer
+143,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,2,speaker
+144,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,3,expert
+145,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,3,organizer
+146,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,3,mentor
+147,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,3,mentor
+148,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,3,mentor
+149,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,3,mentor
+150,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,3,speaker
+151,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,4,expert
+152,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,4,organizer
+153,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,4,mentor
+154,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,4,speaker
+155,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,5,organizer
+156,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,6,organizer
+157,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,7,organizer
+158,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,7,speaker
+159,bebatut,France,FRA,Clermont-Ferrand,3.0819427,45.7774551,7,speaker
+160,benkrikler,United Kingdom,GBR,,,,2,speaker
+161,bethaniley,United Kingdom,GBR,Belfast,-5.9301829,54.596391,6,speaker
+162,bgruening,Germany,DEU,,,,1,expert
+163,bgruening,Germany,DEU,,,,1,mentor
+164,bgruening,Germany,DEU,,,,2,expert
+165,bhuvanameenakshik,India,IND,,,,1,expert
+166,billbrod,United States,USA,,,,1,participant
+167,billbrod,United States,USA,,,,7,mentor
+168,birgül-çolak-al,Turkey,TUR,Istanbul,28.9662187,41.0091982,5,participant
+169,biscuitnapper,,,,,,4,participant
+170,bisola15,Nigeria,NGA,Yaba,-2.8848131505798653,12.811960299999999,7,participant
+171,boi-kone,Mali,MLI,,,,2,participant
+172,bonetcarne,Spain,ESP,,,,1,participant
+173,booktrackergirl,United Kingdom,GBR,Exeter,-3.5269497,50.7255794,7,participant
+174,brainonsilicon,United Kingdom,GBR,,,,2,participant
+175,brainonsilicon,United Kingdom,GBR,,,,6,participant
+176,bresearcher101,,,,,,6,participant
+177,bresearcher101,,,,,,7,mentor
+178,bruno-soares,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,1,participant
+179,bruno-soares,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,2,mentor
+180,bruno-soares,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,3,mentor
+181,bruno-soares,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,4,expert
+182,bruno-soares,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,4,mentor
+183,bsolodzi,Ghana,GHA,"Ashaiman, Zenu",-0.0499836,5.7121199,7,participant
+184,burceelbasan,Germany,DEU,,,,4,participant
+185,burceelbasan,Germany,DEU,,,,5,mentor
+186,burkemlou,Australia,AUS,Brisbane,153.0234991,-27.4689682,2,expert
+187,burkemlou,Australia,AUS,Brisbane,153.0234991,-27.4689682,2,speaker
+188,burkemlou,Australia,AUS,Brisbane,153.0234991,-27.4689682,3,expert
+189,burkemlou,Australia,AUS,Brisbane,153.0234991,-27.4689682,3,mentor
+190,c-martinez,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,3,expert
+191,c-martinez,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,3,speaker
+192,callummole,United Kingdom,GBR,London,-0.12765,51.5073359,4,participant
+193,callummole,United Kingdom,GBR,London,-0.12765,51.5073359,5,participant
+194,camachoreina,France,FRA,Paris,2.3483915,48.8534951,3,participant
+195,camachoreina,France,FRA,Paris,2.3483915,48.8534951,4,expert
+196,camila-gómez,Bolivia,,Cochabamba,-66.16756808852,-17.401245799999998,5,participant
+197,carmel-carne,South Africa,ZAF,Cape Town,18.417396,-33.928992,7,participant
+198,carol-o'brien,Denmark,DNK,,,,7,participant
+199,cassgvp,United Kingdom,GBR,Oxford,-1.2578499,51.7520131,1,participant
+200,cassgvp,United Kingdom,GBR,Oxford,-1.2578499,51.7520131,2,expert
+201,cassgvp,United Kingdom,GBR,Oxford,-1.2578499,51.7520131,2,speaker
+202,cassgvp,United Kingdom,GBR,Oxford,-1.2578499,51.7520131,5,expert
+203,cassmurph,Ireland,IRL,,,,6,participant
+204,cassmurph,Ireland,IRL,,,,7,facilitator
+205,cbolibaugh,United Kingdom,GBR,York,-1.0815361,53.9590555,4,participant
+206,cel31,Spain,ESP,Barcelona,2.1774322,41.3828939,5,participant
+207,cemonks,Australia,AUS,Perth,115.8605801,-31.9558964,3,participant
+208,cemonks,Australia,AUS,Perth,115.8605801,-31.9558964,4,mentor
+209,cgentemann,United States,USA,Santa Rosa,-122.7141049,38.4404925,6,expert
+210,chadsansing,United States,USA,,,,4,speaker
+211,chadsansing,United States,USA,,,,5,speaker
+212,chadsansing,United States,USA,,,,6,speaker
+213,chiara-damiani,,,,,,3,participant
+214,chiarabertipaglia,United States,USA,,,,1,participant
+215,chiarabertipaglia,United States,USA,,,,2,expert
+216,christina-ambrosi,Switzerland,CHE,,,,2,participant
+217,christinerogers,Canada,CAN,Montreal,-73.5698065,45.5031824,1,participant
+218,christinerogers,Canada,CAN,Montreal,-73.5698065,45.5031824,2,expert
+219,christinerogers,Canada,CAN,Montreal,-73.5698065,45.5031824,2,speaker
+220,christinerogers,Canada,CAN,Montreal,-73.5698065,45.5031824,3,expert
+221,chucklesongithub,Argentina,ARG,Buenos Aires,-58.4370894,-34.6075682,4,participant
+222,chukaogbo,Nigeria,NGA,"Abeokuta, Ogun State.",3.3450438,7.139576,7,participant
+223,cl379,Spain,ESP,Barcelona,2.1774322,41.3828939,3,participant
+224,cl379,Spain,ESP,Barcelona,2.1774322,41.3828939,5,participant
+225,claudia-mignone,Italy,ITA,Roma,12.4829321,41.8933203,7,participant
+226,codito22,Peru,PER,Lima,-77.0365256,-12.0621065,5,participant
+227,complexbrains,Canada,CAN,Montreal,-73.5698065,45.5031824,5,participant
+228,complexbrains,Canada,CAN,Montreal,-73.5698065,45.5031824,6,facilitator
+229,complexbrains,Canada,CAN,Montreal,-73.5698065,45.5031824,7,mentor
+230,contraexemplo,Brazil,BRA,,,,6,speaker
+231,coopersmout,Australia,AUS,Brisbane,153.0234991,-27.4689682,2,participant
+232,coopersmout,Australia,AUS,Brisbane,153.0234991,-27.4689682,4,expert
+233,crangelsmith,United Kingdom,GBR,,,,2,participant
+234,da5nsy,United States,USA,Washington Dc,-77.0365427,38.8950368,2,participant
+235,da5nsy,United States,USA,Washington Dc,-77.0365427,38.8950368,3,expert
+236,da5nsy,United States,USA,Washington Dc,-77.0365427,38.8950368,4,facilitator
+237,dadditolu,United Kingdom,GBR,Glasgow,-4.2497933,55.8606182,3,participant
+238,dadditolu,United Kingdom,GBR,Glasgow,-4.2497933,55.8606182,6,mentor
+239,danae-carelis-davila-espinoza,Bolivia,,,,,5,participant
+240,daniel-kochin,United Kingdom,GBR,Oxford,-1.2578499,51.7520131,7,participant
+241,dannycolin,Canada,CAN,,,,1,participant
+242,danwchan,,,New York City,-74.0060152,40.7127281,7,participant
+243,darwin-diaz,Peru,PER,Lima,-77.0365256,-12.0621065,5,participant
+244,dasaderi,United States,USA,,,,1,expert
+245,dasaderi,United States,USA,,,,1,mentor
+246,dasaderi,United States,USA,,,,2,expert
+247,dasaptaerwin,India,IND,,,,6,speaker
+248,david-selassie-opoku,Germany,DEU,Berlin,13.3888599,52.5170365,4,expert
+249,davidbeavan,United Kingdom,GBR,,,,2,participant
+250,davidviryachen,Japan,JPN,,,,1,participant
+251,deepakunni3,Switzerland,CHE,Basel,7.5878261,47.5581077,5,expert
+252,deepakunni3,Switzerland,CHE,Basel,7.5878261,47.5581077,5,mentor
+253,deepakunni3,Switzerland,CHE,Basel,7.5878261,47.5581077,6,expert
+254,delphine-l,United States,USA,Raleigh,-78.6390989,35.7803977,2,mentor
+255,delphine-l,United States,USA,Raleigh,-78.6390989,35.7803977,4,expert
+256,delphine-l,United States,USA,Raleigh,-78.6390989,35.7803977,4,mentor
+257,demellina,United Kingdom,GBR,London,-0.12765,51.5073359,1,expert
+258,demellina,United Kingdom,GBR,London,-0.12765,51.5073359,1,speaker
+259,demellina,United Kingdom,GBR,London,-0.12765,51.5073359,2,expert
+260,demellina,United Kingdom,GBR,London,-0.12765,51.5073359,3,expert
+261,diana-pilvar,Estonia,EST,Tartu,26.72245,58.3801207,7,participant
+262,didik-utomo,Indonesia,IDN,Malang,112.6340291,-7.9771206,3,participant
+263,diegoonna,Argentina,ARG,Ciudad Autónoma De Buenos Aires,-58.4370894,-34.6075682,4,participant
+264,diegoonna,Argentina,ARG,Ciudad Autónoma De Buenos Aires,-58.4370894,-34.6075682,5,mentor
+265,diegoonna,Argentina,ARG,Ciudad Autónoma De Buenos Aires,-58.4370894,-34.6075682,6,mentor
+266,diegoonna,Argentina,ARG,Ciudad Autónoma De Buenos Aires,-58.4370894,-34.6075682,7,mentor
+267,dimmestp,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,3,mentor
+268,dimmestp,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,4,expert
+269,dimmestp,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,4,mentor
+270,dimmestp,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,6,expert
+271,dingaaling,United Kingdom,GBR,London,-0.12765,51.5073359,6,participant
+272,dlebauer,United States,USA,,,,1,participant
+273,doaamkader,Egypt,EGY,Obour City,31.481586781267453,30.162908350000002,7,participant
+274,dsarahstamps,United States,USA,,,,5,speaker
+275,dudova,Czechia,CZE,Brno,16.6113382,49.1922443,3,participant
+276,duerrsimon,Switzerland,CHE,Lausanne,6.6327025,46.5218269,3,participant
+277,duerrsimon,Switzerland,CHE,Lausanne,6.6327025,46.5218269,4,expert
+278,dylan-bastiaans,Switzerland,CHE,,,,2,participant
+279,ealescak,United States,USA,Anchorage,-149.894852,61.2163129,3,expert
+280,ealescak,United States,USA,Anchorage,-149.894852,61.2163129,3,mentor
+281,ealescak,United States,USA,Anchorage,-149.894852,61.2163129,4,expert
+282,ealescak,United States,USA,Anchorage,-149.894852,61.2163129,4,mentor
+283,ecsalomon,United States,USA,"Chicago, Il",-87.6244212,41.8755616,4,participant
+284,eirini-zormpa,United Kingdom,GBR,,,,6,participant
+285,eirinibotsari,Netherlands,NLD,Dem Haag,4.3113461,52.0799838,5,participant
+286,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,2,participant
+287,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,3,expert
+288,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,3,mentor
+289,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,4,expert
+290,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,4,facilitator
+291,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,4,mentor
+292,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,4,speaker
+293,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,5,mentor
+294,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,5,participant
+295,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,6,expert
+296,ekaroune,United Kingdom,GBR,Portsmouth,-1.075614,50.8036831,6,mentor
+297,ekeluv,South Africa,ZAF,,,,2,participant
+298,ekin-bolukbasi,United Kingdom,GBR,London,-0.12765,51.5073359,2,speaker
+299,elena-giglia,Italy,ITA,Turin,7.6824892,45.0677551,6,participant
+300,elisa-on-github,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,4,participant
+301,elisa-on-github,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,6,expert
+302,elsasci,United Kingdom,GBR,,,,1,participant
+303,emma-anne-harris,Germany,DEU,Berlin,13.3888599,52.5170365,3,expert
+304,emma-anne-harris,Germany,DEU,Berlin,13.3888599,52.5170365,3,speaker
+305,emma-lawrence,United Kingdom,GBR,London,-0.12765,51.5073359,3,participant
+306,emma-lawrence,United Kingdom,GBR,London,-0.12765,51.5073359,4,expert
+307,emmanuel19-ada,Nigeria,NGA,Ogbomosho,4.25,8.133,4,participant
+308,emmanuel19-ada,Nigeria,NGA,Ogbomosho,4.25,8.133,5,participant
+309,emmanuel19-ada,Nigeria,NGA,Ogbomosho,4.25,8.133,6,participant
+310,emmyft,Netherlands,NLD,,,,1,expert
+311,emmyft,Netherlands,NLD,,,,2,expert
+312,emmyft,Netherlands,NLD,,,,3,organizer
+313,emmyft,Netherlands,NLD,,,,3,speaker
+314,emmyft,Netherlands,NLD,,,,3,speaker
+315,emmyft,Netherlands,NLD,,,,3,speaker
+316,emmyft,Netherlands,NLD,,,,4,organizer
+317,emmyft,Netherlands,NLD,,,,4,mentor
+318,emmyft,Netherlands,NLD,,,,4,speaker
+319,emmyft,Netherlands,NLD,,,,4,speaker
+320,emmyft,Netherlands,NLD,,,,5,organizer
+321,emmyft,Netherlands,NLD,,,,5,mentor
+322,emmyft,Netherlands,NLD,,,,5,speaker
+323,emmyft,Netherlands,NLD,,,,6,organizer
+324,emmyft,Netherlands,NLD,,,,7,organizer
+325,emmyft,Netherlands,NLD,,,,7,speaker
+326,esbusis,Turkey,TUR,Istanbul,28.9662187,41.0091982,5,participant
+327,estherplomp,Netherlands,NLD,The Hague,4.3113461,52.0799838,3,expert
+328,estherplomp,Netherlands,NLD,The Hague,4.3113461,52.0799838,3,mentor
+329,estherplomp,Netherlands,NLD,The Hague,4.3113461,52.0799838,3,speaker
+330,estherplomp,Netherlands,NLD,The Hague,4.3113461,52.0799838,4,expert
+331,estherplomp,Netherlands,NLD,The Hague,4.3113461,52.0799838,4,mentor
+332,estherplomp,Netherlands,NLD,The Hague,4.3113461,52.0799838,4,mentor
+333,estherplomp,Netherlands,NLD,The Hague,4.3113461,52.0799838,5,mentor
+334,estherplomp,Netherlands,NLD,The Hague,4.3113461,52.0799838,6,expert
+335,estherplomp,Netherlands,NLD,The Hague,4.3113461,52.0799838,6,mentor
+336,evaherbst,Switzerland,CHE,,,,2,participant
+337,evelyngreeves,United Kingdom,GBR,,,,5,participant
+338,ewa-leś,Poland,POL,,,,4,participant
+339,ewallace,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,3,expert
+340,ewallace,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,4,expert
+341,ewallace,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,5,expert
+342,ewuramaminka,United Kingdom,GBR,,,,1,participant
+343,fabienne-lucas,United States,USA,Boston,-71.060511,42.3554334,3,participant
+344,fabioperdigao,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,6,participant
+345,fadanka,Cameroon,CMR,Yaounde,11.5213344,3.8689867,5,participant
+346,fadanka,Cameroon,CMR,Yaounde,11.5213344,3.8689867,6,mentor
+347,fadanka,Cameroon,CMR,Yaounde,11.5213344,3.8689867,7,participant
+348,fadanka,Cameroon,CMR,Yaounde,11.5213344,3.8689867,7,mentor
+349,farukustunel,Turkey,TUR,Istanbul,28.9662187,41.0091982,5,participant
+350,federico-cestares,Argentina,ARG,Buenos Aires,-58.4370894,-34.6075682,5,participant
+351,fnyasimi,Kenya,KEN,,,,1,participant
+352,fnyasimi,Kenya,KEN,,,,4,facilitator
+353,fnyasimi,Kenya,KEN,,,,5,facilitator
+354,fnyasimi,Kenya,KEN,,,,6,facilitator
+355,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,1,expert
+356,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,1,mentor
+357,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,1,speaker
+358,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,2,expert
+359,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,2,speaker
+360,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,3,expert
+361,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,3,mentor
+362,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,4,expert
+363,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,4,mentor
+364,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,5,mentor
+365,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,5,mentor
+366,fpsom,Greece,GRC,Thessaloniki,22.9352716,40.6403167,6,mentor
+367,fredbelliard,Netherlands,NLD,Delft,4.362724538543995,51.999457199999995,5,participant
+368,gabimusaubach,Argentina,ARG,,,,5,participant
+369,gabriela-rufino,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,7,participant
+370,ganleyemma,United Kingdom,GBR,,,,2,speaker
+371,gareth-j,United Kingdom,GBR,Bristol,-2.5972985,51.4538022,5,participant
+372,gedaloop,Spain,ESP,Barcelona,2.1774322,41.3828939,4,participant
+373,gedankenstuecke,France,FRA,Paris,2.3483915,48.8534951,1,expert
+374,gedankenstuecke,France,FRA,Paris,2.3483915,48.8534951,1,speaker
+375,gedankenstuecke,France,FRA,Paris,2.3483915,48.8534951,2,expert
+376,gedankenstuecke,France,FRA,Paris,2.3483915,48.8534951,2,speaker
+377,gedankenstuecke,France,FRA,Paris,2.3483915,48.8534951,3,expert
+378,gemmaturon,Spain,ESP,Barcelona,2.1774322,41.3828939,5,participant
+379,georgiahca,United Kingdom,GBR,London,-0.12765,51.5073359,2,participant
+380,georgiahca,United Kingdom,GBR,London,-0.12765,51.5073359,3,speaker
+381,georgiahca,United Kingdom,GBR,London,-0.12765,51.5073359,5,expert
+382,georgiahca,United Kingdom,GBR,London,-0.12765,51.5073359,5,mentor
+383,georgianaelena,Romania,ROU,,,,7,expert
+384,ghammad,Belgium,BEL,Liège,5.5736112,50.6450944,3,participant
+385,gigikenneth,Nigeria,NGA,,,,7,participant
+386,gill-francis,United Kingdom,GBR,York,-1.0815361,53.9590555,4,participant
+387,glado718,Kenya,KEN,Nairobi,36.8172449,-1.2832533,6,participant
+388,glado718,Kenya,KEN,Nairobi,36.8172449,-1.2832533,7,facilitator
+389,gladys-jerono-rotich,Kenya,KEN,Nairobi,36.8172449,-1.2832533,7,mentor
+390,graciellehigino,Canada,CAN,Vancouver,-123.113952,49.2608724,2,expert
+391,graciellehigino,Canada,CAN,Vancouver,-123.113952,49.2608724,4,expert
+392,graciellehigino,Canada,CAN,Vancouver,-123.113952,49.2608724,4,mentor
+393,graciellehigino,Canada,CAN,Vancouver,-123.113952,49.2608724,5,mentor
+394,graciellehigino,Canada,CAN,Vancouver,-123.113952,49.2608724,5,mentor
+395,graciellehigino,Canada,CAN,Vancouver,-123.113952,49.2608724,6,expert
+396,graciellehigino,Canada,CAN,Vancouver,-123.113952,49.2608724,6,mentor
+397,graciellehigino,Canada,CAN,Vancouver,-123.113952,49.2608724,7,mentor
+398,gugy89,,,,,,5,expert
+399,guille1107,Argentina,ARG,Buenos Aires,-58.4370894,-34.6075682,4,participant
+400,ha0ye,United States,USA,Gainesville,-82.3249846,29.6519684,1,expert
+401,ha0ye,United States,USA,Gainesville,-82.3249846,29.6519684,1,mentor
+402,ha0ye,United States,USA,Gainesville,-82.3249846,29.6519684,2,expert
+403,ha0ye,United States,USA,Gainesville,-82.3249846,29.6519684,3,expert
+404,ha0ye,United States,USA,Gainesville,-82.3249846,29.6519684,3,speaker
+405,ha0ye,United States,USA,Gainesville,-82.3249846,29.6519684,4,expert
+406,ha0ye,United States,USA,Gainesville,-82.3249846,29.6519684,5,expert
+407,ha0ye,United States,USA,Gainesville,-82.3249846,29.6519684,5,speaker
+408,ha0ye,United States,USA,Gainesville,-82.3249846,29.6519684,6,expert
+409,harinilakshminarayanan,Switzerland,CHE,Zurich,8.5410422,47.3744489,6,participant
+410,harinilakshminarayanan,Switzerland,CHE,Zurich,8.5410422,47.3744489,7,mentor
+411,harisood,,,,,,6,participant
+412,harpreetsingh05,India,IND,Jalandhar,75.56805772253911,31.29201065,3,expert
+413,harpreetsingh05,India,IND,Jalandhar,75.56805772253911,31.29201065,3,participant
+414,harpreetsingh05,India,IND,Jalandhar,75.56805772253911,31.29201065,3,mentor
+415,harpreetsingh05,India,IND,Jalandhar,75.56805772253911,31.29201065,3,mentor
+416,harpreetsingh05,India,IND,Jalandhar,75.56805772253911,31.29201065,4,mentor
+417,hdinkel,Germany,DEU,,,,1,expert
+418,hdinkel,Germany,DEU,,,,1,mentor
+419,hdinkel,Germany,DEU,,,,2,expert
+420,hdinkel,Germany,DEU,,,,2,mentor
+421,hexylena,Netherlands,NLD,Rotterdam,4.47775,51.9244424,3,speaker
+422,heylf,Germany,DEU,Freiburg,7.8494005,47.9960901,3,participant
+423,hilyatuz-zahroh,Indonesia,IDN,,,,2,participant
+424,homo-sapiens34,Russian Federation,RUS,,,,1,participant
+425,hpdang,Singapore,SGP,,,,4,speaker
+426,hpdang,Singapore,SGP,,,,5,speaker
+427,hrhotz,Switzerland,CHE,Basel,7.5878261,47.5581077,2,mentor
+428,hrhotz,Switzerland,CHE,Basel,7.5878261,47.5581077,3,mentor
+429,hrhotz,Switzerland,CHE,Basel,7.5878261,47.5581077,4,mentor
+430,hrhotz,Switzerland,CHE,Basel,7.5878261,47.5581077,6,expert
+431,hrhotz,Switzerland,CHE,Basel,7.5878261,47.5581077,6,mentor
+432,hylary-emmanuela-ndegala-nhana,Cameroon,CMR,Yaounde,11.5213344,3.8689867,7,participant
+433,hzahroh,Indonesia,IDN,Jakarta,106.827183,-6.1753942,3,participant
+434,ibrahssali1,Uganda,UGA,,,,2,participant
+435,inquisitivevi,Germany,DEU,,,,1,expert
+436,iramosp,Mexico,MEX,Mexico City,-99.1331785,19.4326296,3,participant
+437,iramosp,Mexico,MEX,Mexico City,-99.1331785,19.4326296,4,expert
+438,iramosp,Mexico,MEX,Mexico City,-99.1331785,19.4326296,5,expert
+439,iramosp,Mexico,MEX,Mexico City,-99.1331785,19.4326296,6,expert
+440,iramosp,Mexico,MEX,Mexico City,-99.1331785,19.4326296,7,expert
+441,iratxepuebla,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,3,expert
+442,iratxepuebla,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,3,mentor
+443,iratxepuebla,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,3,speaker
+444,iratxepuebla,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,4,expert
+445,iratxepuebla,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,4,mentor
+446,iratxepuebla,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,5,expert
+447,irena-maus,Germany,DEU,Bielefeld,8.531007,52.0191005,4,participant
+448,irisbotas,Spain,ESP,Majadahonda,-3.8724138,40.473055,3,participant
+449,isahmadbbr,Nigeria,NGA,Kano,8.5364136,11.8948389,3,participant
+450,ismael-kg,United Kingdom,GBR,London,-0.12765,51.5073359,2,participant
+451,ismael-kg,United Kingdom,GBR,London,-0.12765,51.5073359,5,participant
+452,ismael-kg,United Kingdom,GBR,London,-0.12765,51.5073359,6,facilitator
+453,ivotron,Mexico,MEX,Hermosillo,-110.9692202,29.0948207,2,mentor
+454,ivotron,Mexico,MEX,Hermosillo,-110.9692202,29.0948207,3,expert
+455,jafari-amir,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,7,participant
+456,jafsia,Cameroon,CMR,Yaounde,11.5213344,3.8689867,5,participant
+457,jafsia,Cameroon,CMR,Yaounde,11.5213344,3.8689867,6,mentor
+458,jafsia,Cameroon,CMR,Yaounde,11.5213344,3.8689867,7,facilitator
+459,jafsia,Cameroon,CMR,Yaounde,11.5213344,3.8689867,7,participant
+460,jafsia,Cameroon,CMR,Yaounde,11.5213344,3.8689867,7,mentor
+461,jasonjwilliamsny,United States,USA,,,,1,expert
+462,jasonjwilliamsny,United States,USA,,,,1,speaker
+463,jasonjwilliamsny,United States,USA,,,,2,expert
+464,javier-ruiz-pérez,Spain,ESP,Barcelona,2.1774322,41.3828939,3,participant
+465,jcolomb,Germany,DEU,Berlin,13.3888599,52.5170365,2,expert
+466,jcolomb,Germany,DEU,Berlin,13.3888599,52.5170365,4,expert
+467,jcolomb,Germany,DEU,Berlin,13.3888599,52.5170365,4,mentor
+468,jcolomb,Germany,DEU,Berlin,13.3888599,52.5170365,5,mentor
+469,jcolomb,Germany,DEU,Berlin,13.3888599,52.5170365,7,mentor
+470,jelioth-muthoni,Kenya,KEN,,,,2,participant
+471,jesperdramsch,Germany,DEU,Bonn,7.10066,50.735851,5,expert
+472,jessica-sims,United Kingdom,GBR,London,-0.12765,51.5073359,3,participant
+473,jessicas11,United States,USA,Durham,-78.9018053,35.996653,4,expert
+474,jessicas11,United States,USA,Durham,-78.9018053,35.996653,4,mentor
+475,jezcope,United Kingdom,GBR,Harrogate,-1.5391039,53.9921491,2,expert
+476,jezcope,United Kingdom,GBR,Harrogate,-1.5391039,53.9921491,2,mentor
+477,jezcope,United Kingdom,GBR,Harrogate,-1.5391039,53.9921491,3,expert
+478,jezcope,United Kingdom,GBR,Harrogate,-1.5391039,53.9921491,3,mentor
+479,jezcope,United Kingdom,GBR,Harrogate,-1.5391039,53.9921491,5,expert
+480,jezcope,United Kingdom,GBR,Harrogate,-1.5391039,53.9921491,6,expert
+481,jformoso,Argentina,ARG,Ciudad Autónoma De Buenos Aires,-58.4370894,-34.6075682,7,participant
+482,jhon-anderson-pérez-silva,Peru,PER,Lima,-77.0365256,-12.0621065,5,participant
+483,jmmaok,United States,USA,"Cary, Nc",-78.7812081,35.7882893,3,participant
+484,jmmaok,United States,USA,"Cary, Nc",-78.7812081,35.7882893,4,expert
+485,jmmaok,United States,USA,"Cary, Nc",-78.7812081,35.7882893,7,participant
+486,joel-hancock,Austria,AUT,,,,2,participant
+487,joelfan,Italy,ITA,Milan,9.1896346,45.4641943,6,participant
+488,joelostblom,Canada,CAN,Vancouver,-123.113952,49.2608724,1,expert
+489,joelostblom,Canada,CAN,Vancouver,-123.113952,49.2608724,3,expert
+490,johanssen-obanda,Kenya,KEN,Kisumu,34.7541761,-0.1029109,7,mentor
+491,johav,Germany,DEU,Berlin,13.3888599,52.5170365,3,expert
+492,jonny-heath,United Kingdom,GBR,Brighton,-0.1400561,50.8214626,3,expert
+493,joshsimmons,United States,USA,,,,1,speaker
+494,joyceykao,Germany,DEU,Aachen,6.083862,50.776351,2,participant
+495,joyceykao,Germany,DEU,Aachen,6.083862,50.776351,3,expert
+496,joyceykao,Germany,DEU,Aachen,6.083862,50.776351,3,mentor
+497,joyceykao,Germany,DEU,Aachen,6.083862,50.776351,4,expert
+498,joyceykao,Germany,DEU,Aachen,6.083862,50.776351,5,expert
+499,joyceykao,Germany,DEU,Aachen,6.083862,50.776351,6,expert
+500,joyceykao,Germany,DEU,Aachen,6.083862,50.776351,6,mentor
+501,joyceykao,Germany,DEU,Aachen,6.083862,50.776351,7,mentor
+502,jruizperez,United States,USA,College Station,-96.3071042,30.5955289,5,participant
+503,jsheunis,Germany,DEU,Juelich,6.3611015,50.9220931,5,expert
+504,jsheunis,Germany,DEU,Juelich,6.3611015,50.9220931,5,mentor
+505,juanjo-garcía-granero,Spain,ESP,Barcelona,2.1774322,41.3828939,3,participant
+506,juanjo-garcía-granero,Spain,ESP,Barcelona,2.1774322,41.3828939,5,participant
+507,jvillcavillegas,Bolivia,,Bolivia,-64.9912286,-17.0568696,5,participant
+508,jyoti-bhogal,India,IND,"Ahmednagar, Maharashtra",74.85802430085195,19.162772500000003,5,participant
+509,jywarren,United States,USA,"Providence, RI",-71.4128343,41.8239891,6,speaker
+510,k-c-martin,South Africa,ZAF,Stellenbosch,18.869167,-33.934444,5,participant
+511,k-c-martin,South Africa,ZAF,Stellenbosch,18.869167,-33.934444,6,mentor
+512,k8hertweck,United States,USA,"Seattle, Wa",-122.330062,47.6038321,4,expert
+513,karegapauline,Kenya,KEN,Nairobi,36.8172449,-1.2832533,2,participant
+514,karegapauline,Kenya,KEN,Nairobi,36.8172449,-1.2832533,6,facilitator
+515,karegapauline,Kenya,KEN,Nairobi,36.8172449,-1.2832533,6,participant
+516,karegapauline,Kenya,KEN,Nairobi,36.8172449,-1.2832533,7,mentor
+517,kariljordan,United States,USA,,,,1,expert
+518,kariljordan,United States,USA,,,,2,expert
+519,karinlag,Norway,NOR,,,,1,speaker
+520,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,1,participant
+521,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,2,expert
+522,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,2,mentor
+523,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,3,expert
+524,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,4,expert
+525,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,4,mentor
+526,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,5,expert
+527,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,5,mentor
+528,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,6,expert
+529,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,6,mentor
+530,karvovskaya,Netherlands,NLD,Amsterdam,4.8924534,52.3730796,7,mentor
+531,katesimpson,United Kingdom,GBR,London/ Great Union Canal/ Leeds,,,2,participant
+532,katesimpson,United Kingdom,GBR,London/ Great Union Canal/ Leeds,,,3,expert
+533,katesimpson,United Kingdom,GBR,London/ Great Union Canal/ Leeds,,,3,mentor
+534,katesimpson,United Kingdom,GBR,London/ Great Union Canal/ Leeds,,,4,mentor
+535,katoss,France,FRA,Paris,2.3483915,48.8534951,2,participant
+536,katoss,France,FRA,Paris,2.3483915,48.8534951,3,participant
+537,katoss,France,FRA,Paris,2.3483915,48.8534951,4,expert
+538,katrinleinweber,Germany,DEU,,,,1,expert
+539,katrinleinweber,Germany,DEU,,,,1,mentor
+540,kaythaney,United States,USA,,,,4,speaker
+541,kenmurithi,Kenya,KEN,Chogoria,37.631994,-0.228851,6,participant
+542,kevinxufs,United Kingdom,GBR,,,,2,participant
+543,khanteymoori,Germany,DEU,Freiburg,7.8494005,47.9960901,3,participant
+544,kipkurui,Kenya,KEN,,,,1,expert
+545,kipkurui,Kenya,KEN,,,,1,mentor
+546,kipkurui,Kenya,KEN,,,,1,speaker
+547,kipkurui,Kenya,KEN,,,,2,expert
+548,kipkurui,Kenya,KEN,,,,2,mentor
+549,kipkurui,Kenya,KEN,,,,2,mentor
+550,kipkurui,Kenya,KEN,,,,5,mentor
+551,kipkurui,Kenya,KEN,,,,6,expert
+552,kipkurui,Kenya,KEN,,,,6,mentor
+553,kipkurui,Kenya,KEN,,,,7,mentor
+554,kiragu-mwaura,Kenya,KEN,,,,1,participant
+555,kiri93,Switzerland,CHE,,,,2,participant
+556,kirstiejane,United Kingdom,GBR,,,,1,expert
+557,kirstiejane,United Kingdom,GBR,,,,1,speaker
+558,kirstiejane,United Kingdom,GBR,,,,2,expert
+559,klauer2207,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,2,expert
+560,klauer2207,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,2,mentor
+561,klauer2207,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,5,expert
+562,klauer2207,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,5,mentor
+563,kmexter,Belgium,BEL,Oostende,2.919496,51.2258565,3,expert
+564,koerding,United States,USA,Philadelphia,-75.1635262,39.9527237,6,expert
+565,kon0925,Greece,GRC,Heraklion,25.1332843,35.33908,3,participant
+566,koudyk,Canada,CAN,,,,2,participant
+567,kristinariemer,United States,USA,,,,1,participant
+568,kswhitney,United States,USA,Rochester,-77.615214,43.157285,1,expert
+569,kswhitney,United States,USA,Rochester,-77.615214,43.157285,3,expert
+570,kswhitney,United States,USA,Rochester,-77.615214,43.157285,4,expert
+571,lalmehlisy,Saudi Arabia,SAU,Riyadh,46.7160104,24.638916,4,participant
+572,landimi2,Kenya,KEN,Nairobi,36.8172449,-1.2832533,1,participant
+573,landimi2,Kenya,KEN,Nairobi,36.8172449,-1.2832533,3,mentor
+574,landimi2,Kenya,KEN,Nairobi,36.8172449,-1.2832533,4,facilitator
+575,landimi2,Kenya,KEN,Nairobi,36.8172449,-1.2832533,5,facilitator
+576,landimi2,Kenya,KEN,Nairobi,36.8172449,-1.2832533,6,mentor
+577,landimi2,Kenya,KEN,Nairobi,36.8172449,-1.2832533,7,mentor
+578,lauracarter,United Kingdom,GBR,London,-0.12765,51.5073359,2,participant
+579,lauracarter,United Kingdom,GBR,London,-0.12765,51.5073359,3,expert
+580,lauracarter,United Kingdom,GBR,London,-0.12765,51.5073359,3,mentor
+581,lauracarter,United Kingdom,GBR,London,-0.12765,51.5073359,4,expert
+582,lauracarter,United Kingdom,GBR,London,-0.12765,51.5073359,5,expert
+583,lauracarter,United Kingdom,GBR,London,-0.12765,51.5073359,6,expert
+584,lauracarter,United Kingdom,GBR,London,-0.12765,51.5073359,7,expert
+585,lauracion,Argentina,ARG,Ciudad Autónoma De Buenos Aires,-58.4370894,-34.6075682,2,expert
+586,lauracion,Argentina,ARG,Ciudad Autónoma De Buenos Aires,-58.4370894,-34.6075682,2,speaker
+587,lauracion,Argentina,ARG,Ciudad Autónoma De Buenos Aires,-58.4370894,-34.6075682,3,expert
+588,lauracion,Argentina,ARG,Ciudad Autónoma De Buenos Aires,-58.4370894,-34.6075682,3,mentor
+589,lauracion,Argentina,ARG,Ciudad Autónoma De Buenos Aires,-58.4370894,-34.6075682,5,participant
+590,laurah-nyasita-ondari,Kenya,KEN,Nairobi,36.8172449,-1.2832533,7,facilitator
+591,laurichi13,Spain,ESP,,,,2,participant
+592,lazycipher,India,IND,,,,1,participant
+593,lenny-teytelman,,,,,,3,speaker
+594,lessa-tchohou-fabrice,Cameroon,CMR,Centre,1.7324062,47.5490251,7,participant
+595,lilian9,Kenya,KEN,,,,1,participant
+596,lilian9,Kenya,KEN,,,,2,mentor
+597,lisanna,Germany,DEU,Heidelberg,8.694724,49.4093582,4,participant
+598,lisanna,Germany,DEU,Heidelberg,8.694724,49.4093582,5,mentor
+599,lisanna,Germany,DEU,Heidelberg,8.694724,49.4093582,6,mentor
+600,lomaxboydphd,United States,USA,New York,-74.0060152,40.7127281,3,participant
+601,loubez,South Africa,ZAF,Cape Town,18.417396,-33.928992,3,expert
+602,loubez,South Africa,ZAF,Cape Town,18.417396,-33.928992,3,mentor
+603,lpantano,Spain,ESP,,,,2,mentor
+604,luispedro,China,CHN,Shanghai,121.4692071,31.2322758,1,expert
+605,luispedro,China,CHN,Shanghai,121.4692071,31.2322758,1,mentor
+606,luispedro,China,CHN,Shanghai,121.4692071,31.2322758,2,expert
+607,luispedro,China,CHN,Shanghai,121.4692071,31.2322758,2,mentor
+608,luispedro,China,CHN,Shanghai,121.4692071,31.2322758,5,expert
+609,luispedro,China,CHN,Shanghai,121.4692071,31.2322758,5,mentor
+610,luispedro,China,CHN,Shanghai,121.4692071,31.2322758,6,speaker
+611,lukehare,United Kingdom,GBR,London,-0.12765,51.5073359,4,participant
+612,lukehare,United Kingdom,GBR,London,-0.12765,51.5073359,5,participant
+613,lwbwalma,Netherlands,NLD,Delft,4.362724538543995,51.999457199999995,5,participant
+614,lwinfree,United States,USA,Austin,-97.7436995,30.2711286,1,speaker
+615,lwinfree,United States,USA,Austin,-97.7436995,30.2711286,2,expert
+616,lwinfree,United States,USA,Austin,-97.7436995,30.2711286,2,speaker
+617,lwinfree,United States,USA,Austin,-97.7436995,30.2711286,4,expert
+618,lwinfree,United States,USA,Austin,-97.7436995,30.2711286,4,mentor
+619,lwinfree,United States,USA,Austin,-97.7436995,30.2711286,5,speaker
+620,lwinfree,United States,USA,Austin,-97.7436995,30.2711286,6,expert
+621,lydiafrance,United Kingdom,GBR,London,-0.12765,51.5073359,4,participant
+622,lydiafrance,United Kingdom,GBR,London,-0.12765,51.5073359,5,participant
+623,macziatko,Ireland,IRL,Dublin,-6.2602964,53.3498006,6,participant
+624,macziatko,Ireland,IRL,Dublin,-6.2602964,53.3498006,7,facilitator
+625,macziatko,Ireland,IRL,Dublin,-6.2602964,53.3498006,7,mentor
+626,magicmilly,United States,USA,,,,1,participant
+627,mai-alajaji,Saudi Arabia,SAU,Riyadh,46.7160104,24.638916,4,participant
+628,malloryfreeberg,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,2,mentor
+629,malloryfreeberg,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,3,mentor
+630,malloryfreeberg,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,6,expert
+631,malloryfreeberg,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,6,mentor
+632,malloryfreeberg,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,6,speaker
+633,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,1,organizer
+634,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,1,mentor
+635,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,1,mentor
+636,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,1,mentor
+637,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,1,speaker
+638,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,1,speaker
+639,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,2,expert
+640,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,2,organizer
+641,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,2,mentor
+642,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,2,mentor
+643,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,2,speaker
+644,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,3,expert
+645,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,3,organizer
+646,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,3,mentor
+647,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,3,mentor
+648,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,3,mentor
+649,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,3,speaker
+650,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,3,speaker
+651,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,3,speaker
+652,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,4,organizer
+653,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,4,speaker
+654,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,5,organizer
+655,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,5,participant
+656,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,5,mentor
+657,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,5,mentor
+658,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,5,mentor
+659,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,5,speaker
+660,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,6,organizer
+661,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,6,mentor
+662,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,6,speaker
+663,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,7,organizer
+664,malvikasharan,United Kingdom,GBR,London,-0.12765,51.5073359,7,mentor
+665,manulera,France,FRA,Paris,2.3483915,48.8534951,4,facilitator
+666,manulera,France,FRA,Paris,2.3483915,48.8534951,4,participant
+667,manulera,France,FRA,Paris,2.3483915,48.8534951,5,facilitator
+668,marco-madella,Spain,ESP,Barcelona,2.1774322,41.3828939,3,participant
+669,marcoanteghini,Germany,DEU,Berlin,13.3888599,52.5170365,6,speaker
+670,marcotxma,Germany,DEU,Munich,11.5753822,48.1371079,7,participant
+671,maria-andrea-gonzales-castillo,Peru,PER,Lima,-77.0365256,-12.0621065,5,participant
+672,maria-clara-heringer-lourenço,,,,,,7,participant
+673,mariangelap,Italy,ITA,Genova,8.9338624,44.40726,5,participant
+674,marie-nugent,United Kingdom,GBR,London,-0.12765,51.5073359,6,participant
+675,marielaraj,Argentina,ARG,,,,7,participant
+676,marimeireles,Germany,DEU,Berlin,13.3888599,52.5170365,6,expert
+677,marimeireles,Germany,DEU,Berlin,13.3888599,52.5170365,6,mentor
+678,markuskonk,Netherlands,NLD,Enschede,6.8940537,52.2209855,4,expert
+679,marta-lloret-llinares,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,3,expert
+680,marta-marin,Spain,ESP,Madrid,-3.7035825,40.4167047,3,participant
+681,martenson,Czechia,CZE,,,,2,expert
+682,martinagvilas,Germany,DEU,Frankfurt Am Main,8.6820917,50.1106444,2,expert
+683,martinagvilas,Germany,DEU,Frankfurt Am Main,8.6820917,50.1106444,2,mentor
+684,martinagvilas,Germany,DEU,Frankfurt Am Main,8.6820917,50.1106444,3,expert
+685,martinagvilas,Germany,DEU,Frankfurt Am Main,8.6820917,50.1106444,3,participant
+686,martlj,United Kingdom,GBR,London,-0.12765,51.5073359,4,mentor
+687,martlj,United Kingdom,GBR,London,-0.12765,51.5073359,6,expert
+688,marzia-di-filippo,Italy,ITA,Milano,9.1896346,45.4641943,3,participant
+689,masako-kaufmann,Germany,DEU,Freiburg,7.8494005,47.9960901,3,participant
+690,matouse,United Kingdom,GBR,London,-0.12765,51.5073359,6,expert
+691,matuskalas,Norway,NOR,,,,1,participant
+692,mblue9,Australia,AUS,,,,2,expert
+693,meagdoh,United States,USA,Washington,-77.0365427,38.8950368,2,expert
+694,meagdoh,United States,USA,Washington,-77.0365427,38.8950368,2,mentor
+695,meagdoh,United States,USA,Washington,-77.0365427,38.8950368,3,expert
+696,meagdoh,United States,USA,Washington,-77.0365427,38.8950368,3,mentor
+697,meagdoh,United States,USA,Washington,-77.0365427,38.8950368,4,expert
+698,meagdoh,United States,USA,Washington,-77.0365427,38.8950368,4,mentor
+699,meagdoh,United States,USA,Washington,-77.0365427,38.8950368,5,mentor
+700,megan-lisa-stock,,,,,,6,participant
+701,megmugure,Kenya,KEN,Nairobi,36.8172449,-1.2832533,1,participant
+702,megmugure,Kenya,KEN,Nairobi,36.8172449,-1.2832533,3,expert
+703,mehak-chopra,India,IND,Puducherry,79.80694879844232,10.91564885,3,participant
+704,melibleq,Brazil,BRA,São Paulo,-46.6333824,-23.5506507,6,expert
+705,melibleq,Brazil,BRA,São Paulo,-46.6333824,-23.5506507,6,speaker
+706,melibleq,Brazil,BRA,São Paulo,-46.6333824,-23.5506507,7,facilitator
+707,melibleq,Brazil,BRA,São Paulo,-46.6333824,-23.5506507,7,mentor
+708,merrcury,India,IND,Kurukshetra,76.8482787,29.9693747,4,expert
+709,mesfind,Ethiopia,ETH,,,,2,mentor
+710,mgawe-cavin,Kenya,KEN,"Nairobi, Kenya",36.8172449,-1.2832533,5,participant
+711,mgawe-cavin,Kenya,KEN,"Nairobi, Kenya",36.8172449,-1.2832533,6,facilitator
+712,michael-addy,Ghana,GHA,Kumasi,-1.6233086,6.6985605,4,participant
+713,michael-addy,Ghana,GHA,Kumasi,-1.6233086,6.6985605,5,mentor
+714,michal-javornik,Czechia,CZE,Brno,16.6113382,49.1922443,3,participant
+715,michal-ruzicka,Czechia,CZE,Brno,16.6113382,49.1922443,3,participant
+716,miguel-silan,France,FRA,Metro Manila / Grenoble,,,7,expert
+717,mihaelanemes,United Kingdom,GBR,London,-0.12765,51.5073359,3,participant
+718,miketrizna,United States,USA,"Washington, Dc",-77.0365427,38.8950368,7,participant
+719,milagros-miceli,Germany,DEU,Berlin,13.3888599,52.5170365,7,mentor
+720,mishrose123,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,3,expert
+721,mkuzak,Netherlands,NLD,,,,1,expert
+722,mkuzak,Netherlands,NLD,,,,1,mentor
+723,mkuzak,Netherlands,NLD,,,,1,speaker
+724,mkuzak,Netherlands,NLD,,,,2,expert
+725,mkuzak,Netherlands,NLD,,,,2,speaker
+726,mlagisz,Australia,AUS,Sydney,151.2082848,-33.8698439,6,participant
+727,mloning,United Kingdom,GBR,,,,2,mentor
+728,mloning,United Kingdom,GBR,,,,2,participant
+729,moengels,,,,,,6,participant
+730,mohan-gupta,Nepal,NPL,Kathmandu,85.3205817,27.708317,3,participant
+731,morphofun,United States,USA,,,,1,participant
+732,mruizvelley,Germany,DEU,,,,1,expert
+733,msundukova,Spain,ESP,Bilbao,-2.9350039,43.2630018,3,facilitator
+734,msundukova,Spain,ESP,Bilbao,-2.9350039,43.2630018,4,facilitator
+735,msundukova,Spain,ESP,Bilbao,-2.9350039,43.2630018,5,expert
+736,msundukova,Spain,ESP,Bilbao,-2.9350039,43.2630018,5,facilitator
+737,msundukova,Spain,ESP,Bilbao,-2.9350039,43.2630018,5,mentor
+738,msundukova,Spain,ESP,Bilbao,-2.9350039,43.2630018,6,expert
+739,msundukova,Spain,ESP,Bilbao,-2.9350039,43.2630018,6,facilitator
+740,msundukova,Spain,ESP,Bilbao,-2.9350039,43.2630018,6,mentor
+741,msundukova,Spain,ESP,Bilbao,-2.9350039,43.2630018,6,participant
+742,muhammetcelik,Turkey,TUR,,,,2,participant
+743,muhammetcelik,Turkey,TUR,,,,3,participant
+744,muhammetcelik,Turkey,TUR,,,,5,mentor
+745,mvdbeek,France,FRA,,,,1,expert
+746,mxrtinez,Colombia,COL,Bucaramanga,-73.1180151,7.1246909,3,participant
+747,mxrtinez,Colombia,COL,Bucaramanga,-73.1180151,7.1246909,4,expert
+748,mxrtinez,Colombia,COL,Bucaramanga,-73.1180151,7.1246909,4,mentor
+749,mxrtinez,Colombia,COL,Bucaramanga,-73.1180151,7.1246909,5,mentor
+750,mxrtinez,Colombia,COL,Bucaramanga,-73.1180151,7.1246909,6,expert
+751,mxrtinez,Colombia,COL,Bucaramanga,-73.1180151,7.1246909,6,speaker
+752,mxrtinez,Colombia,COL,Bucaramanga,-73.1180151,7.1246909,7,mentor
+753,mxrtinez,Colombia,COL,Bucaramanga,-73.1180151,7.1246909,7,participant
+754,myreille-larouche,Canada,CAN,,,,2,participant
+755,nadia-odaliz-chamana-chura,Peru,PER,Lima,-77.0365256,-12.0621065,5,participant
+756,nadinespy,United Kingdom,GBR,Brighton,-0.1400561,50.8214626,4,participant
+757,nadinespy,United Kingdom,GBR,Brighton,-0.1400561,50.8214626,6,expert
+758,nadinespy,United Kingdom,GBR,Brighton,-0.1400561,50.8214626,6,mentor
+759,nahuele,Argentina,ARG,Vicente Lopez,-58.5036282,-34.5244484,7,participant
+760,naralb,Brazil,BRA,,,,1,participant
+761,natalie-banner,United Kingdom,GBR,London,-0.12765,51.5073359,6,mentor
+762,natasha_wood,South Africa,ZAF,Cape Town,18.417396,-33.928992,2,speaker
+763,nathanael-kedmayla,Cameroon,CMR,Yaounde,11.5213344,3.8689867,7,participant
+764,natty2012,Kenya,KEN,,,,2,participant
+765,nea-bridget,United Kingdom,GBR,London,-0.12765,51.5073359,5,participant
+766,nehamoopen,Netherlands,NLD,,,,2,participant
+767,nelson-franco,Bolivia,,Cochabamba,-66.16756808852,-17.401245799999998,5,participant
+768,nerantzis,Greece,GRC,,,,1,expert
+769,nerantzis,Greece,GRC,,,,2,expert
+770,nick-barlow,United Kingdom,GBR,,,,4,speaker
+771,nickynicolson,United Kingdom,GBR,London,-0.12765,51.5073359,6,participant
+772,nihansultan,Turkey,TUR,İstanbul,28.9662187,41.0091982,3,participant
+773,nihansultan,Turkey,TUR,İstanbul,28.9662187,41.0091982,5,participant
+774,nilabha1512,,,,,,6,participant
+775,nina-roux,,,,,,6,participant
+776,nodiraibrogimova,Uzbekistan,UZB,Tashkent,69.2787079,41.3123363,5,participant
+777,nomadscientist,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,3,expert
+778,nomalu,South Africa,ZAF,Pretoria,28.1879101,-25.7459277,6,participant
+779,npalopoli,Argentina,ARG,Bernal,-58.2977925,-34.716571,2,expert
+780,npalopoli,Argentina,ARG,Bernal,-58.2977925,-34.716571,3,expert
+781,npch,,,,,,3,speaker
+782,npdebs,Nigeria,NGA,Port Harcourt.,7.0188527,4.7676576,7,participant
+783,npscience,United Kingdom,GBR,,,,1,expert
+784,npscience,United Kingdom,GBR,,,,1,mentor
+785,npscience,United Kingdom,GBR,,,,2,expert
+786,npscience,United Kingdom,GBR,,,,2,mentor
+787,npscience,United Kingdom,GBR,,,,4,expert
+788,nsoranzo,United Kingdom,GBR,,,,1,expert
+789,nyasita,Kenya,KEN,Nairobi,36.8172449,-1.2832533,6,participant
+790,nyasita,Kenya,KEN,Nairobi,36.8172449,-1.2832533,7,mentor
+791,olayile,South Africa,ZAF,Pretoria,28.1879101,-25.7459277,3,participant
+792,olsjuju,South Korea,,Seoul,126.9782914,37.5666791,5,participant
+793,olsjuju,South Korea,,Seoul,126.9782914,37.5666791,6,mentor
+794,orchid00,Australia,AUS,,,,1,expert
+795,orchid00,Australia,AUS,,,,2,expert
+796,orchid00,Australia,AUS,,,,2,speaker
+797,osatashamim,Kenya,KEN,Nairobi,36.8172449,-1.2832533,6,participant
+798,paolo-pedaletti,Italy,ITA,Milano,9.1896346,45.4641943,3,participant
+799,patriloto,Argentina,ARG,Resistencia - Chaco,-58.9865196,-27.4511235,7,participant
+800,paulineligonie,Canada,CAN,,,,2,participant
+801,paulowoicho,Nigeria,NGA,,,,2,participant
+802,paulvill,France,FRA,,,,2,expert
+803,pazbc,Argentina,ARG,,,,5,organizer
+804,pazbc,Argentina,ARG,,,,6,organizer
+805,pazbc,Argentina,ARG,,,,6,speaker
+806,pazbc,Argentina,ARG,,,,7,organizer
+807,peranti,France,FRA,Paris,2.3483915,48.8534951,7,facilitator
+808,pescini,Italy,ITA,Milan,9.1896346,45.4641943,3,participant
+809,pescini,Italy,ITA,Milan,9.1896346,45.4641943,4,mentor
+810,petraag,Cameroon,CMR,Bamenda,10.1516505,5.9614117,7,participant
+811,phaarouknucleus,Nigeria,NGA,Kano,8.5364136,11.8948389,7,facilitator
+812,pherterich,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,1,expert
+813,pherterich,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,1,mentor
+814,pherterich,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,1,mentor
+815,pherterich,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,2,expert
+816,pherterich,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,2,mentor
+817,pherterich,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,5,expert
+818,pherterich,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,5,mentor
+819,pherterich,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,6,expert
+820,pherterich,United Kingdom,GBR,Edinburgh,-3.1883749,55.9533456,7,mentor
+821,piero-beraun,Peru,PER,Lima,-77.0365256,-12.0621065,5,participant
+822,pinheirochagas,United States,USA,San Francisco,-122.419906,37.7790262,5,participant
+823,pivg,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,2,mentor
+824,pivg,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,3,expert
+825,pivg,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,3,mentor
+826,pivg,United Kingdom,GBR,Cambridge,0.1186637,52.2055314,6,speaker
+827,pol-arranz-gibert,,,,,,6,participant
+828,pradeep-eranti,France,FRA,,,,2,participant
+829,prakriti-karki,Nepal,NPL,Kathmandu,85.3205817,27.708317,3,participant
+830,prashbio,India,IND,Jaipur,75.8189817,26.9154576,3,expert
+831,prashbio,India,IND,Jaipur,75.8189817,26.9154576,3,participant
+832,prashbio,India,IND,Jaipur,75.8189817,26.9154576,3,mentor
+833,princehoodie,Argentina,ARG,Buenos Aires,-58.4370894,-34.6075682,4,participant
+834,proccaserra,United Kingdom,GBR,Oxford,-1.2578499,51.7520131,2,speaker
+835,proccaserra,United Kingdom,GBR,Oxford,-1.2578499,51.7520131,3,expert
+836,proccaserra,United Kingdom,GBR,Oxford,-1.2578499,51.7520131,5,speaker
+837,profgiuseppe,Italy,ITA,Bologna,11.3426327,44.4938203,1,expert
+838,profgiuseppe,Italy,ITA,Bologna,11.3426327,44.4938203,2,expert
+839,profgiuseppe,Italy,ITA,Bologna,11.3426327,44.4938203,3,expert
+840,profgiuseppe,Italy,ITA,Bologna,11.3426327,44.4938203,4,expert
+841,profgiuseppe,Italy,ITA,Bologna,11.3426327,44.4938203,6,expert
+842,pvanheus,South Africa,ZAF,,,,2,participant
+843,pvanheus,South Africa,ZAF,,,,6,participant
+844,r-huo,Netherlands,NLD,Delft,4.362724538543995,51.999457199999995,6,participant
+845,rainsworth,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,1,expert
+846,rainsworth,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,2,expert
+847,rainsworth,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,2,speaker
+848,rainsworth,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,3,expert
+849,raoofphysics,United Kingdom,GBR,Bristol,-2.5972985,51.4538022,5,participant
+850,raphaels1,United Kingdom,GBR,London,-0.12765,51.5073359,5,expert
+851,rgaiacs,Brazil,BRA,,,,2,expert
+852,rgaiacs,Brazil,BRA,,,,2,mentor
+853,rgaiacs,Brazil,BRA,,,,5,speaker
+854,rhoné-roux,,,,,,6,participant
+855,richarddushime,Uganda,UGA,Kampala,32.5813539,0.3177137,7,participant
+856,rivaquiroga,Chile,CHL,,,,7,mentor
+857,robandeep-kaur,India,IND,Jalandhar,75.56805772253911,31.29201065,3,participant
+858,robert-schreiber,South Africa,ZAF,Hermanus,19.2361111,-34.4175,5,participant
+859,robin-lewando,Ireland,IRL,Drimoleague,-9.2599704,51.6608501,3,participant
+860,rodrigocam,Brazil,BRA,,,,1,mentor
+861,romullo-lima,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,6,participant
+862,rossmounce,United Kingdom,GBR,,,,2,expert
+863,rowland-mosbergen,Australia,AUS,,,,3,speaker
+864,rowland-mosbergen,Australia,AUS,,,,5,speaker
+865,rowland-mosbergen,Australia,AUS,,,,7,mentor
+866,rukynas,Portugal,PRT,Porto,-8.6107884,41.1494512,3,participant
+867,rushda-patel,India,IND,,,,6,participant
+868,sairajdillikar,India,IND,Mysore,76.6553609,12.3051828,5,participant
+869,samguay,Canada,CAN,,,,1,participant
+870,samguay,Canada,CAN,,,,2,mentor
+871,samuelorion,Canada,CAN,,,,2,participant
+872,samvanstroud,United Kingdom,GBR,London,-0.12765,51.5073359,2,participant
+873,samvanstroud,United Kingdom,GBR,London,-0.12765,51.5073359,3,expert
+874,samvanstroud,United Kingdom,GBR,London,-0.12765,51.5073359,4,speaker
+875,sandra-larriega,Peru,PER,Ñima,86.6931042,32.537561,5,participant
+876,sandrine-kengne,Cameroon,CMR,Yaounde,11.5213344,3.8689867,7,participant
+877,santi-rello-varona,Spain,ESP,Madrid,-3.7035825,40.4167047,3,participant
+878,santosrac,Brazil,BRA,Piracicaba,-47.6493269,-22.725165,2,expert
+879,santosrac,Brazil,BRA,Piracicaba,-47.6493269,-22.725165,5,expert
+880,sapetti9,Italy,ITA,Bologna,11.3426327,44.4938203,6,expert
+881,sapetti9,Italy,ITA,Bologna,11.3426327,44.4938203,6,speaker
+882,sarah-nietopski,United Kingdom,GBR,London,-0.12765,51.5073359,5,participant
+883,saranjeetkaur,India,IND,Pune,73.8544541,18.521428,4,participant
+884,saranjeetkaur,India,IND,Pune,73.8544541,18.521428,6,participant
+885,saranjeetkaur,India,IND,Pune,73.8544541,18.521428,7,mentor
+886,saravilla,United Kingdom,GBR,London,-0.12765,51.5073359,4,participant
+887,saravilla,United Kingdom,GBR,London,-0.12765,51.5073359,5,mentor
+888,saravilla,United Kingdom,GBR,London,-0.12765,51.5073359,6,expert
+889,saravilla,United Kingdom,GBR,London,-0.12765,51.5073359,6,mentor
+890,saravilla,United Kingdom,GBR,London,-0.12765,51.5073359,7,mentor
+891,sarenaz,Kazakhstan,KAZ,Astana (Nursultan),71.4306682,51.1282205,5,participant
+892,saryace,Chile,CHL,Santiago,-83.7980749,9.8694792,7,participant
+893,satagopam7,Luxembourg,LUX,,,,1,expert
+894,sayalaruano,Netherlands,NLD,Maastricht,5.6969881818221095,50.85798545,4,participant
+895,sayalaruano,Netherlands,NLD,Maastricht,5.6969881818221095,50.85798545,5,mentor
+896,sayalaruano,Netherlands,NLD,Maastricht,5.6969881818221095,50.85798545,6,expert
+897,sayalaruano,Netherlands,NLD,Maastricht,5.6969881818221095,50.85798545,6,speaker
+898,sayalaruano,Netherlands,NLD,Maastricht,5.6969881818221095,50.85798545,7,mentor
+899,sdopoku,Ghana,GHA,,,,2,expert
+900,sdopoku,Ghana,GHA,,,,2,mentor
+901,sdopoku,Ghana,GHA,,,,2,speaker
+902,sebastianeggert,Germany,DEU,,,,2,participant
+903,selgebali,Sweden,SWE,Gothenburg,11.9670171,57.7072326,4,expert
+904,selgebali,Sweden,SWE,Gothenburg,11.9670171,57.7072326,4,speaker
+905,selgebali,Sweden,SWE,Gothenburg,11.9670171,57.7072326,5,expert
+906,selgebali,Sweden,SWE,Gothenburg,11.9670171,57.7072326,5,mentor
+907,selgebali,Sweden,SWE,Gothenburg,11.9670171,57.7072326,6,expert
+908,selgebali,Sweden,SWE,Gothenburg,11.9670171,57.7072326,6,mentor
+909,serahrono,Estonia,EST,Tallinn,24.7453688,59.4372155,3,expert
+910,sgibson91,United Kingdom,GBR,London,-0.12765,51.5073359,2,expert
+911,sgibson91,United Kingdom,GBR,London,-0.12765,51.5073359,2,mentor
+912,sgibson91,United Kingdom,GBR,London,-0.12765,51.5073359,3,expert
+913,sgibson91,United Kingdom,GBR,London,-0.12765,51.5073359,3,participant
+914,sgibson91,United Kingdom,GBR,London,-0.12765,51.5073359,3,mentor
+915,sgsfak,,,,,,3,participant
+916,shmuhammad2004,Nigeria,NGA,Kano,8.5364136,11.8948389,3,participant
+917,sithyphus,United States,USA,,,,1,participant
+918,sivasubramanian-murugappan,Ireland,IRL,Limerick,-8.6301239,52.661252,7,participant
+919,sjb287,United States,USA,Urbana,-88.207301,40.1117174,3,participant
+920,sk-sahu,India,IND,,,,2,participant
+921,sladjana-lukic,United States,USA,New York City,-74.0060152,40.7127281,5,participant
+922,slldec,Argentina,ARG,Buenos Aires,-58.4370894,-34.6075682,5,participant
+923,slldec,Argentina,ARG,Buenos Aires,-58.4370894,-34.6075682,7,facilitator
+924,slldec,Argentina,ARG,Buenos Aires,-58.4370894,-34.6075682,7,mentor
+925,smhall97,United Kingdom,GBR,Oxford,-1.2578499,51.7520131,6,mentor
+926,smhall97,United Kingdom,GBR,Oxford,-1.2578499,51.7520131,7,participant
+927,smklusza,United States,USA,Morrow,-82.7771661,40.4574358,2,participant
+928,smklusza,United States,USA,Morrow,-82.7771661,40.4574358,3,expert
+929,smklusza,United States,USA,Morrow,-82.7771661,40.4574358,3,mentor
+930,smklusza,United States,USA,Morrow,-82.7771661,40.4574358,4,expert
+931,smklusza,United States,USA,Morrow,-82.7771661,40.4574358,5,mentor
+932,sofia-kirke-forslund,Germany,DEU,Berlin,13.3888599,52.5170365,2,expert
+933,sonibk,Kenya,KEN,,,,2,participant
+934,spitschan,Germany,DEU,Munich,11.5753822,48.1371079,3,participant
+935,spitschan,Germany,DEU,Munich,11.5753822,48.1371079,7,participant
+936,stefan-gaillard,Netherlands,NLD,,,,2,participant
+937,stefaniebutland,Canada,CAN,Kamloops,-120.339415,50.6758269,3,expert
+938,stefaniebutland,Canada,CAN,Kamloops,-120.339415,50.6758269,5,expert
+939,sudarshangc,Nepal,NPL,,,,1,participant
+940,susana465,United Kingdom,GBR,,,,6,participant
+941,tai-rocha,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,2,participant
+942,tai-rocha,Brazil,BRA,Rio De Janeiro,-43.2093727,-22.9110137,3,expert
+943,tallmar,,,,,,6,expert
+944,teresa-cisneros,United Kingdom,GBR,London,-0.12765,51.5073359,5,expert
+945,teresa-m,Germany,DEU,Freiburg,7.8494005,47.9960901,3,participant
+946,thatspacegirl,India,IND,Bengaluru,77.590082,12.9767936,4,participant
+947,thatspacegirl,India,IND,Bengaluru,77.590082,12.9767936,5,participant
+948,thessaly,United Kingdom,GBR,Bristol,-2.5972985,51.4538022,1,speaker
+949,thessaly,United Kingdom,GBR,Bristol,-2.5972985,51.4538022,2,expert
+950,thessaly,United Kingdom,GBR,Bristol,-2.5972985,51.4538022,2,speaker
+951,thessaly,United Kingdom,GBR,Bristol,-2.5972985,51.4538022,3,expert
+952,thessaly,United Kingdom,GBR,Bristol,-2.5972985,51.4538022,4,expert
+953,tklingstrom,Sweden,SWE,,,,2,expert
+954,tlaguna,Spain,ESP,Madrid,-3.7035825,40.4167047,2,participant
+955,tlaguna,Spain,ESP,Madrid,-3.7035825,40.4167047,3,mentor
+956,tnabtaf,United States,USA,,,,2,expert
+957,tnabtaf,United States,USA,,,,2,mentor
+958,tnabtaf,United States,USA,,,,4,expert
+959,tnabtaf,United States,USA,,,,4,mentor
+960,tobyhodges,Germany,DEU,Heidelberg,8.694724,49.4093582,1,mentor
+961,tobyhodges,Germany,DEU,Heidelberg,8.694724,49.4093582,2,expert
+962,tobyhodges,Germany,DEU,Heidelberg,8.694724,49.4093582,3,expert
+963,tobyhodges,Germany,DEU,Heidelberg,8.694724,49.4093582,3,mentor
+964,tobyhodges,Germany,DEU,Heidelberg,8.694724,49.4093582,3,mentor
+965,tobyhodges,Germany,DEU,Heidelberg,8.694724,49.4093582,6,expert
+966,trallard,United Kingdom,GBR,Manchester,-2.2451148,53.4794892,2,speaker
+967,tsonika,Australia,AUS,Melbourne,144.9631608,-37.8142176,2,expert
+968,tsonika,Australia,AUS,Melbourne,144.9631608,-37.8142176,2,mentor
+969,tsonika,Australia,AUS,Melbourne,144.9631608,-37.8142176,3,expert
+970,tsonika,Australia,AUS,Melbourne,144.9631608,-37.8142176,3,mentor
+971,ujwal-shrestha,Nepal,NPL,Kathmandu,85.3205817,27.708317,3,participant
+972,umar-farouk-ahmad,,,,,,6,participant
+973,umutpajaro,Colombia,COL,Cartagena,-0.9841152,37.6019353,7,participant
+974,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,1,expert
+975,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,1,mentor
+976,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,1,participant
+977,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,2,expert
+978,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,2,mentor
+979,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,2,speaker
+980,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,3,expert
+981,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,3,mentor
+982,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,3,mentor
+983,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,3,speaker
+984,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,4,expert
+985,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,4,mentor
+986,unode,Germany,DEU,Heidelberg,8.694724,49.4093582,5,mentor
+987,usmood,,,,,,6,participant
+988,valerie-parent,Canada,CAN,,,,2,participant
+989,varlottaang,Italy,ITA,Rionero In Vulture,15.6694407,40.9261881,7,participant
+990,vborghe,Canada,CAN,Montréal,-73.5698065,45.5031824,5,participant
+991,vcheplygina,Netherlands,NLD,,,,2,expert
+992,veroxgithub,Argentina,ARG,Avellaneda,-58.3628061,-34.6648394,5,participant
+993,vhellon,United Kingdom,GBR,London,-0.12765,51.5073359,5,participant
+994,vickygisel,Argentina,ARG,Oro Verde,-64.29891743033643,-31.132197599999998,5,participant
+995,vickynembaware,South Africa,ZAF,,,,1,expert
+996,vickynembaware,South Africa,ZAF,,,,1,mentor
+997,vickynembaware,South Africa,ZAF,,,,2,expert
+998,wasifarahman,Bangladesh,BGD,,,,2,participant
+999,wykhuh,United States,USA,Los Angeles,-118.242766,34.0536909,4,participant
+1000,yanick-diapa-nana,Cameroon,CMR,Yaoundé,11.5213344,3.8689867,7,participant
+1001,yochannah,United Kingdom,GBR,,,,1,organizer
+1002,yochannah,United Kingdom,GBR,,,,1,mentor
+1003,yochannah,United Kingdom,GBR,,,,1,speaker
+1004,yochannah,United Kingdom,GBR,,,,1,speaker
+1005,yochannah,United Kingdom,GBR,,,,2,expert
+1006,yochannah,United Kingdom,GBR,,,,2,organizer
+1007,yochannah,United Kingdom,GBR,,,,2,mentor
+1008,yochannah,United Kingdom,GBR,,,,2,mentor
+1009,yochannah,United Kingdom,GBR,,,,2,speaker
+1010,yochannah,United Kingdom,GBR,,,,3,expert
+1011,yochannah,United Kingdom,GBR,,,,3,organizer
+1012,yochannah,United Kingdom,GBR,,,,3,mentor
+1013,yochannah,United Kingdom,GBR,,,,3,mentor
+1014,yochannah,United Kingdom,GBR,,,,3,mentor
+1015,yochannah,United Kingdom,GBR,,,,3,speaker
+1016,yochannah,United Kingdom,GBR,,,,3,speaker
+1017,yochannah,United Kingdom,GBR,,,,3,speaker
+1018,yochannah,United Kingdom,GBR,,,,4,organizer
+1019,yochannah,United Kingdom,GBR,,,,4,mentor
+1020,yochannah,United Kingdom,GBR,,,,4,speaker
+1021,yochannah,United Kingdom,GBR,,,,4,speaker
+1022,yochannah,United Kingdom,GBR,,,,5,organizer
+1023,yochannah,United Kingdom,GBR,,,,5,mentor
+1024,yochannah,United Kingdom,GBR,,,,5,mentor
+1025,yochannah,United Kingdom,GBR,,,,5,speaker
+1026,yochannah,United Kingdom,GBR,,,,6,organizer
+1027,yochannah,United Kingdom,GBR,,,,6,mentor
+1028,yochannah,United Kingdom,GBR,,,,6,speaker
+1029,yochannah,United Kingdom,GBR,,,,6,speaker
+1030,yochannah,United Kingdom,GBR,,,,6,speaker
+1031,yochannah,United Kingdom,GBR,,,,6,speaker
+1032,yochannah,United Kingdom,GBR,,,,7,organizer
+1033,yochannah,United Kingdom,GBR,,,,7,mentor
+1034,yochannah,United Kingdom,GBR,,,,7,mentor
+1035,yvanlebras,France,FRA,Concarneau,-3.9223889,47.8757017,2,expert
+1036,yvanlebras,France,FRA,Concarneau,-3.9223889,47.8757017,2,mentor
+1037,yvanlebras,France,FRA,Concarneau,-3.9223889,47.8757017,2,mentor
+1038,yvanlebras,France,FRA,Concarneau,-3.9223889,47.8757017,3,expert
+1039,yvanlebras,France,FRA,Concarneau,-3.9223889,47.8757017,3,mentor
+1040,yvanlebras,France,FRA,Concarneau,-3.9223889,47.8757017,4,mentor
+1041,yvanlebras,France,FRA,Concarneau,-3.9223889,47.8757017,4,speaker
+1042,zdunseth,United States,USA,Providence,-71.4128343,41.8239891,5,participant
+1043,zebetus,United Kingdom,GBR,,,,1,mentor
+1044,zebetus,United Kingdom,GBR,,,,2,expert
+1045,zenita-milla-luthfiya,Indonesia,IDN,Solo,110.828448,-7.5692489,3,participant
