@@ -13,6 +13,8 @@ from pathlib import Path
 
 ACTUAL_COHORT = 7
 
+ROLES = ['role', 'participant', 'mentor', 'expert', 'speaker', 'facilitator', 'organizer']
+
 # copied from https://github.com/jefftune/pycountry-convert/blob/master/pycountry_convert/country_alpha2_to_continent.py
 COUNTRY_ALPHA2_TO_CONTINENT = {
     'AB': 'Asia',
@@ -434,6 +436,40 @@ def format_people_per_cohort(people, projects):
     return people_per_cohort
 
 
+def export_people_per_roles(people_df, out_dp):
+    '''
+    Export people per role
+    '''
+    print("Export people per role")
+    people_info_df = people_df[[
+        'city',
+        'country',
+        'first-name',
+        'last-name',
+        'pronouns',
+        'country-alpha_3',
+        'continent',
+        'longitude',
+        'latitude']]
+    out_dp = out_dp / Path("roles")
+    out_dp.mkdir(parents=True, exist_ok=True)
+    for r in ROLES:
+        role_df = people_df.filter(regex = r)
+        role_df = role_df[role_df.filter(regex = r).notna().any(axis=1)]
+        for i in range(1,ACTUAL_COHORT+1):
+            role_df.rename(columns={f"ols-{i}-{r}": f"ols-{i}"}, inplace=True)
+        df = pd.merge(
+            people_info_df,
+            role_df,
+            left_index=True,
+            right_index=True,
+            how="inner")
+
+        print(df.shape)
+        fp = Path(out_dp) / Path(f"{r}.csv")
+        df.to_csv(fp)
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Extract data from website into CSV files')
     parser.add_argument('-t', '--token', help="GitHub token", required=True)
@@ -458,9 +494,9 @@ if __name__ == '__main__':
     # export people information to CSV file
     people_df = pd.DataFrame.from_dict(people, orient='index')
     for i in range(1, ACTUAL_COHORT+1):
-        people_df[f'ols-{i}-role'] = people_df[f'ols-{i}-role'].apply(lambda x: ', '.join([str(i) for i in x]))
-        people_df[f'ols-{i}-participant'] = people_df[f'ols-{i}-participant'].apply(lambda x: ', '.join([str(i) for i in x]))
-        people_df[f'ols-{i}-mentor'] = people_df[f'ols-{i}-mentor'].apply(lambda x: ', '.join([str(i) for i in x]))
+        people_df[f'ols-{i}-role'] = people_df[f'ols-{i}-role'].apply(lambda x: ', '.join([str(i) for i in x]) if len(x)>0 else None)
+        people_df[f'ols-{i}-participant'] = people_df[f'ols-{i}-participant'].apply(lambda x: ', '.join([str(i) for i in x]) if len(x)>0 else None)
+        people_df[f'ols-{i}-mentor'] = people_df[f'ols-{i}-mentor'].apply(lambda x: ', '.join([str(i) for i in x]) if len(x)>0 else None)
     people_fp = Path(args.out) / Path('people.csv')
     people_df.to_csv(people_fp)
 
@@ -476,3 +512,7 @@ if __name__ == '__main__':
     people_per_cohort_df = pd.DataFrame(people_per_cohort)
     people_per_cohort_fp = Path(args.out) / Path('people_per_cohort.csv')
     people_per_cohort_df.to_csv(people_per_cohort_fp)
+
+    # export people per role
+    export_people_per_roles(people_df, args.out)
+
