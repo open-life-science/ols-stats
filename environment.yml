@@ -11,3 +11,6 @@ dependencies:
 - pycountry
 - geopy
 - geopandas
+- plotly
+- notebook
+- ipywidgets
