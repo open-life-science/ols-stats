@@ -470,6 +470,24 @@ def export_people_per_roles(people_df, out_dp):
         df.to_csv(fp)
 
 
+def get_library(out_fp):
+    '''
+    Get library to a CSV
+    '''
+    library = read_yaml_file('_data/library.yaml', 'catalog')
+    # flatten the library
+    flat_library = []
+    for tag, t_v in library.items():
+        for subtag, st_v in t_v.items():
+            for v in st_v:
+                v['tag'] = tag
+                v['subtag'] = subtag
+                flat_library.append(v)
+    # transform to data frame to export it to csv
+    library_df = pd.DataFrame(flat_library)
+    library_df.to_csv(out_fp)
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Extract data from website into CSV files')
     parser.add_argument('-t', '--token', help="GitHub token", required=True)
@@ -516,3 +534,5 @@ if __name__ == '__main__':
     # export people per role
     export_people_per_roles(people_df, args.out)
 
+    # get and export video library
+    get_library(Path(args.out) / Path('library.csv'))

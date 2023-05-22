@@ -14,3 +14,5 @@ dependencies:
 - plotly
 - notebook
 - ipywidgets
+- yt-dlp
+- python-kaleido
