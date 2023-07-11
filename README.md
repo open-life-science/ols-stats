@@ -1,6 +1,6 @@
-# OLS program paper
+# OLS stats
 
-This GitHub repository store sources (scripts, data, images) for the OLS program paper.
+This GitHub repository store sources (scripts, data, images) for the OLS stats
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/open-life-science/ols-program-paper/main)
 
@@ -26,7 +26,6 @@ Folders:
     ```
 
 
-
 ## Extract and format data
 
 Data from the OLS website is automatically extracted **every week** and then formatted to be stored as CSV files in the `data` folder and really to be explored and visualized.
@@ -44,10 +43,8 @@ To run the data extraction and formatting manually
 
 Jupyter Notebooks have been used to generate the graphs for the paper. They are stored in the `src` folder
 
-- [`src/extract_data_from_website.ipynb`](src/extract_data_from_website.ipynb): Extract information from the website to create CSVs in `data` folder
 
-
-Usage
+### Usage
 
 - Launch [Jupyter](https://jupyter.org/) to access the notebooks to generate graphs
 
@@ -58,15 +55,15 @@ Usage
 - Go to [http://localhost:8888](http://localhost:8888) (a page should open automatically in your browser)
 - Open the interesting notebook
 - Make changes and save them
-- Generate HTML for website
 
-    In Jupyter:
+## Generate HTML page for website
 
-    - Create a new terminal
-    - Run
+- Launch Jupyter
+- Create a new terminal
+- Run
 
-        ```
-        $ quarto render src/<notebook> --to html
-        ```
+    ```
+    $ quarto render src/<notebook> --to html
+    ```
 
-    - Move the generated files into `docs`
+- Move the generated files into `docs`
