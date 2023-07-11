@@ -9,3 +9,5 @@
 *.fls
 *.fdb_latexmk
 *.ipynb_checkpoints
+
+/.quarto/
