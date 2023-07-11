@@ -9,3 +9,11 @@ dependencies:
 - pygithub
 - pyyaml
 - quarto
+- pycountry
+- geopy
+- geopandas
+- plotly
+- notebook
+- ipywidgets
+- yt-dlp
+- python-kaleido
