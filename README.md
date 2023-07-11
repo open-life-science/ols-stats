@@ -56,5 +56,17 @@ Usage
     ```
 
 - Go to [http://localhost:8888](http://localhost:8888) (a page should open automatically in your browser)
-- Open:
-    - [`src/extract_data_from_website.ipynb` Notebook](http://localhost:8888/notebooks/src/extract_data_from_website.ipynb) to extract information from the website
+- Open the interesting notebook
+- Make changes and save them
+- Generate HTML for website
+
+    In Jupyter:
+
+    - Create a new terminal
+    - Run
+
+        ```
+        $ quarto render src/<notebook> --to html
+        ```
+
+    - Move the generated files into `docs`
