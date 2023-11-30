@@ -25,20 +25,6 @@ Folders:
     $ make create-env
     ```
 
-
-## Extract and format data
-
-Data from the OLS website is automatically extracted **every week** and then formatted to be stored as CSV files in the `data` folder and really to be explored and visualized.
-
-To run the data extraction and formatting manually
-
-- Generate a Personal access token on GitHub (Settings - Developer settings - Personal access token ) and copy it to [`config.yml` file](config.yaml)
-- Run
-
-    ```
-    $ python src/extract_data_from_website.py --token <TOKEN> --out data
-    ```
-
 ## Explore and visualize data
 
 Jupyter Notebooks have been used to generate the graphs for the paper. They are stored in the `src` folder
