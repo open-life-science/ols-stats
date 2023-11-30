@@ -1,4 +1,4 @@
-name: ols-program-paper
+name: ols-stats
 channels:
 - conda-forge
 - defaults
