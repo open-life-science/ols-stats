@@ -42,14 +42,12 @@ Jupyter Notebooks have been used to generate the graphs for the paper. They are 
 - Open the interesting notebook
 - Make changes and save them
 
-## Generate HTML page for website
+## Generate website
 
-- Launch Jupyter
-- Create a new terminal
-- Run
+- Run Jupyter book
 
     ```
-    $ quarto render src/<notebook> --to html
+    $ jupyter-book build .
     ```
 
-- Move the generated files into `docs`
+- Open `_build/html/index.html` in a browser

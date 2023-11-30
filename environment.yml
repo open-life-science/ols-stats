@@ -8,7 +8,6 @@ dependencies:
 - pandas
 - pygithub
 - pyyaml
-- quarto
 - pycountry
 - geopy
 - geopandas
@@ -17,3 +16,4 @@ dependencies:
 - ipywidgets
 - yt-dlp
 - python-kaleido
+- jupyter-book
