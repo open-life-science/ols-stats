@@ -9,5 +9,7 @@ parts:
     - file: community/explore_location
   - caption: Open Seeds
     chapters:
+    - file: openseeds/explore_roles
     - file: openseeds/explore_location
+    - file: openseeds/explore_video_stats
 
