@@ -5,7 +5,7 @@ title: OLS Stats
 author: OLS community
 logo: assets/images/ols-logo.png
 
-exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", src, data, docs, results, README]
+exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", results, README.md]
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
