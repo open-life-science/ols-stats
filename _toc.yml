@@ -12,5 +12,6 @@ parts:
     - file: openseeds/explore_roles
     - file: openseeds/explore_location
     - file: openseeds/explore_projects
+    - file: openseeds/process_feedback
     - file: openseeds/explore_video_stats
 
