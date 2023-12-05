@@ -1,15 +1,8 @@
 # OLS stats
 
-This GitHub repository store sources (scripts, data, images) for the OLS stats
+This GitHub repository store sources (notebooks, pages) for the OLS stats
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/open-life-science/ols-program-paper/main)
-
-## Structure of the repository
-
-Folders:
-- `data` with CSVs containing the data
-- `images` with images generated from the data, and also sources (SVG) for any images in the paper
-- `src` with scripts and Jupyter Notebooks used to get, explore, analyze and visualize data
 
 ## Requirements
 
