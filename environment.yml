@@ -17,3 +17,4 @@ dependencies:
 - yt-dlp
 - python-kaleido
 - jupyter-book
+- wordcloud

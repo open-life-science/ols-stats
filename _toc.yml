@@ -11,5 +11,6 @@ parts:
     chapters:
     - file: openseeds/explore_roles
     - file: openseeds/explore_location
+    - file: openseeds/explore_projects
     - file: openseeds/explore_video_stats
 
