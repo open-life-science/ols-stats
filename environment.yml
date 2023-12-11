@@ -18,3 +18,4 @@ dependencies:
 - python-kaleido
 - jupyter-book
 - wordcloud
+- seaborn

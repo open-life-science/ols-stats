@@ -33,6 +33,12 @@ Jupyter Notebooks have been used to generate the graphs for the paper. They are 
 
 - Go to [http://localhost:8888](http://localhost:8888) (a page should open automatically in your browser)
 - Open the interesting notebook
+
+    For running the microgrants & honoraria notebook, you will need first to export the output of 2 searches on CiviCRM and add them in the `data/openseeds` folder to update files
+    - `data/openseeds/honorarium.csv` by "Open Seeds honorarium" search
+    - `data/openseeds/microgrants.csv` by "Open Seeds microgrants" search
+
+
 - Make changes and save them
 
 ## Generate website
