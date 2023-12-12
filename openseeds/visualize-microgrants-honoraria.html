@@ -375,14 +375,40 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#honoraria">Honoraria</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microgrants">Microgrants</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#per-cohort">Per cohort</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#per-role">Per role</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#per-continent">Per continent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cohort">Cohort</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#country">Country</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#number-of-microgrants">Number of microgrants</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#amount-gbp">Amount (GBP)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#per-cohort-and-continent">Per cohort and continent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continent">Continent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cohort-and-continent">Cohort and continent</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Number of microgrants</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Amount (GBP)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#items">Items</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#honoraria">Honoraria</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Cohort</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#role">Role</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Continent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cohort-and-role">Cohort and role</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#number-of-honoraria">Number of honoraria</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Amount (GBP)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Cohort and continent</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Number of honoraria</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Amount (GBP)</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -399,264 +425,27 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">re</span>
 
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">pycountry</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">geopandas</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">COUNTRY_ALPHA2_TO_CONTINENT</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;AB&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;AD&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;AE&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;AF&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;AG&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;AI&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;AL&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;AM&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;AO&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;AR&quot;</span><span class="p">:</span> <span class="s2">&quot;South America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;AS&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;AT&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;AU&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;AW&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;AX&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;AZ&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BA&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BB&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BD&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BE&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BF&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BG&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BH&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BI&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BJ&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BL&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BM&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BN&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BO&quot;</span><span class="p">:</span> <span class="s2">&quot;South America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BQ&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BR&quot;</span><span class="p">:</span> <span class="s2">&quot;South America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BS&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BT&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BV&quot;</span><span class="p">:</span> <span class="s2">&quot;Antarctica&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BW&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BY&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;BZ&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CA&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CC&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CD&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CF&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CG&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CH&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CI&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CK&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CL&quot;</span><span class="p">:</span> <span class="s2">&quot;South America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CM&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CN&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CO&quot;</span><span class="p">:</span> <span class="s2">&quot;South America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CR&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CU&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CV&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CW&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CX&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CY&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;CZ&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;DE&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;DJ&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;DK&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;DM&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;DO&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;DZ&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;EC&quot;</span><span class="p">:</span> <span class="s2">&quot;South America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;EE&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;EG&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;ER&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;ES&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;ET&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;FI&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;FJ&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;FK&quot;</span><span class="p">:</span> <span class="s2">&quot;South America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;FM&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;FO&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;FR&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GA&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GB&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GD&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GE&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GF&quot;</span><span class="p">:</span> <span class="s2">&quot;South America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GG&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GH&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GI&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GL&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GM&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GN&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GP&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GQ&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GR&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GS&quot;</span><span class="p">:</span> <span class="s2">&quot;South America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GT&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GU&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GW&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;GY&quot;</span><span class="p">:</span> <span class="s2">&quot;South America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;HK&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;HM&quot;</span><span class="p">:</span> <span class="s2">&quot;Antarctica&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;HN&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;HR&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;HT&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;HU&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;ID&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;IE&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;IL&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;IM&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;IN&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;IO&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;IQ&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;IR&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;IS&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;IT&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;JE&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;JM&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;JO&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;JP&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;KE&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;KG&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;KH&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;KI&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;KM&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;KN&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;KP&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;KR&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;KW&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;KY&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;KZ&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;LA&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;LB&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;LC&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;LI&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;LK&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;LR&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;LS&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;LT&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;LU&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;LV&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;LY&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MA&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MC&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MD&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;ME&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MF&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MG&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MH&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MK&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;ML&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MM&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MN&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MO&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MP&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MQ&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MR&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MS&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MT&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MU&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MV&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MW&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MX&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MY&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;MZ&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;NA&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;NC&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;NE&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;NF&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;NG&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;NI&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;NL&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;NO&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;NP&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;NR&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;NU&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;NZ&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;OM&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;OS&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;PA&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;PE&quot;</span><span class="p">:</span> <span class="s2">&quot;South America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;PF&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;PG&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;PH&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;PK&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;PL&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;PM&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;PR&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;PS&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;PT&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;PW&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;PY&quot;</span><span class="p">:</span> <span class="s2">&quot;South America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;QA&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;RE&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;RO&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;RS&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;RU&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;RW&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;SA&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;SB&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;SC&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;SD&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;SE&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;SG&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;SH&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;SI&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;SJ&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;SK&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;SL&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;SM&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;SN&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;SO&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;SR&quot;</span><span class="p">:</span> <span class="s2">&quot;South America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;SS&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;ST&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;SV&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;SY&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;SZ&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;TC&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;TD&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;TG&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;TH&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;TJ&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;TK&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;TM&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;TN&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;TO&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;TP&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;TR&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;TT&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;TV&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;TW&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;TZ&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;UA&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;UG&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;US&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;UY&quot;</span><span class="p">:</span> <span class="s2">&quot;South America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;UZ&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;VC&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;VE&quot;</span><span class="p">:</span> <span class="s2">&quot;South America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;VG&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;VI&quot;</span><span class="p">:</span> <span class="s2">&quot;North America&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;VN&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;VU&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;WF&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;WS&quot;</span><span class="p">:</span> <span class="s2">&quot;Oceania&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;XK&quot;</span><span class="p">:</span> <span class="s2">&quot;Europe&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;YE&quot;</span><span class="p">:</span> <span class="s2">&quot;Asia&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;YT&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;ZA&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;ZM&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;ZW&quot;</span><span class="p">:</span> <span class="s2">&quot;Africa&quot;</span><span class="p">,</span>
-<span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;naturalearth_lowres&#39;</span><span class="p">)</span>
+<span class="n">world_df</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+<span class="n">country_continent_fp</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;../data/country_alpha_2_continent.csv&quot;</span><span class="p">)</span>
+<span class="n">country_continent_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">country_continent_fp</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">COUNTRY_ALPHA2_TO_CONTINENT</span> <span class="o">=</span> <span class="n">country_continent_df</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()[</span><span class="s1">&#39;Continent&#39;</span><span class="p">]</span>
 
 <span class="k">def</span> <span class="nf">get_continent</span><span class="p">(</span><span class="n">country</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -667,6 +456,7 @@ document.write(`
     <span class="n">py_country</span> <span class="o">=</span> <span class="n">pycountry</span><span class="o">.</span><span class="n">countries</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">country</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">py_country</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">py_country</span> <span class="o">=</span> <span class="n">pycountry</span><span class="o">.</span><span class="n">countries</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">common_name</span><span class="o">=</span><span class="n">country</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">py_country</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="s2">&quot;&quot;</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">py_country</span><span class="o">.</span><span class="n">alpha_2</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">COUNTRY_ALPHA2_TO_CONTINENT</span><span class="p">:</span>
@@ -674,16 +464,1042 @@ document.write(`
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">COUNTRY_ALPHA2_TO_CONTINENT</span><span class="p">[</span><span class="n">py_country</span><span class="o">.</span><span class="n">alpha_2</span><span class="p">]</span>
 
+
+<span class="k">def</span> <span class="nf">get_country_3</span><span class="p">(</span><span class="n">country</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get country code</span>
+
+<span class="sd">    :param country: name of the country</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">py_country</span> <span class="o">=</span> <span class="n">pycountry</span><span class="o">.</span><span class="n">countries</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">country</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">py_country</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">py_country</span> <span class="o">=</span> <span class="n">pycountry</span><span class="o">.</span><span class="n">countries</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">common_name</span><span class="o">=</span><span class="n">country</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">py_country</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">py_country</span><span class="o">.</span><span class="n">alpha_3</span>
+
+
 <span class="n">rate</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;GBP&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">&quot;USD&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
     <span class="s2">&quot;EUR&quot;</span><span class="p">:</span> <span class="mf">0.86</span><span class="p">,</span>
+    <span class="s2">&quot;INR&quot;</span><span class="p">:</span> <span class="mf">0.0095</span><span class="p">,</span>
+    <span class="s2">&quot;XAF&quot;</span><span class="p">:</span> <span class="mf">0.0013</span><span class="p">,</span>
+    <span class="s2">&quot;ZAR&quot;</span><span class="p">:</span> <span class="mf">0.042</span><span class="p">,</span>
+    <span class="s2">&quot;ARS&quot;</span><span class="p">:</span> <span class="mf">0.0022</span><span class="p">,</span>
     <span class="s2">&quot;&quot;</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2219/543814638.py:1: FutureWarning: The geopandas.dataset module is deprecated and will be removed in GeoPandas 1.0. You can get the original &#39;naturalearth_lowres&#39; data from https://www.naturalearthdata.com/downloads/110m-cultural-vectors/.
+  path = geopandas.datasets.get_path(&#39;naturalearth_lowres&#39;)
+</pre></div>
 </div>
+</div>
+</div>
+<section id="microgrants">
+<h2>Microgrants<a class="headerlink" href="#microgrants" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://docs.google.com/spreadsheets/d/1KmIyBNbrP1_AEc8XIBQQFbzWHy4AZE3iU14xcREVJ7s/export?format=csv&amp;gid=0&quot;</span>
+<span class="n">microg_bf_civi_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">Item</span><span class="o">=</span> <span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">Item</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">microg_bf_civi_df</span><span class="p">[</span><span class="s2">&quot;Continent&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">microg_bf_civi_df</span><span class="o">.</span><span class="n">Country</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">get_continent</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">microg_bf_civi_df</span><span class="p">[</span><span class="s2">&quot;Rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">microg_bf_civi_df</span><span class="o">.</span><span class="n">Currency</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">rate</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+<span class="n">microg_bf_civi_df</span><span class="o">=</span><span class="p">(</span>
+    <span class="n">microg_bf_civi_df</span>
+    <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">Cost</span><span class="o">=</span> <span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">Cost</span> <span class="o">*</span> <span class="n">df</span><span class="o">.</span><span class="n">Rate</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Currency&quot;</span><span class="p">,</span> <span class="s2">&quot;Rate&quot;</span><span class="p">])</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">microg_in_civi_fp</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;../data/openseeds/microgrants.csv&quot;</span><span class="p">)</span> 
+<span class="n">microg_in_civi_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">microg_in_civi_fp</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;Microgrant request: Cohort&quot;</span><span class="p">:</span> <span class="s2">&quot;Cohort&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Microgrant request: Final cost (incl currency)&quot;</span><span class="p">:</span> <span class="s2">&quot;Cost&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Microgrant request: Requested items&quot;</span><span class="p">:</span> <span class="s2">&quot;Items&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Contact: &quot;</span><span class="p">:</span> <span class="s2">&quot;Country&quot;</span><span class="p">,</span>
+    <span class="p">})</span>
+    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Case ID&quot;</span><span class="p">])</span>
+<span class="p">)</span>
+<span class="n">microg_in_civi_df</span><span class="p">[</span><span class="s2">&quot;Continent&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">microg_in_civi_df</span><span class="o">.</span><span class="n">Country</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">get_continent</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="c1"># get cost</span>
+<span class="k">def</span> <span class="nf">get_gbp_amount</span><span class="p">(</span><span class="n">amount</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">amount</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="s2">&quot; &quot;</span> <span class="ow">in</span> <span class="n">amount</span><span class="p">:</span>
+        <span class="n">a_s</span> <span class="o">=</span> <span class="n">amount</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="n">currency</span> <span class="o">=</span> <span class="n">a_s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="n">amount</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">a_s</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">a_s</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;(\d+\.*\d+)&#39;</span><span class="p">,</span><span class="n">amount</span><span class="p">)</span>
+        <span class="n">currency</span> <span class="o">=</span> <span class="n">a_s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="n">amount</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">a_s</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">amount</span> <span class="o">*</span> <span class="n">rate</span><span class="p">[</span><span class="n">currency</span><span class="p">]</span>
+
+<span class="n">amounts</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">amount</span> <span class="ow">in</span> <span class="n">microg_in_civi_df</span><span class="o">.</span><span class="n">Cost</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">amount</span> <span class="o">==</span> <span class="s2">&quot;0&quot;</span><span class="p">:</span>
+        <span class="n">amounts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s2">&quot;+&quot;</span> <span class="ow">in</span> <span class="n">amount</span><span class="p">:</span>
+        <span class="n">new_amout</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">sub_a</span> <span class="ow">in</span> <span class="n">amount</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; + &quot;</span><span class="p">):</span>
+            <span class="n">new_amout</span> <span class="o">+=</span> <span class="n">get_gbp_amount</span><span class="p">(</span><span class="n">sub_a</span><span class="p">)</span>
+        <span class="n">amounts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_amout</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">amounts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">get_gbp_amount</span><span class="p">(</span><span class="n">amount</span><span class="p">))</span>
+
+<span class="n">microg_in_civi_df</span><span class="p">[</span><span class="s2">&quot;Cost&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">amounts</span>
+
+<span class="c1"># get items</span>
+<span class="n">items</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">microg_in_civi_df</span><span class="o">.</span><span class="n">Items</span><span class="p">:</span>
+    <span class="n">new_item</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s2">&quot;internet&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Internet&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;Internet&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Internet&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;Data subscription&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Internet&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;mobile data&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Internet&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;Book&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Book&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;microphone&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Headset&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;Microphone&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Headset&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;headset&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Headset&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;Headset&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Headset&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;headphones&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Headset&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;earbuds&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Headset&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;webcam&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Webcam&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;Webcam&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Webcam&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;marketing and merchandising expenses&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Marketing&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;childcare&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Childcare&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;Childcare&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Childcare&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;Mouse&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Mouse&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;modem&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Modem&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;Router&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Modem&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;batteries&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Battery&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;battery&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Battery&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;Powerbank&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Battery&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;keyboard&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Keyboard&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;Keyboard&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Keyboard&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;new computer&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Laptop&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;Dell Latitude&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Laptop&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;Hard disk&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Hardrive&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;Memory card&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Hardrive&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;hard drive&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Hardrive&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;chair&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Other&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;license&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Other&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;prototype&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Other&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;Gasoline&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Other&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;Fuel&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Other&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;implementation of the project&quot;</span> <span class="ow">in</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">new_item</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;Other&quot;</span><span class="p">)</span>
+    <span class="n">items</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">new_item</span><span class="p">))</span>
+        
+<span class="n">microg_in_civi_df</span><span class="p">[</span><span class="s2">&quot;Item&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">items</span>
+<span class="n">microg_in_civi_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">microg_in_civi_df</span>
+    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Items&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;Cost &gt; 0&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">microg_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">microg_bf_civi_df</span><span class="p">,</span> <span class="n">microg_in_civi_df</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">microg_df</span><span class="p">[</span><span class="s2">&quot;Country_3&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">microg_df</span><span class="o">.</span><span class="n">Country</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">get_country_3</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">microg_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Cohort</th>
+      <th>Country</th>
+      <th>Cost</th>
+      <th>Item</th>
+      <th>Continent</th>
+      <th>Country_3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>OLS-3</td>
+      <td>India</td>
+      <td>5.600</td>
+      <td>[Headset]</td>
+      <td>Asia</td>
+      <td>IND</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>OLS-3</td>
+      <td>United Kingdom</td>
+      <td>90.248</td>
+      <td>[Internet]</td>
+      <td>Europe</td>
+      <td>GBR</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>OLS-3</td>
+      <td>India</td>
+      <td>43.250</td>
+      <td>[Headset, Webcam]</td>
+      <td>Asia</td>
+      <td>IND</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>OLS-3</td>
+      <td>Nepal</td>
+      <td>179.400</td>
+      <td>[Webcam, Laptop, Other]</td>
+      <td>Asia</td>
+      <td>NPL</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>OLS-3</td>
+      <td>Nigeria</td>
+      <td>49.940</td>
+      <td>[Headset]</td>
+      <td>Africa</td>
+      <td>NGA</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>OLS-8</td>
+      <td>Malaysia</td>
+      <td>80.080</td>
+      <td>[Internet]</td>
+      <td>Asia</td>
+      <td>MYS</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>OLS-8</td>
+      <td>Kenya</td>
+      <td>40.500</td>
+      <td>[Internet, Headset]</td>
+      <td>Africa</td>
+      <td>KEN</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>OLS-8</td>
+      <td>Nigeria</td>
+      <td>116.650</td>
+      <td>[Hardrive, Other, Internet]</td>
+      <td>Africa</td>
+      <td>NGA</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>OLS-8</td>
+      <td>Nigeria</td>
+      <td>144.000</td>
+      <td>[Hardrive, Other, Internet, Headset]</td>
+      <td>Africa</td>
+      <td>NGA</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>OLS-8</td>
+      <td>Nigeria</td>
+      <td>145.000</td>
+      <td>[Other, Battery, Mouse, Headset, Hardrive, Int...</td>
+      <td>Africa</td>
+      <td>NGA</td>
+    </tr>
+  </tbody>
+</table>
+<p>89 rows × 6 columns</p>
+</div></div></div>
+</div>
+<section id="overview">
+<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h3>
+<p>Number of microgrants</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">microg_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>89
+</pre></div>
+</div>
+</div>
+</div>
+<p>Total amount (in GBP)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">microg_df</span><span class="o">.</span><span class="n">Cost</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13055.637700000001
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mean amount per microgrant</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">microg_df</span><span class="o">.</span><span class="n">Cost</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">microg_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>146.69255842696631
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cohort">
+<h3>Cohort<a class="headerlink" href="#cohort" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">microg_df</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;Cohort&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Cost&quot;</span><span class="p">,</span> <span class="s2">&quot;Country&quot;</span><span class="p">,</span> <span class="s2">&quot;Continent&quot;</span><span class="p">,</span> <span class="s2">&quot;Country_3&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Item&quot;</span><span class="p">:</span> <span class="s2">&quot;Number&quot;</span><span class="p">})</span>
+<span class="p">)</span>
+<span class="n">amount_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">microg_df</span>
+    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Item&quot;</span><span class="p">,</span> <span class="s2">&quot;Country&quot;</span><span class="p">,</span> <span class="s2">&quot;Continent&quot;</span><span class="p">,</span> <span class="s2">&quot;Country_3&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;Cohort&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">cohort_microg_df</span> <span class="o">=</span> <span class="n">number_df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">amount_df</span><span class="p">)</span>
+<span class="n">cohort_microg_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Number</th>
+      <th>Cost</th>
+    </tr>
+    <tr>
+      <th>Cohort</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>OLS-3</th>
+      <td>6</td>
+      <td>375.9260</td>
+    </tr>
+    <tr>
+      <th>OLS-4</th>
+      <td>3</td>
+      <td>135.0400</td>
+    </tr>
+    <tr>
+      <th>OLS-5</th>
+      <td>16</td>
+      <td>1566.0657</td>
+    </tr>
+    <tr>
+      <th>OLS-6</th>
+      <td>12</td>
+      <td>2701.1726</td>
+    </tr>
+    <tr>
+      <th>OLS-7</th>
+      <td>32</td>
+      <td>5659.1794</td>
+    </tr>
+    <tr>
+      <th>OLS-8</th>
+      <td>20</td>
+      <td>2618.2540</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_dpi</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="p">(</span><span class="n">cohort_microg_df</span><span class="o">.</span><span class="n">Number</span>
+     <span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+     <span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#139D3D&quot;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of microgrants&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;&#39;)
+</pre></div>
+</div>
+<img alt="../_images/07ea194b26591102b61a4ac4cab7f7840591d1c318c6a6b983ee9b55aefd6888.png" src="../_images/07ea194b26591102b61a4ac4cab7f7840591d1c318c6a6b983ee9b55aefd6888.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_dpi</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="p">(</span><span class="n">cohort_microg_df</span><span class="o">.</span><span class="n">Cost</span>
+     <span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+     <span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#139D3D&quot;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Amount (GPB)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;&#39;)
+</pre></div>
+</div>
+<img alt="../_images/2478f22f63919feb89db3170cd62eee9ce409039db3199cf09c9e15d7e2cb8ec.png" src="../_images/2478f22f63919feb89db3170cd62eee9ce409039db3199cf09c9e15d7e2cb8ec.png" />
+</div>
+</div>
+</section>
+<section id="country">
+<h3>Country<a class="headerlink" href="#country" title="Permalink to this heading">#</a></h3>
+<section id="number-of-microgrants">
+<h4>Number of microgrants<a class="headerlink" href="#number-of-microgrants" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">country_code_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">microg_df</span>
+    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Item&quot;</span><span class="p">,</span> <span class="s2">&quot;Country&quot;</span><span class="p">,</span> <span class="s2">&quot;Cohort&quot;</span><span class="p">,</span> <span class="s2">&quot;Continent&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Country_3&#39;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Cost&#39;</span><span class="p">:</span> <span class="s1">&#39;total&#39;</span><span class="p">})</span>
+    <span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s2">&quot;iso_a3&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">country_world_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">world_df</span><span class="p">,</span> <span class="n">country_code_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;iso_a3&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_dpi</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="n">country_world_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">column</span><span class="o">=</span><span class="s1">&#39;total&#39;</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">legend_kwds</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s2">&quot;Number of microgrants&quot;</span><span class="p">,</span> <span class="s1">&#39;orientation&#39;</span><span class="p">:</span> <span class="s2">&quot;horizontal&quot;</span><span class="p">},</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;YlGn&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3b3a7450e183f898ab058d5026bdac9a30e5e6d3eb5504145c9a43c7d3e5bc5f.png" src="../_images/3b3a7450e183f898ab058d5026bdac9a30e5e6d3eb5504145c9a43c7d3e5bc5f.png" />
+</div>
+</div>
+</section>
+<section id="amount-gbp">
+<h4>Amount (GBP)<a class="headerlink" href="#amount-gbp" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">country_code_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">microg_df</span>
+    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Item&quot;</span><span class="p">,</span> <span class="s2">&quot;Country&quot;</span><span class="p">,</span> <span class="s2">&quot;Cohort&quot;</span><span class="p">,</span> <span class="s2">&quot;Continent&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Country_3&#39;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Cost&#39;</span><span class="p">:</span> <span class="s1">&#39;total&#39;</span><span class="p">})</span>
+    <span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s2">&quot;iso_a3&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">country_world_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">world_df</span><span class="p">,</span> <span class="n">country_code_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;iso_a3&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_dpi</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="n">country_world_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">column</span><span class="o">=</span><span class="s1">&#39;total&#39;</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+    <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">legend_kwds</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s2">&quot;Amount (GPB)&quot;</span><span class="p">,</span> <span class="s1">&#39;orientation&#39;</span><span class="p">:</span> <span class="s2">&quot;horizontal&quot;</span><span class="p">},</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;YlGn&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/390bd6bb73743820161d57c656b83f4c00c8b35fdce0163d5bef5449477511d0.png" src="../_images/390bd6bb73743820161d57c656b83f4c00c8b35fdce0163d5bef5449477511d0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="continent">
+<h3>Continent<a class="headerlink" href="#continent" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">microg_df</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;Continent&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Cost&quot;</span><span class="p">,</span> <span class="s2">&quot;Country&quot;</span><span class="p">,</span> <span class="s2">&quot;Item&quot;</span><span class="p">,</span> <span class="s2">&quot;Country_3&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Cohort&quot;</span><span class="p">:</span> <span class="s2">&quot;Number&quot;</span><span class="p">})</span>
+<span class="p">)</span>
+<span class="n">amount_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">microg_df</span>
+    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Item&quot;</span><span class="p">,</span> <span class="s2">&quot;Country&quot;</span><span class="p">,</span> <span class="s2">&quot;Cohort&quot;</span><span class="p">,</span> <span class="s2">&quot;Country_3&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;Continent&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">continent_microg_df</span> <span class="o">=</span> <span class="n">number_df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">amount_df</span><span class="p">)</span>
+<span class="n">tmp</span> <span class="o">=</span> <span class="n">continent_microg_df</span><span class="p">[</span><span class="n">continent_microg_df</span><span class="o">.</span><span class="n">index</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;Number&quot;</span><span class="p">)</span>
+<span class="n">continent_microg_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">continent_microg_df</span><span class="p">[</span><span class="n">continent_microg_df</span><span class="o">.</span><span class="n">index</span><span class="o">==</span><span class="s1">&#39;&#39;</span><span class="p">],</span> <span class="n">tmp</span><span class="p">])</span>
+<span class="n">continent_microg_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Number</th>
+      <th>Cost</th>
+    </tr>
+    <tr>
+      <th>Continent</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>North America</th>
+      <td>1</td>
+      <td>51.9520</td>
+    </tr>
+    <tr>
+      <th>South America</th>
+      <td>12</td>
+      <td>1128.3018</td>
+    </tr>
+    <tr>
+      <th>Asia</th>
+      <td>13</td>
+      <td>748.8995</td>
+    </tr>
+    <tr>
+      <th>Europe</th>
+      <td>15</td>
+      <td>1075.4892</td>
+    </tr>
+    <tr>
+      <th>Africa</th>
+      <td>48</td>
+      <td>10050.9952</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_dpi</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="p">(</span><span class="n">continent_microg_df</span><span class="o">.</span><span class="n">Number</span>
+     <span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+     <span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#139D3D&quot;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of microgrants&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;&#39;)
+</pre></div>
+</div>
+<img alt="../_images/cddce8d0a18a2bbcacad06f1b6eecba8c90e22f3f42da6a564ee77ad219c3cdd.png" src="../_images/cddce8d0a18a2bbcacad06f1b6eecba8c90e22f3f42da6a564ee77ad219c3cdd.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_dpi</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="p">(</span><span class="n">continent_microg_df</span><span class="o">.</span><span class="n">Cost</span>
+     <span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+     <span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#139D3D&quot;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Amount (GPB)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;&#39;)
+</pre></div>
+</div>
+<img alt="../_images/60f8caf63d37bfcd4f8b14ef0e216ae661065cc337c79c6a93d84181d5ffe250.png" src="../_images/60f8caf63d37bfcd4f8b14ef0e216ae661065cc337c79c6a93d84181d5ffe250.png" />
+</div>
+</div>
+</section>
+<section id="cohort-and-continent">
+<h3>Cohort and continent<a class="headerlink" href="#cohort-and-continent" title="Permalink to this heading">#</a></h3>
+<section id="id1">
+<h4>Number of microgrants<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cohort_continent_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">microg_df</span>
+    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Item&quot;</span><span class="p">,</span> <span class="s2">&quot;Country&quot;</span><span class="p">,</span> <span class="s2">&quot;Country_3&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Continent&quot;</span><span class="p">,</span><span class="s2">&quot;Cohort&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">cohort_continent_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">cohort_continent_df</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;Continent&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;Cohort&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;Cost&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;Africa&#39;</span><span class="p">,</span> <span class="s1">&#39;Asia&#39;</span><span class="p">,</span> <span class="s1">&#39;Europe&#39;</span><span class="p">,</span> <span class="s1">&#39;North America&#39;</span><span class="p">,</span> <span class="s1">&#39;Oceania&#39;</span><span class="p">,</span> <span class="s1">&#39;South America&#39;</span><span class="p">])</span>
+<span class="p">)</span>
+<span class="n">cohort_continent_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Cohort</th>
+      <th>OLS-3</th>
+      <th>OLS-4</th>
+      <th>OLS-5</th>
+      <th>OLS-6</th>
+      <th>OLS-7</th>
+      <th>OLS-8</th>
+    </tr>
+    <tr>
+      <th>Continent</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Africa</th>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>6.0</td>
+      <td>21.0</td>
+      <td>13.0</td>
+    </tr>
+    <tr>
+      <th>Asia</th>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Europe</th>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>North America</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Oceania</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>South America</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>6.0</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_dpi</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cohort_continent_df</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greens&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Number of microgrants&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e14719ca2fff265db8f54f7d1542bd16449d8ca71e6d9b244d7154f666222dc0.png" src="../_images/e14719ca2fff265db8f54f7d1542bd16449d8ca71e6d9b244d7154f666222dc0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_dpi</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="p">(</span><span class="n">cohort_continent_df</span>
+     <span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+     <span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s1">&#39;tab20c&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Cohorts&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of microgrants&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span>
+    <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span>
+    <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-small&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f588f5ca4d0&gt;
+</pre></div>
+</div>
+<img alt="../_images/d0399478d451c4304efaa6f1cc6209b68b34a60abbbcc3b808ccb064b0b5105e.png" src="../_images/d0399478d451c4304efaa6f1cc6209b68b34a60abbbcc3b808ccb064b0b5105e.png" />
+</div>
+</div>
+</section>
+<section id="id2">
+<h4>Amount (GBP)<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cohort_continent_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">microg_df</span>
+    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Item&quot;</span><span class="p">,</span> <span class="s2">&quot;Country&quot;</span><span class="p">,</span> <span class="s2">&quot;Country_3&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Continent&quot;</span><span class="p">,</span><span class="s2">&quot;Cohort&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">cohort_continent_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">cohort_continent_df</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;Continent&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;Cohort&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;Cost&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;Africa&#39;</span><span class="p">,</span> <span class="s1">&#39;Asia&#39;</span><span class="p">,</span> <span class="s1">&#39;Europe&#39;</span><span class="p">,</span> <span class="s1">&#39;North America&#39;</span><span class="p">,</span> <span class="s1">&#39;Oceania&#39;</span><span class="p">,</span> <span class="s1">&#39;South America&#39;</span><span class="p">])</span>
+<span class="p">)</span>
+<span class="n">cohort_continent_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Cohort</th>
+      <th>OLS-3</th>
+      <th>OLS-4</th>
+      <th>OLS-5</th>
+      <th>OLS-6</th>
+      <th>OLS-7</th>
+      <th>OLS-8</th>
+    </tr>
+    <tr>
+      <th>Continent</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Africa</th>
+      <td>57.428</td>
+      <td>9.40</td>
+      <td>1004.2960</td>
+      <td>2079.7326</td>
+      <td>4764.8786</td>
+      <td>2135.260</td>
+    </tr>
+    <tr>
+      <th>Asia</th>
+      <td>228.250</td>
+      <td>125.64</td>
+      <td>216.8495</td>
+      <td>44.9800</td>
+      <td>53.1000</td>
+      <td>80.080</td>
+    </tr>
+    <tr>
+      <th>Europe</th>
+      <td>90.248</td>
+      <td>NaN</td>
+      <td>93.6884</td>
+      <td>576.4600</td>
+      <td>183.5228</td>
+      <td>131.570</td>
+    </tr>
+    <tr>
+      <th>North America</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>51.9520</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Oceania</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>South America</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>251.2318</td>
+      <td>NaN</td>
+      <td>605.7260</td>
+      <td>271.344</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_dpi</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cohort_continent_df</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greens&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Amount (GBP)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/daf9cbd2f2898299a7d48d82cf113d3bc3172900c32b3106b4d5d6316da3e56e.png" src="../_images/daf9cbd2f2898299a7d48d82cf113d3bc3172900c32b3106b4d5d6316da3e56e.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_dpi</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="p">(</span><span class="n">cohort_continent_df</span>
+     <span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+     <span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s1">&#39;tab20c&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Cohorts&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amount (GBP)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span>
+    <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span>
+    <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-small&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f588f5308d0&gt;
+</pre></div>
+</div>
+<img alt="../_images/2ac3d1f15d4ec0d4a028ba162dc51df1547002768bd7e405761350f315223887.png" src="../_images/2ac3d1f15d4ec0d4a028ba162dc51df1547002768bd7e405761350f315223887.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="items">
+<h3>Items<a class="headerlink" href="#items" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">item_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">microg_df</span>
+    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Continent&quot;</span><span class="p">,</span> <span class="s2">&quot;Country&quot;</span><span class="p">,</span> <span class="s2">&quot;Country_3&quot;</span><span class="p">,</span> <span class="s2">&quot;Cost&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s1">&#39;Item&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Item&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Cohort&quot;</span><span class="p">:</span> <span class="s2">&quot;Number&quot;</span><span class="p">})</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Number&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_dpi</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="p">(</span><span class="n">item_df</span><span class="o">.</span><span class="n">Number</span>
+     <span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+     <span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#139D3D&quot;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Requested items&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;&#39;)
+</pre></div>
+</div>
+<img alt="../_images/1b3a9e4b093a7f53cc7227099ae84eb05cfc6efea2dd0188e393d8b879d73891.png" src="../_images/1b3a9e4b093a7f53cc7227099ae84eb05cfc6efea2dd0188e393d8b879d73891.png" />
+</div>
+</div>
+</section>
+</section>
 <section id="honoraria">
 <h2>Honoraria<a class="headerlink" href="#honoraria" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -692,7 +1508,6 @@ document.write(`
 <span class="n">honor_bf_civi_df</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
     <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">Role</span><span class="o">=</span> <span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">Role</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">))</span>
 <span class="p">)</span>
 <span class="n">honor_bf_civi_df</span><span class="p">[</span><span class="s2">&quot;Continent&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">honor_bf_civi_df</span><span class="o">.</span><span class="n">Country</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">get_continent</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
@@ -728,10 +1543,9 @@ document.write(`
     <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;transcription check&quot;</span><span class="p">,</span> <span class="s2">&quot;facilitator&quot;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Ally Skills workshop facilitator&quot;</span><span class="p">,</span> <span class="s2">&quot;facilitator&quot;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Facilitator and Speaker&quot;</span><span class="p">,</span> <span class="s2">&quot;speaker, facilitator&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Mentor and expert&quot;</span><span class="p">,</span> <span class="s2">&quot;mentor, expert&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Mentor and expert&quot;</span><span class="p">,</span> <span class="s2">&quot;mentor&quot;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;co-facilitator, transcriber&quot;</span><span class="p">,</span> <span class="s2">&quot;facilitator&quot;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Facilitator&quot;</span><span class="p">,</span> <span class="s2">&quot;facilitator&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">Role</span><span class="o">=</span> <span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">Role</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">))</span>
     <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Case ID&quot;</span><span class="p">])</span>
 <span class="p">)</span>
 <span class="n">honor_in_civi_df</span><span class="p">[</span><span class="s2">&quot;Currency&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">honor_in_civi_df</span><span class="o">.</span><span class="n">Amount</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="s2">&quot; &quot;</span> <span class="ow">in</span> <span class="n">x</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
@@ -750,6 +1564,7 @@ document.write(`
 <span class="n">honor_df</span><span class="o">=</span><span class="p">(</span>
     <span class="n">honor_df</span>
     <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">Amount</span><span class="o">=</span> <span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">Amount</span> <span class="o">*</span> <span class="n">df</span><span class="o">.</span><span class="n">Rate</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">Role</span><span class="o">=</span> <span class="k">lambda</span> <span class="n">df</span><span class="p">:</span> <span class="n">df</span><span class="o">.</span><span class="n">Role</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
     <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Currency&quot;</span><span class="p">,</span> <span class="s2">&quot;Rate&quot;</span><span class="p">])</span>
 <span class="p">)</span>
 <span class="n">honor_df</span>
@@ -786,7 +1601,7 @@ document.write(`
     <tr>
       <th>0</th>
       <td>OLS-6</td>
-      <td>[speaker]</td>
+      <td>Speaker</td>
       <td>212.9300</td>
       <td>Colombia</td>
       <td>South America</td>
@@ -794,7 +1609,7 @@ document.write(`
     <tr>
       <th>1</th>
       <td>OLS-6</td>
-      <td>[facilitator]</td>
+      <td>Facilitator</td>
       <td>377.4900</td>
       <td>United Kingdom</td>
       <td>Europe</td>
@@ -802,7 +1617,7 @@ document.write(`
     <tr>
       <th>2</th>
       <td>OLS-6</td>
-      <td>[speaker]</td>
+      <td>Speaker</td>
       <td>211.5300</td>
       <td>United Kingdom</td>
       <td>Europe</td>
@@ -810,7 +1625,7 @@ document.write(`
     <tr>
       <th>3</th>
       <td>OLS-6</td>
-      <td>[speaker]</td>
+      <td>Speaker</td>
       <td>212.5700</td>
       <td></td>
       <td></td>
@@ -818,7 +1633,7 @@ document.write(`
     <tr>
       <th>4</th>
       <td>OLS-6</td>
-      <td>[speaker]</td>
+      <td>Speaker</td>
       <td>211.0700</td>
       <td>Netherlands</td>
       <td>Europe</td>
@@ -834,7 +1649,7 @@ document.write(`
     <tr>
       <th>138</th>
       <td>OLS-7</td>
-      <td>[facilitator]</td>
+      <td>Facilitator</td>
       <td>121.3700</td>
       <td></td>
       <td></td>
@@ -842,7 +1657,7 @@ document.write(`
     <tr>
       <th>139</th>
       <td>OLS-7</td>
-      <td>[facilitator]</td>
+      <td>Facilitator</td>
       <td>59.6926</td>
       <td>France</td>
       <td>Europe</td>
@@ -850,7 +1665,7 @@ document.write(`
     <tr>
       <th>140</th>
       <td>OLS-6</td>
-      <td>[mentor]</td>
+      <td>Mentor</td>
       <td>416.9800</td>
       <td>Germany</td>
       <td>Europe</td>
@@ -858,7 +1673,7 @@ document.write(`
     <tr>
       <th>141</th>
       <td>OLS-7</td>
-      <td>[mentor]</td>
+      <td>Mentor</td>
       <td>393.9402</td>
       <td>Germany</td>
       <td>Europe</td>
@@ -866,7 +1681,7 @@ document.write(`
     <tr>
       <th>142</th>
       <td>OLS-7</td>
-      <td>[mentor]</td>
+      <td>Mentor</td>
       <td>0.0000</td>
       <td></td>
       <td></td>
@@ -876,22 +1691,9 @@ document.write(`
 <p>143 rows × 5 columns</p>
 </div></div></div>
 </div>
-<section id="overview">
-<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h3>
+<section id="id3">
+<h3>Overview<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <p>Number of honoraria</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">honor_df</span><span class="o">.</span><span class="n">Amount</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>34908.9642
-</pre></div>
-</div>
-</div>
-</div>
-<p>Total amount (in GBP)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">honor_df</span><span class="p">)</span>
@@ -900,6 +1702,19 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>143
+</pre></div>
+</div>
+</div>
+</div>
+<p>Total amount (in GBP)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">honor_df</span><span class="o">.</span><span class="n">Amount</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>34908.9642
 </pre></div>
 </div>
 </div>
@@ -918,8 +1733,8 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="per-cohort">
-<h3>Per cohort<a class="headerlink" href="#per-cohort" title="Permalink to this heading">#</a></h3>
+<section id="id4">
+<h3>Cohort<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number_df</span> <span class="o">=</span> <span class="p">(</span>
@@ -1019,7 +1834,7 @@ document.write(`
 <span class="p">(</span><span class="n">cohort_honor_df</span><span class="o">.</span><span class="n">Amount</span>
      <span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
      <span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#139D3D&quot;</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Amount of honoraria (GPB)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Amount (GPB)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1028,35 +1843,30 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;&#39;)
 </pre></div>
 </div>
-<img alt="../_images/3631a6caef4f024d0eb1ffd18ace86e72336a2bb855ddb9b022c17caa27227c2.png" src="../_images/3631a6caef4f024d0eb1ffd18ace86e72336a2bb855ddb9b022c17caa27227c2.png" />
+<img alt="../_images/6fe4124a5ec54a92d1f39a39d5b42eae75b8058aa32fed5f501c8b7cf9010b02.png" src="../_images/6fe4124a5ec54a92d1f39a39d5b42eae75b8058aa32fed5f501c8b7cf9010b02.png" />
 </div>
 </div>
 </section>
-<section id="per-role">
-<h3>Per role<a class="headerlink" href="#per-role" title="Permalink to this heading">#</a></h3>
+<section id="role">
+<h3>Role<a class="headerlink" href="#role" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number_df</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">honor_df</span>
-    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">honor_df</span><span class="p">[</span><span class="s2">&quot;Role&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">tuple</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;Role&quot;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">count</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Amount&quot;</span><span class="p">,</span> <span class="s2">&quot;Country&quot;</span><span class="p">,</span> <span class="s2">&quot;Continent&quot;</span><span class="p">,</span> <span class="s2">&quot;Cohort&quot;</span><span class="p">])</span>
-    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Role&quot;</span><span class="p">:</span> <span class="s2">&quot;Number&quot;</span><span class="p">})</span>
+    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Amount&quot;</span><span class="p">,</span> <span class="s2">&quot;Country&quot;</span><span class="p">,</span> <span class="s2">&quot;Continent&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Cohort&quot;</span><span class="p">:</span> <span class="s2">&quot;Number&quot;</span><span class="p">})</span>
 <span class="p">)</span>
 <span class="n">amount_df</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">honor_df</span>
     <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Cohort&quot;</span><span class="p">,</span> <span class="s2">&quot;Country&quot;</span><span class="p">,</span> <span class="s2">&quot;Continent&quot;</span><span class="p">])</span>
-    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">honor_df</span><span class="p">[</span><span class="s2">&quot;Role&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">tuple</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;Role&quot;</span><span class="p">)</span>
     <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Role&quot;</span><span class="p">])</span>
+    <span class="c1">#.drop(columns = [&quot;Role&quot;])</span>
 <span class="p">)</span>
-<span class="n">role_honor_df</span> <span class="o">=</span> <span class="n">number_df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">amount_df</span><span class="p">)</span>
-<span class="n">index_rename</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">role_honor_df</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
-    <span class="n">index_rename</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot; &amp; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 <span class="n">role_honor_df</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">role_honor_df</span>
-    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index_rename</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+    <span class="n">number_df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">amount_df</span><span class="p">)</span>
     <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;Number&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 <span class="n">role_honor_df</span>
@@ -1093,32 +1903,27 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>mentor &amp; expert</th>
-      <td>1</td>
-      <td>393.5900</td>
-    </tr>
-    <tr>
-      <th>speaker &amp; facilitator</th>
+      <th>Speaker, Facilitator</th>
       <td>1</td>
       <td>370.5800</td>
     </tr>
     <tr>
-      <th>facilitator &amp; mentor</th>
+      <th>Facilitator, Mentor</th>
       <td>2</td>
       <td>906.3608</td>
     </tr>
     <tr>
-      <th>facilitator</th>
+      <th>Facilitator</th>
       <td>33</td>
       <td>5071.8482</td>
     </tr>
     <tr>
-      <th>mentor</th>
-      <td>50</td>
-      <td>17872.3722</td>
+      <th>Mentor</th>
+      <td>51</td>
+      <td>18265.9622</td>
     </tr>
     <tr>
-      <th>speaker</th>
+      <th>Speaker</th>
       <td>56</td>
       <td>10294.2130</td>
     </tr>
@@ -1142,7 +1947,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;&#39;)
 </pre></div>
 </div>
-<img alt="../_images/5790146a9479f86d3e0771b476c4bb27b730600f8ff0339f12acc928042db870.png" src="../_images/5790146a9479f86d3e0771b476c4bb27b730600f8ff0339f12acc928042db870.png" />
+<img alt="../_images/6039c22337438ffe7dd757ecb2115a954d2b7380ee193f0c93f70b506648293f.png" src="../_images/6039c22337438ffe7dd757ecb2115a954d2b7380ee193f0c93f70b506648293f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1152,7 +1957,7 @@ document.write(`
 <span class="p">(</span><span class="n">role_honor_df</span><span class="o">.</span><span class="n">Amount</span>
      <span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
      <span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#139D3D&quot;</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Amount of honoraria (GPB)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Amount (GPB)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1161,12 +1966,12 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;&#39;)
 </pre></div>
 </div>
-<img alt="../_images/8ee5e4a88a0a978e0de962831568bdda5739b3f4d37d1979e4db2bc885d1e8ff.png" src="../_images/8ee5e4a88a0a978e0de962831568bdda5739b3f4d37d1979e4db2bc885d1e8ff.png" />
+<img alt="../_images/cce1e76d7ac77c3e6c28671766fd69e97277bb67c22c261c54e03e31d5c54552.png" src="../_images/cce1e76d7ac77c3e6c28671766fd69e97277bb67c22c261c54e03e31d5c54552.png" />
 </div>
 </div>
 </section>
-<section id="per-continent">
-<h3>Per continent<a class="headerlink" href="#per-continent" title="Permalink to this heading">#</a></h3>
+<section id="id5">
+<h3>Continent<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number_df</span> <span class="o">=</span> <span class="p">(</span>
@@ -1283,7 +2088,7 @@ document.write(`
 <span class="p">(</span><span class="n">continent_honor_df</span><span class="o">.</span><span class="n">Amount</span>
      <span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
      <span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;#139D3D&quot;</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Amount of honoraria (GPB)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Amount (GPB)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1292,13 +2097,417 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;&#39;)
 </pre></div>
 </div>
-<img alt="../_images/1659c93a7d7406a39cd5659b91afd5ff7e5c70fa6a4705698c08dd0a740c8e74.png" src="../_images/1659c93a7d7406a39cd5659b91afd5ff7e5c70fa6a4705698c08dd0a740c8e74.png" />
+<img alt="../_images/b43e90419ec38b0454deb793060c2121350cbb9a76ee25bc94d76d85a15f8d33.png" src="../_images/b43e90419ec38b0454deb793060c2121350cbb9a76ee25bc94d76d85a15f8d33.png" />
+</div>
+</div>
+</section>
+<section id="cohort-and-role">
+<h3>Cohort and role<a class="headerlink" href="#cohort-and-role" title="Permalink to this heading">#</a></h3>
+<section id="number-of-honoraria">
+<h4>Number of honoraria<a class="headerlink" href="#number-of-honoraria" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cohort_role_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">honor_df</span>
+    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Continent&quot;</span><span class="p">,</span> <span class="s2">&quot;Country&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Role&quot;</span><span class="p">,</span><span class="s2">&quot;Cohort&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">cohort_role_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">cohort_role_df</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;Role&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;Cohort&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;Amount&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;Facilitator, Mentor&#39;</span><span class="p">,</span> <span class="s1">&#39;Mentor&#39;</span><span class="p">,</span> <span class="s1">&#39;Facilitator&#39;</span><span class="p">,</span> <span class="s1">&#39;Speaker&#39;</span><span class="p">,</span> <span class="s1">&#39;Speaker, Facilitator&#39;</span><span class="p">])</span>
+<span class="p">)</span>
+<span class="n">cohort_role_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Cohort</th>
+      <th>OLS-5</th>
+      <th>OLS-6</th>
+      <th>OLS-7</th>
+      <th>OLS-8</th>
+    </tr>
+    <tr>
+      <th>Role</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Facilitator, Mentor</th>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Mentor</th>
+      <td>20.0</td>
+      <td>3.0</td>
+      <td>28.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Facilitator</th>
+      <td>4.0</td>
+      <td>7.0</td>
+      <td>11.0</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>Speaker</th>
+      <td>12.0</td>
+      <td>14.0</td>
+      <td>13.0</td>
+      <td>17.0</td>
+    </tr>
+    <tr>
+      <th>Speaker, Facilitator</th>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_dpi</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cohort_role_df</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greens&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Number of honoraria&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e0e31cff20f3fd3d566593a7045e33d5fe060187317720f2698a1cd4023b2db6.png" src="../_images/e0e31cff20f3fd3d566593a7045e33d5fe060187317720f2698a1cd4023b2db6.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_dpi</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="p">(</span><span class="n">cohort_role_df</span>
+     <span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+     <span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s1">&#39;tab20c&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Role&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of honoraria&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span>
+    <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span>
+    <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-small&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f588f12fcd0&gt;
+</pre></div>
+</div>
+<img alt="../_images/bcdc51af0d7b96f8bc915d868c6573428592912cd8262cde77ba6feb9e61dbdb.png" src="../_images/bcdc51af0d7b96f8bc915d868c6573428592912cd8262cde77ba6feb9e61dbdb.png" />
+</div>
+</div>
+</section>
+<section id="id6">
+<h4>Amount (GBP)<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cohort_role_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">honor_df</span>
+    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Continent&quot;</span><span class="p">,</span> <span class="s2">&quot;Country&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Role&quot;</span><span class="p">,</span><span class="s2">&quot;Cohort&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">cohort_role_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">cohort_role_df</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;Role&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;Cohort&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;Amount&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;Facilitator, Mentor&#39;</span><span class="p">,</span> <span class="s1">&#39;Mentor&#39;</span><span class="p">,</span> <span class="s1">&#39;Facilitator&#39;</span><span class="p">,</span> <span class="s1">&#39;Speaker&#39;</span><span class="p">,</span> <span class="s1">&#39;Speaker, Facilitator&#39;</span><span class="p">])</span>
+<span class="p">)</span>
+<span class="n">cohort_role_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Cohort</th>
+      <th>OLS-5</th>
+      <th>OLS-6</th>
+      <th>OLS-7</th>
+      <th>OLS-8</th>
+    </tr>
+    <tr>
+      <th>Role</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Facilitator, Mentor</th>
+      <td>906.3608</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Mentor</th>
+      <td>7385.3404</td>
+      <td>1254.680</td>
+      <td>9625.9418</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Facilitator</th>
+      <td>1239.8700</td>
+      <td>1332.400</td>
+      <td>1287.5526</td>
+      <td>1212.0256</td>
+    </tr>
+    <tr>
+      <th>Speaker</th>
+      <td>2395.1170</td>
+      <td>2693.413</td>
+      <td>2613.2366</td>
+      <td>2592.4464</td>
+    </tr>
+    <tr>
+      <th>Speaker, Facilitator</th>
+      <td>NaN</td>
+      <td>370.580</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_dpi</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cohort_role_df</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greens&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Amount (GBP)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c51dedf601588dc6aaac357c1a1701d88619971d5fe365da1a5896c52e0a9c49.png" src="../_images/c51dedf601588dc6aaac357c1a1701d88619971d5fe365da1a5896c52e0a9c49.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_dpi</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="p">(</span><span class="n">cohort_role_df</span>
+     <span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+     <span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s1">&#39;tab20c&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Role&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amount (GBP)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span>
+    <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span>
+    <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-small&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f588f4801d0&gt;
+</pre></div>
+</div>
+<img alt="../_images/587eec511c824522d787e1301d96608af642fca329bc9065849c203443a6e18e.png" src="../_images/587eec511c824522d787e1301d96608af642fca329bc9065849c203443a6e18e.png" />
 </div>
 </div>
 </section>
 </section>
-<section id="per-cohort-and-continent">
-<h2>Per cohort and continent<a class="headerlink" href="#per-cohort-and-continent" title="Permalink to this heading">#</a></h2>
+<section id="id7">
+<h3>Cohort and continent<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
+<section id="id8">
+<h4>Number of honoraria<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cohort_continent_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">honor_df</span>
+    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Role&quot;</span><span class="p">,</span> <span class="s2">&quot;Country&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Continent&quot;</span><span class="p">,</span><span class="s2">&quot;Cohort&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">cohort_continent_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">cohort_continent_df</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;Continent&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;Cohort&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;Amount&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;Africa&#39;</span><span class="p">,</span> <span class="s1">&#39;Asia&#39;</span><span class="p">,</span> <span class="s1">&#39;Europe&#39;</span><span class="p">,</span> <span class="s1">&#39;North America&#39;</span><span class="p">,</span> <span class="s1">&#39;Oceania&#39;</span><span class="p">,</span> <span class="s1">&#39;South America&#39;</span><span class="p">])</span>
+<span class="p">)</span>
+<span class="n">cohort_continent_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Cohort</th>
+      <th>OLS-5</th>
+      <th>OLS-6</th>
+      <th>OLS-7</th>
+      <th>OLS-8</th>
+    </tr>
+    <tr>
+      <th>Continent</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Africa</th>
+      <td>5.0</td>
+      <td>6.0</td>
+      <td>14.0</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>Asia</th>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>Europe</th>
+      <td>22.0</td>
+      <td>12.0</td>
+      <td>15.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>North America</th>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>Oceania</th>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>South America</th>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>7.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_dpi</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cohort_continent_df</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greens&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Number of honoraria&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/696978f2c70735ca3d61726d278e33ee8dea56257d2248aeea56856eeff119a4.png" src="../_images/696978f2c70735ca3d61726d278e33ee8dea56257d2248aeea56856eeff119a4.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_dpi</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="p">(</span><span class="n">cohort_continent_df</span>
+     <span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+     <span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s1">&#39;tab20c&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Cohorts&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of honoraria&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span>
+    <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span>
+    <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-small&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f58e4e4e110&gt;
+</pre></div>
+</div>
+<img alt="../_images/c8b1d574c5bc09c70220a6470208b013560193469645ce3328392ad97e47eeb4.png" src="../_images/c8b1d574c5bc09c70220a6470208b013560193469645ce3328392ad97e47eeb4.png" />
+</div>
+</div>
+</section>
+<section id="id9">
+<h4>Amount (GBP)<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cohort_continent_df</span> <span class="o">=</span> <span class="p">(</span>
@@ -1307,105 +2516,131 @@ document.write(`
     <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Continent&quot;</span><span class="p">,</span><span class="s2">&quot;Cohort&quot;</span><span class="p">])</span>
     <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="p">)</span>
-<span class="n">cohort_continent_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">amount_df</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;Continent&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;Cohort&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;Amount&quot;</span><span class="p">)</span>
+<span class="n">cohort_continent_df</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">cohort_continent_df</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;Continent&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;Cohort&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;Amount&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s1">&#39;Africa&#39;</span><span class="p">,</span> <span class="s1">&#39;Asia&#39;</span><span class="p">,</span> <span class="s1">&#39;Europe&#39;</span><span class="p">,</span> <span class="s1">&#39;North America&#39;</span><span class="p">,</span> <span class="s1">&#39;Oceania&#39;</span><span class="p">,</span> <span class="s1">&#39;South America&#39;</span><span class="p">])</span>
+<span class="p">)</span>
 <span class="n">cohort_continent_df</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">cohort_continent_df</span> <span class="o">=</span> <span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">honor_df</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Role&quot;</span><span class="p">,</span> <span class="s2">&quot;Country&quot;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Continent&quot;</span><span class="p">,</span><span class="s2">&quot;Cohort&quot;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">cohort_continent_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">amount_df</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="s1">&#39;Continent&#39;</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="s1">&#39;Cohort&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;Amount&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">cohort_continent_df</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/pandas/core/reshape/pivot.py:99,</span> in <span class="ni">pivot_table</span><span class="nt">(data, values, index, columns, aggfunc, fill_value, margins, dropna, margins_name, observed, sort)</span>
-<span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="n">table</span> <span class="o">=</span> <span class="n">concat</span><span class="p">(</span><span class="n">pieces</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="n">keys</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">97</span>     <span class="k">return</span> <span class="n">table</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;pivot_table&quot;</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">99</span> <span class="n">table</span> <span class="o">=</span> <span class="n">__internal_pivot_table</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">100</span>     <span class="n">data</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">101</span>     <span class="n">values</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">102</span>     <span class="n">index</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">103</span>     <span class="n">columns</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">104</span>     <span class="n">aggfunc</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">105</span>     <span class="n">fill_value</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">106</span>     <span class="n">margins</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">107</span>     <span class="n">dropna</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">108</span>     <span class="n">margins_name</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">109</span>     <span class="n">observed</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">110</span>     <span class="n">sort</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">111</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">112</span> <span class="k">return</span> <span class="n">table</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;pivot_table&quot;</span><span class="p">)</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/pandas/core/reshape/pivot.py:168,</span> in <span class="ni">__internal_pivot_table</span><span class="nt">(data, values, index, columns, aggfunc, fill_value, margins, dropna, margins_name, observed, sort)</span>
-<span class="g g-Whitespace">    </span><span class="mi">165</span>             <span class="k">pass</span>
-<span class="g g-Whitespace">    </span><span class="mi">166</span>     <span class="n">values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">168</span> <span class="n">grouped</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="n">observed</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="n">sort</span><span class="p">,</span> <span class="n">dropna</span><span class="o">=</span><span class="n">dropna</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">169</span> <span class="n">agged</span> <span class="o">=</span> <span class="n">grouped</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">aggfunc</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">171</span> <span class="k">if</span> <span class="n">dropna</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">agged</span><span class="p">,</span> <span class="n">ABCDataFrame</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">agged</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
-
-<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/pandas/core/frame.py:8869,</span> in <span class="ni">DataFrame.groupby</span><span class="nt">(self, by, axis, level, as_index, sort, group_keys, observed, dropna)</span>
-<span class="g g-Whitespace">   </span><span class="mi">8866</span> <span class="k">if</span> <span class="n">level</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">by</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">8867</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;You have to supply one of &#39;by&#39; and &#39;level&#39;&quot;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">8869</span> <span class="k">return</span> <span class="n">DataFrameGroupBy</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">8870</span>     <span class="n">obj</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">8871</span>     <span class="n">keys</span><span class="o">=</span><span class="n">by</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">8872</span>     <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">8873</span>     <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">8874</span>     <span class="n">as_index</span><span class="o">=</span><span class="n">as_index</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">8875</span>     <span class="n">sort</span><span class="o">=</span><span class="n">sort</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">8876</span>     <span class="n">group_keys</span><span class="o">=</span><span class="n">group_keys</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">8877</span>     <span class="n">observed</span><span class="o">=</span><span class="n">observed</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">8878</span>     <span class="n">dropna</span><span class="o">=</span><span class="n">dropna</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">8879</span> <span class="p">)</span>
-
-<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/pandas/core/groupby/groupby.py:1278,</span> in <span class="ni">GroupBy.__init__</span><span class="nt">(self, obj, keys, axis, level, grouper, exclusions, selection, as_index, sort, group_keys, observed, dropna)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1275</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropna</span> <span class="o">=</span> <span class="n">dropna</span>
-<span class="g g-Whitespace">   </span><span class="mi">1277</span> <span class="k">if</span> <span class="n">grouper</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1278</span>     <span class="n">grouper</span><span class="p">,</span> <span class="n">exclusions</span><span class="p">,</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">get_grouper</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1279</span>         <span class="n">obj</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1280</span>         <span class="n">keys</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1281</span>         <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1282</span>         <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1283</span>         <span class="n">sort</span><span class="o">=</span><span class="n">sort</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1284</span>         <span class="n">observed</span><span class="o">=</span><span class="kc">False</span> <span class="k">if</span> <span class="n">observed</span> <span class="ow">is</span> <span class="n">lib</span><span class="o">.</span><span class="n">no_default</span> <span class="k">else</span> <span class="n">observed</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1285</span>         <span class="n">dropna</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dropna</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1286</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1288</span> <span class="k">if</span> <span class="n">observed</span> <span class="ow">is</span> <span class="n">lib</span><span class="o">.</span><span class="n">no_default</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1289</span>     <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">ping</span><span class="o">.</span><span class="n">_passed_categorical</span> <span class="k">for</span> <span class="n">ping</span> <span class="ow">in</span> <span class="n">grouper</span><span class="o">.</span><span class="n">groupings</span><span class="p">):</span>
-
-<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/pandas/core/groupby/grouper.py:1009,</span> in <span class="ni">get_grouper</span><span class="nt">(obj, key, axis, level, sort, observed, validate, dropna)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1007</span>         <span class="n">in_axis</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">gpr</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">gpr</span><span class="p">,</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1008</span>     <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1009</span>         <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">gpr</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1010</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">gpr</span><span class="p">,</span> <span class="n">Grouper</span><span class="p">)</span> <span class="ow">and</span> <span class="n">gpr</span><span class="o">.</span><span class="n">key</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1011</span>     <span class="c1"># Add key to exclusions</span>
-<span class="g g-Whitespace">   </span><span class="mi">1012</span>     <span class="n">exclusions</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">gpr</span><span class="o">.</span><span class="n">key</span><span class="p">)</span>
-
-<span class="ne">KeyError</span>: &#39;Cohort&#39;
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Cohort</th>
+      <th>OLS-5</th>
+      <th>OLS-6</th>
+      <th>OLS-7</th>
+      <th>OLS-8</th>
+    </tr>
+    <tr>
+      <th>Continent</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Africa</th>
+      <td>1865.4200</td>
+      <td>1383.213</td>
+      <td>3400.460</td>
+      <td>1364.330</td>
+    </tr>
+    <tr>
+      <th>Asia</th>
+      <td>842.8000</td>
+      <td>211.140</td>
+      <td>598.770</td>
+      <td>198.750</td>
+    </tr>
+    <tr>
+      <th>Europe</th>
+      <td>6963.7682</td>
+      <td>2776.940</td>
+      <td>4190.479</td>
+      <td>458.852</td>
+    </tr>
+    <tr>
+      <th>North America</th>
+      <td>408.4100</td>
+      <td>854.280</td>
+      <td>1588.712</td>
+      <td>201.416</td>
+    </tr>
+    <tr>
+      <th>Oceania</th>
+      <td>200.0000</td>
+      <td>NaN</td>
+      <td>203.620</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>South America</th>
+      <td>1445.5100</td>
+      <td>212.930</td>
+      <td>2103.720</td>
+      <td>180.384</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_dpi</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cohort_continent_df</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greens&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Amount (GBP)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ae4df57dd08954fb9cb51481712d2ad29cafc6374e491cf04787aaaa87458786.png" src="../_images/ae4df57dd08954fb9cb51481712d2ad29cafc6374e491cf04787aaaa87458786.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">set_dpi</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cohort_continent_df</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greens&#39;</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="p">(</span><span class="n">cohort_continent_df</span>
+     <span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+     <span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s1">&#39;tab20c&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Cohorts&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amount (GBP)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span>
+    <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span>
+    <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;x-small&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2f1995f37b56442b3843567ab73e8c7ed61c7dfdcb1b91104df9ff147aed7ea6.png" src="../_images/2f1995f37b56442b3843567ab73e8c7ed61c7dfdcb1b91104df9ff147aed7ea6.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f588ee7a690&gt;
+</pre></div>
+</div>
+<img alt="../_images/ea96ed607c511e8b8c28d5362d6a3f6acf8e20b141f373c8389efd56f0ccc43c.png" src="../_images/ea96ed607c511e8b8c28d5362d6a3f6acf8e20b141f373c8389efd56f0ccc43c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1440,6 +2675,8 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
+</section>
 </section>
 </section>
 
@@ -1497,14 +2734,40 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#honoraria">Honoraria</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#microgrants">Microgrants</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#per-cohort">Per cohort</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#per-role">Per role</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#per-continent">Per continent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cohort">Cohort</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#country">Country</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#number-of-microgrants">Number of microgrants</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#amount-gbp">Amount (GBP)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#per-cohort-and-continent">Per cohort and continent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continent">Continent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cohort-and-continent">Cohort and continent</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Number of microgrants</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Amount (GBP)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#items">Items</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#honoraria">Honoraria</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Cohort</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#role">Role</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Continent</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cohort-and-role">Cohort and role</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#number-of-honoraria">Number of honoraria</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Amount (GBP)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Cohort and continent</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Number of honoraria</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Amount (GBP)</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
