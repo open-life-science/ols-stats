@@ -23,6 +23,7 @@ This GitHub repository store sources (notebooks, pages) for the OLS stats
 Jupyter Notebooks have been used to generate the graphs for the paper. They are stored in the `src` folder
 
 
+
 ### Usage
 
 - Launch [Jupyter](https://jupyter.org/) to access the notebooks to generate graphs
@@ -46,7 +47,7 @@ Jupyter Notebooks have been used to generate the graphs for the paper. They are 
 - Run Jupyter book
 
     ```
-    $ jupyter-book build .
+    $ make build-jupyterbook
     ```
 
 - Open `_build/html/index.html` in a browser
