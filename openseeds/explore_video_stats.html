@@ -67,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Microgrants &amp; Honoraria" href="visualize-microgrants-honoraria.html" />
-    <link rel="prev" title="Feedback from participants and mentors" href="process_feedback.html" />
+    <link rel="prev" title="Projects" href="explore_projects.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -178,9 +178,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="explore_roles.html">Roles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="explore_location.html">Location of people</a></li>
 <li class="toctree-l1"><a class="reference internal" href="explore_projects.html">Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="process_feedback.html">Feedback from participants and mentors</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Video library and YouTube</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visualize-microgrants-honoraria.html">Microgrants &amp; Honoraria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="process_feedback.html">Feedback from participants and mentors</a></li>
 </ul>
 
     </div>
@@ -891,79 +891,152 @@ document.write(`
 <span class="ne">-&gt; </span><span class="mi">1069</span> <span class="n">res</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">download_handle</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)(</span><span class="n">url_or_request</span><span class="p">,</span> <span class="n">video_id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1070</span> <span class="k">return</span> <span class="n">res</span> <span class="k">if</span> <span class="n">res</span> <span class="ow">is</span> <span class="kc">False</span> <span class="k">else</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/yt_dlp/extractor/common.py:907,</span> in <span class="ni">InfoExtractor._download_webpage_handle</span><span class="nt">(self, url_or_request, video_id, note, errnote, fatal, encoding, data, headers, query, expected_status)</span>
+<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/yt_dlp/extractor/common.py:903,</span> in <span class="ni">InfoExtractor._download_webpage_handle</span><span class="nt">(self, url_or_request, video_id, note, errnote, fatal, encoding, data, headers, query, expected_status)</span>
+<span class="g g-Whitespace">    </span><span class="mi">900</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">url_or_request</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">901</span>     <span class="n">url_or_request</span> <span class="o">=</span> <span class="n">url_or_request</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s1">&#39;#&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">903</span> <span class="n">urlh</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_webpage</span><span class="p">(</span><span class="n">url_or_request</span><span class="p">,</span> <span class="n">video_id</span><span class="p">,</span> <span class="n">note</span><span class="p">,</span> <span class="n">errnote</span><span class="p">,</span> <span class="n">fatal</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">expected_status</span><span class="o">=</span><span class="n">expected_status</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">904</span> <span class="k">if</span> <span class="n">urlh</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">905</span>     <span class="k">assert</span> <span class="ow">not</span> <span class="n">fatal</span>
-<span class="g g-Whitespace">    </span><span class="mi">906</span>     <span class="k">return</span> <span class="kc">False</span>
-<span class="ne">--&gt; </span><span class="mi">907</span> <span class="n">content</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_webpage_read_content</span><span class="p">(</span><span class="n">urlh</span><span class="p">,</span> <span class="n">url_or_request</span><span class="p">,</span> <span class="n">video_id</span><span class="p">,</span> <span class="n">note</span><span class="p">,</span> <span class="n">errnote</span><span class="p">,</span> <span class="n">fatal</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">908</span> <span class="k">return</span> <span class="p">(</span><span class="n">content</span><span class="p">,</span> <span class="n">urlh</span><span class="p">)</span>
 
-<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/yt_dlp/extractor/common.py:979,</span> in <span class="ni">InfoExtractor._webpage_read_content</span><span class="nt">(self, urlh, url_or_request, video_id, note, errnote, fatal, prefix, encoding)</span>
-<span class="g g-Whitespace">    </span><span class="mi">978</span> <span class="k">def</span> <span class="nf">_webpage_read_content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">urlh</span><span class="p">,</span> <span class="n">url_or_request</span><span class="p">,</span> <span class="n">video_id</span><span class="p">,</span> <span class="n">note</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">errnote</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fatal</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">979</span>     <span class="n">webpage_bytes</span> <span class="o">=</span> <span class="n">urlh</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">980</span>     <span class="k">if</span> <span class="n">prefix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">981</span>         <span class="n">webpage_bytes</span> <span class="o">=</span> <span class="n">prefix</span> <span class="o">+</span> <span class="n">webpage_bytes</span>
+<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/yt_dlp/extractor/common.py:847,</span> in <span class="ni">InfoExtractor._request_webpage</span><span class="nt">(self, url_or_request, video_id, note, errnote, fatal, data, headers, query, expected_status)</span>
+<span class="g g-Whitespace">    </span><span class="mi">844</span>     <span class="n">headers</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;X-Forwarded-For&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x_forwarded_for_ip</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">846</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">847</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_downloader</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_create_request</span><span class="p">(</span><span class="n">url_or_request</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">query</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">848</span> <span class="k">except</span> <span class="n">network_exceptions</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">849</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">HTTPError</span><span class="p">):</span>
 
-<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/yt_dlp/networking/_requests.py:139,</span> in <span class="ni">RequestsResponseAdapter.read</span><span class="nt">(self, amt)</span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amt</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span>     <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">138</span>         <span class="c1"># Interact with urllib3 response directly.</span>
-<span class="ne">--&gt; </span><span class="mi">139</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">amt</span><span class="p">,</span> <span class="n">decode_content</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">141</span>     <span class="c1"># See urllib3.response.HTTPResponse.read() for exceptions raised on read</span>
-<span class="g g-Whitespace">    </span><span class="mi">142</span>     <span class="k">except</span> <span class="n">urllib3</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">SSLError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/yt_dlp/YoutubeDL.py:4052,</span> in <span class="ni">YoutubeDL.urlopen</span><span class="nt">(self, req)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4049</span> <span class="n">clean_headers</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">headers</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4051</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">4052</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_request_director</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4053</span> <span class="k">except</span> <span class="n">NoSupportingHandlers</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">4054</span>     <span class="k">for</span> <span class="n">ue</span> <span class="ow">in</span> <span class="n">e</span><span class="o">.</span><span class="n">unsupported_errors</span><span class="p">:</span>
 
-<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/urllib3/response.py:877,</span> in <span class="ni">HTTPResponse.read</span><span class="nt">(self, amt, decode_content, cache_content)</span>
-<span class="g g-Whitespace">    </span><span class="mi">874</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_decoded_buffer</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">amt</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">875</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decoded_buffer</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">877</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_raw_read</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">879</span> <span class="n">flush_decoder</span> <span class="o">=</span> <span class="n">amt</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="p">(</span><span class="n">amt</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">data</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">881</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_decoded_buffer</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/yt_dlp/networking/common.py:114,</span> in <span class="ni">RequestDirector.send</span><span class="nt">(self, request)</span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print_verbose</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sending request via &quot;</span><span class="si">{</span><span class="n">handler</span><span class="o">.</span><span class="n">RH_NAME</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">114</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">handler</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">115</span> <span class="k">except</span> <span class="n">RequestError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span>     <span class="k">raise</span>
 
-<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/urllib3/response.py:812,</span> in <span class="ni">HTTPResponse._raw_read</span><span class="nt">(self, amt)</span>
-<span class="g g-Whitespace">    </span><span class="mi">809</span> <span class="n">fp_closed</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_fp</span><span class="p">,</span> <span class="s2">&quot;closed&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">811</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_error_catcher</span><span class="p">():</span>
-<span class="ne">--&gt; </span><span class="mi">812</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fp_read</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">fp_closed</span> <span class="k">else</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">813</span>     <span class="k">if</span> <span class="n">amt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">amt</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">814</span>         <span class="c1"># Platform-specific: Buggy versions of Python.</span>
-<span class="g g-Whitespace">    </span><span class="mi">815</span>         <span class="c1"># Close the connection when no data is returned</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">820</span>         <span class="c1"># not properly close the connection in all cases. There is</span>
-<span class="g g-Whitespace">    </span><span class="mi">821</span>         <span class="c1"># no harm in redundantly calling close.</span>
-<span class="g g-Whitespace">    </span><span class="mi">822</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_fp</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/yt_dlp/networking/_helper.py:204,</span> in <span class="ni">wrap_request_errors.&lt;locals&gt;.wrapper</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">201</span> <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">202</span> <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">203</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">204</span>         <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">205</span>     <span class="k">except</span> <span class="n">UnsupportedRequest</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span>         <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">handler</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 
-<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/urllib3/response.py:797,</span> in <span class="ni">HTTPResponse._fp_read</span><span class="nt">(self, amt)</span>
-<span class="g g-Whitespace">    </span><span class="mi">794</span>     <span class="k">return</span> <span class="n">buffer</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">795</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">796</span>     <span class="c1"># StringIO doesn&#39;t like amt=None</span>
-<span class="ne">--&gt; </span><span class="mi">797</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span> <span class="k">if</span> <span class="n">amt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/yt_dlp/networking/common.py:325,</span> in <span class="ni">RequestHandler.send</span><span class="nt">(self, request)</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">Request</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">324</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Expected an instance of Request&#39;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">325</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_send</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 
-<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/http/client.py:460,</span> in <span class="ni">HTTPResponse.read</span><span class="nt">(self, amt)</span>
-<span class="g g-Whitespace">    </span><span class="mi">457</span>     <span class="k">return</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">459</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunked</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">460</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_chunked</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">462</span> <span class="k">if</span> <span class="n">amt</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">463</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">amt</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">464</span>         <span class="c1"># clip the read to the &quot;end of response&quot;</span>
+<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/yt_dlp/networking/_requests.py:304,</span> in <span class="ni">RequestsRH._send</span><span class="nt">(self, request)</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span> <span class="n">session</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_instance</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">301</span>     <span class="n">cookiejar</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cookiejar&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">cookiejar</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">303</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">304</span>     <span class="n">requests_res</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">request</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">305</span>         <span class="n">method</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">306</span>         <span class="n">url</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">307</span>         <span class="n">data</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">308</span>         <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span>         <span class="n">timeout</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;timeout&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>         <span class="n">proxies</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">proxies</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxies</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">311</span>         <span class="n">allow_redirects</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">312</span>         <span class="n">stream</span><span class="o">=</span><span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">313</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">315</span> <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">TooManyRedirects</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">316</span>     <span class="n">max_redirects_exceeded</span> <span class="o">=</span> <span class="kc">True</span>
 
-<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/http/client.py:583,</span> in <span class="ni">HTTPResponse._read_chunked</span><span class="nt">(self, amt)</span>
-<span class="g g-Whitespace">    </span><span class="mi">581</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">582</span>     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">583</span>         <span class="n">chunk_left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_chunk_left</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">584</span>         <span class="k">if</span> <span class="n">chunk_left</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">585</span>             <span class="k">break</span>
+<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/requests/sessions.py:589,</span> in <span class="ni">Session.request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
+<span class="g g-Whitespace">    </span><span class="mi">584</span> <span class="n">send_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+<span class="g g-Whitespace">    </span><span class="mi">585</span>     <span class="s2">&quot;timeout&quot;</span><span class="p">:</span> <span class="n">timeout</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">586</span>     <span class="s2">&quot;allow_redirects&quot;</span><span class="p">:</span> <span class="n">allow_redirects</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span> <span class="p">}</span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span> <span class="n">send_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">589</span> <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">prep</span><span class="p">,</span> <span class="o">**</span><span class="n">send_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">591</span> <span class="k">return</span> <span class="n">resp</span>
 
-<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/http/client.py:566,</span> in <span class="ni">HTTPResponse._get_chunk_left</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">564</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_safe_read</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># toss the CRLF at the end of the chunk</span>
-<span class="g g-Whitespace">    </span><span class="mi">565</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">566</span>     <span class="n">chunk_left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_next_chunk_size</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">567</span> <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">568</span>     <span class="k">raise</span> <span class="n">IncompleteRead</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/requests/sessions.py:703,</span> in <span class="ni">Session.send</span><span class="nt">(self, request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">700</span> <span class="n">start</span> <span class="o">=</span> <span class="n">preferred_clock</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span> <span class="c1"># Send the request</span>
+<span class="ne">--&gt; </span><span class="mi">703</span> <span class="n">r</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span> <span class="c1"># Total elapsed time of the request (approximately)</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span> <span class="n">elapsed</span> <span class="o">=</span> <span class="n">preferred_clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
 
-<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/http/client.py:526,</span> in <span class="ni">HTTPResponse._read_next_chunk_size</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">524</span> <span class="k">def</span> <span class="nf">_read_next_chunk_size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">525</span>     <span class="c1"># Read the next chunk size from the file</span>
-<span class="ne">--&gt; </span><span class="mi">526</span>     <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">(</span><span class="n">_MAXLINE</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">527</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">_MAXLINE</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">528</span>         <span class="k">raise</span> <span class="n">LineTooLong</span><span class="p">(</span><span class="s2">&quot;chunk size&quot;</span><span class="p">)</span>
+<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/requests/adapters.py:486,</span> in <span class="ni">HTTPAdapter.send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="g g-Whitespace">    </span><span class="mi">483</span>     <span class="n">timeout</span> <span class="o">=</span> <span class="n">TimeoutSauce</span><span class="p">(</span><span class="n">connect</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span> <span class="n">read</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">485</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">486</span>     <span class="n">resp</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">487</span>         <span class="n">method</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">488</span>         <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">489</span>         <span class="n">body</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">490</span>         <span class="n">headers</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">491</span>         <span class="n">redirect</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">492</span>         <span class="n">assert_same_host</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">493</span>         <span class="n">preload_content</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">494</span>         <span class="n">decode_content</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">495</span>         <span class="n">retries</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_retries</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">496</span>         <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">497</span>         <span class="n">chunked</span><span class="o">=</span><span class="n">chunked</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">498</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">500</span> <span class="k">except</span> <span class="p">(</span><span class="n">ProtocolError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">)</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">501</span>     <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/urllib3/connectionpool.py:790,</span> in <span class="ni">HTTPConnectionPool.urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">787</span> <span class="n">response_conn</span> <span class="o">=</span> <span class="n">conn</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">release_conn</span> <span class="k">else</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">789</span> <span class="c1"># Make the request on the HTTPConnection object</span>
+<span class="ne">--&gt; </span><span class="mi">790</span> <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_request</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">791</span>     <span class="n">conn</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">792</span>     <span class="n">method</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">793</span>     <span class="n">url</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">794</span>     <span class="n">timeout</span><span class="o">=</span><span class="n">timeout_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">795</span>     <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">796</span>     <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">797</span>     <span class="n">chunked</span><span class="o">=</span><span class="n">chunked</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">798</span>     <span class="n">retries</span><span class="o">=</span><span class="n">retries</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">799</span>     <span class="n">response_conn</span><span class="o">=</span><span class="n">response_conn</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">800</span>     <span class="n">preload_content</span><span class="o">=</span><span class="n">preload_content</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">801</span>     <span class="n">decode_content</span><span class="o">=</span><span class="n">decode_content</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">802</span>     <span class="o">**</span><span class="n">response_kw</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">803</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">805</span> <span class="c1"># Everything went great!</span>
+<span class="g g-Whitespace">    </span><span class="mi">806</span> <span class="n">clean_exit</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/urllib3/connectionpool.py:536,</span> in <span class="ni">HTTPConnectionPool._make_request</span><span class="nt">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
+<span class="g g-Whitespace">    </span><span class="mi">534</span> <span class="c1"># Receive the response from the server</span>
+<span class="g g-Whitespace">    </span><span class="mi">535</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">536</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">537</span> <span class="k">except</span> <span class="p">(</span><span class="n">BaseSSLError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">538</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_raise_timeout</span><span class="p">(</span><span class="n">err</span><span class="o">=</span><span class="n">e</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout_value</span><span class="o">=</span><span class="n">read_timeout</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/site-packages/urllib3/connection.py:461,</span> in <span class="ni">HTTPConnection.getresponse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">458</span> <span class="kn">from</span> <span class="nn">.response</span> <span class="kn">import</span> <span class="n">HTTPResponse</span>
+<span class="g g-Whitespace">    </span><span class="mi">460</span> <span class="c1"># Get the response from http.client.HTTPConnection</span>
+<span class="ne">--&gt; </span><span class="mi">461</span> <span class="n">httplib_response</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">463</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">464</span>     <span class="n">assert_header_parsing</span><span class="p">(</span><span class="n">httplib_response</span><span class="o">.</span><span class="n">msg</span><span class="p">)</span>
+
+<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/http/client.py:1386,</span> in <span class="ni">HTTPConnection.getresponse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1384</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1385</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1386</span>         <span class="n">response</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1387</span>     <span class="k">except</span> <span class="ne">ConnectionError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1388</span>         <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/http/client.py:325,</span> in <span class="ni">HTTPResponse.begin</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span> <span class="c1"># read until we get a non-100 response</span>
+<span class="g g-Whitespace">    </span><span class="mi">324</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">325</span>     <span class="n">version</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_status</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">326</span>     <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="n">CONTINUE</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">327</span>         <span class="k">break</span>
+
+<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/http/client.py:286,</span> in <span class="ni">HTTPResponse._read_status</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">285</span> <span class="k">def</span> <span class="nf">_read_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">286</span>     <span class="n">line</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">(</span><span class="n">_MAXLINE</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;iso-8859-1&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">287</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">_MAXLINE</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">288</span>         <span class="k">raise</span> <span class="n">LineTooLong</span><span class="p">(</span><span class="s2">&quot;status line&quot;</span><span class="p">)</span>
 
 <span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/socket.py:706,</span> in <span class="ni">SocketIO.readinto</span><span class="nt">(self, b)</span>
 <span class="g g-Whitespace">    </span><span class="mi">704</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -972,14 +1045,14 @@ document.write(`
 <span class="g g-Whitespace">    </span><span class="mi">707</span>     <span class="k">except</span> <span class="n">timeout</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">708</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_timeout_occurred</span> <span class="o">=</span> <span class="kc">True</span>
 
-<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/ssl.py:1311,</span> in <span class="ni">SSLSocket.recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1307</span>     <span class="k">if</span> <span class="n">flags</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1308</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1309</span>           <span class="s2">&quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
-<span class="g g-Whitespace">   </span><span class="mi">1310</span>           <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1311</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nbytes</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1312</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1313</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+<span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/ssl.py:1315,</span> in <span class="ni">SSLSocket.recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1311</span>     <span class="k">if</span> <span class="n">flags</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1312</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1313</span>           <span class="s2">&quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+<span class="g g-Whitespace">   </span><span class="mi">1314</span>           <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1315</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nbytes</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1316</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1317</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
 
 <span class="nn">File /usr/share/miniconda/envs/ols-stats/lib/python3.11/ssl.py:1167,</span> in <span class="ni">SSLSocket.read</span><span class="nt">(self, len, buffer)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1165</span> <span class="k">try</span><span class="p">:</span>
@@ -1001,7 +1074,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>156
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>158
 </pre></div>
 </div>
 </div>
@@ -1015,7 +1088,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>73
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>74
 </pre></div>
 </div>
 </div>
@@ -1030,7 +1103,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>76.99694444444444
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>78.0469444444444
 </pre></div>
 </div>
 </div>
@@ -1043,7 +1116,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>63.2851598173516
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>63.28130630630629
 </pre></div>
 </div>
 </div>
@@ -1081,33 +1154,33 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>63</th>
+      <th>65</th>
       <td>OLS-4 Week 06 - Open Science I: Project Develo...</td>
-      <td>66</td>
+      <td>67</td>
       <td>105.883333</td>
     </tr>
     <tr>
-      <th>123</th>
+      <th>125</th>
       <td>OLS-3 graduation session 3</td>
-      <td>80</td>
+      <td>81</td>
       <td>103.933333</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>4</th>
       <td>OLS-8: Open Leadership in Practice</td>
-      <td>38</td>
+      <td>45</td>
       <td>93.233333</td>
     </tr>
     <tr>
-      <th>0</th>
+      <th>2</th>
       <td>OLS-8 - Week 10: Open Science  Garden II</td>
-      <td>26</td>
+      <td>42</td>
       <td>92.083333</td>
     </tr>
     <tr>
-      <th>50</th>
+      <th>52</th>
       <td>OLS-5 Week 06:Open science I: Project Developm...</td>
-      <td>91</td>
+      <td>92</td>
       <td>86.066667</td>
     </tr>
     <tr>
@@ -1117,38 +1190,38 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>29</th>
+      <th>31</th>
       <td>OLS-6: Week 13 -  Personal Ecology &amp; Social hour</td>
-      <td>31</td>
+      <td>33</td>
       <td>24.183333</td>
     </tr>
     <tr>
-      <th>58</th>
+      <th>60</th>
       <td>OLS-4 Week 13 - Self Care and Personal Ecology</td>
       <td>38</td>
       <td>14.866667</td>
     </tr>
     <tr>
-      <th>45</th>
+      <th>47</th>
       <td>OLS-5 Week 13 - Self-care &amp; Social call [Skill...</td>
       <td>42</td>
       <td>12.816667</td>
     </tr>
     <tr>
-      <th>67</th>
+      <th>69</th>
       <td>Creating an issue on OLS-4 repository</td>
       <td>79</td>
       <td>2.766667</td>
     </tr>
     <tr>
-      <th>32</th>
+      <th>34</th>
       <td>Call opens for application to the OLS-7 traini...</td>
       <td>30</td>
       <td>0.450000</td>
     </tr>
   </tbody>
 </table>
-<p>73 rows × 3 columns</p>
+<p>74 rows × 3 columns</p>
 </div></div></div>
 </div>
 </section>
@@ -1162,12 +1235,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6496
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6684
 </pre></div>
 </div>
 </div>
 </div>
-<p>Mean number of views (minutes) per Open Seeds videos</p>
+<p>Mean number of views per Open Seeds videos</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">openseeds_yt_df</span><span class="o">.</span><span class="n">View_count</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -1175,7 +1248,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>88.98630136986301
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>90.32432432432432
 </pre></div>
 </div>
 </div>
@@ -1213,31 +1286,31 @@ document.write(`
   </thead>
   <tbody>
     <tr>
-      <th>134</th>
+      <th>136</th>
       <td>OLS-3 Application Launch Webinar and  Q&amp;A -  J...</td>
       <td>834</td>
       <td>38.100000</td>
     </tr>
     <tr>
-      <th>30</th>
+      <th>32</th>
       <td>OLS-7 cohort launch application webinar</td>
-      <td>381</td>
+      <td>382</td>
       <td>34.650000</td>
     </tr>
     <tr>
-      <th>133</th>
+      <th>135</th>
       <td>OLS-3 Week 2 Cohort call 1: Welcome to Open Li...</td>
       <td>229</td>
       <td>63.850000</td>
     </tr>
     <tr>
-      <th>138</th>
+      <th>140</th>
       <td>[OLS-2] Cohort call 6 - week 10 - Open Science...</td>
-      <td>185</td>
+      <td>186</td>
       <td>69.916667</td>
     </tr>
     <tr>
-      <th>152</th>
+      <th>154</th>
       <td>OLS-1 - Week 2 - Cohort Call 1 - Welcome to Op...</td>
       <td>171</td>
       <td>56.616667</td>
@@ -1249,38 +1322,38 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>OLS-8, Week 3: Welcome to Open Seeds &amp; Tooling...</td>
-      <td>27</td>
-      <td>63.950000</td>
+      <th>34</th>
+      <td>Call opens for application to the OLS-7 traini...</td>
+      <td>30</td>
+      <td>0.450000</td>
     </tr>
     <tr>
-      <th>0</th>
-      <td>OLS-8 - Week 10: Open Science  Garden II</td>
-      <td>26</td>
-      <td>92.083333</td>
+      <th>64</th>
+      <td>OLS-4 Week 08 - Community design for inclusivity</td>
+      <td>28</td>
+      <td>68.900000</td>
     </tr>
     <tr>
-      <th>46</th>
+      <th>48</th>
       <td>OLS-5 Week 12 - Designing &amp; Empowering for inc...</td>
       <td>24</td>
       <td>59.416667</td>
     </tr>
     <tr>
-      <th>59</th>
+      <th>61</th>
       <td>OLS-4 Week 12 - Diversity and Inclusion &amp; Ally...</td>
       <td>22</td>
       <td>54.933333</td>
     </tr>
     <tr>
-      <th>8</th>
+      <th>10</th>
       <td>Open Seeds OLS-7 Graduation - Group 1 (Multist...</td>
       <td>18</td>
       <td>84.916667</td>
     </tr>
   </tbody>
 </table>
-<p>73 rows × 3 columns</p>
+<p>74 rows × 3 columns</p>
 </div></div></div>
 </div>
 </section>
@@ -1318,12 +1391,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="process_feedback.html"
+       href="explore_projects.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Feedback from participants and mentors</p>
+        <p class="prev-next-title">Projects</p>
       </div>
     </a>
     <a class="right-next"

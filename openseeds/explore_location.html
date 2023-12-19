@@ -178,9 +178,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="explore_roles.html">Roles</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Location of people</a></li>
 <li class="toctree-l1"><a class="reference internal" href="explore_projects.html">Projects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="process_feedback.html">Feedback from participants and mentors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="explore_video_stats.html">Video library and YouTube</a></li>
 <li class="toctree-l1"><a class="reference internal" href="visualize-microgrants-honoraria.html">Microgrants &amp; Honoraria</a></li>
+<li class="toctree-l1"><a class="reference internal" href="process_feedback.html">Feedback from participants and mentors</a></li>
 </ul>
 
     </div>
@@ -428,7 +428,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2145/3598637579.py:1: FutureWarning: The geopandas.dataset module is deprecated and will be removed in GeoPandas 1.0. You can get the original &#39;naturalearth_lowres&#39; data from https://www.naturalearthdata.com/downloads/110m-cultural-vectors/.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2047/3598637579.py:1: FutureWarning: The geopandas.dataset module is deprecated and will be removed in GeoPandas 1.0. You can get the original &#39;naturalearth_lowres&#39; data from https://www.naturalearthdata.com/downloads/110m-cultural-vectors/.
   path = geopandas.datasets.get_path(&#39;naturalearth_lowres&#39;)
 </pre></div>
 </div>
@@ -785,7 +785,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f71ab123d90&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f6f9974bf10&gt;
 </pre></div>
 </div>
 <img alt="../_images/00ce30bd49f52d8094d46bbb37a0f20902612524b0d02bdb8946f9fe5b338a7b.png" src="../_images/00ce30bd49f52d8094d46bbb37a0f20902612524b0d02bdb8946f9fe5b338a7b.png" />
@@ -2248,6 +2248,18 @@ document.write(`
 </table>
 </div></div></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">countries_perc_df</span><span class="p">[</span><span class="s1">&#39;Role&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>57
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="maps">
 <h2>Maps<a class="headerlink" href="#maps" title="Permalink to this heading">#</a></h2>
@@ -2343,7 +2355,26 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">role</span> <span class="o">=</span> <span class="s1">&#39;Participant&#39;</span>
-<span class="n">plot_role_map</span><span class="p">(</span><span class="n">country_world_df</span><span class="p">[</span><span class="n">role</span><span class="p">],</span> <span class="n">role</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Number of countries</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">country_code_df</span><span class="p">[</span><span class="n">role</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>49
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_role_map</span><span class="p">(</span><span class="n">country_world_df</span><span class="p">[</span><span class="n">role</span><span class="p">],</span> <span class="n">role</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
