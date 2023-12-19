@@ -1,0 +1,96 @@
+```{mermaid}
+
+    flowchart LR
+        classDef cohort fill:#fff,stroke:#333
+        classDef nonCohort fill:#d3d3d3,stroke:#333
+
+        youtube["OLS YouTube channel"]:::nonCohort
+
+        subgraph drive["Google Drive"]
+            micrograntSheet["`Microgrants
+            *(before OLS-6)*`"]:::cohort
+            honorariaSheet["`Honoraria
+            *(before OLS-6)*`"]:::cohort
+            feedbackCSV["Anonymized Participants & Mentor feedback"]:::cohort
+        end
+        style drive fill:#6dd076,stroke:#6dd076
+
+        subgraph civi["CiviCRM"]
+            micrograntCSV["`Microgrants
+            *(after OLS-6)*`"]:::cohort
+            honorariaCSV["`Honoraria
+            *(after OLS-6)*`"]:::cohort
+        end
+        style civi fill:#59b5e2,stroke:#59b5e2
+
+        subgraph github["Website GitHub repository"]
+            subgraph artifact["Artifacts"]
+                peopleCSV["people"]:::cohort
+                subgraph githubProgram["Program"]
+                    libraryCSV["library"]:::cohort
+                    projectCSV["projects"]:::cohort
+                    rolesCSV["roles"]:::cohort
+                    peopleRolesCSV["people + roles"]:::cohort
+                end
+                style githubProgram fill:#ed7a84,stroke:#fff
+            end
+            style artifact fill:#ed7a84,stroke:#fff
+        end
+        style github fill:#ed7a84,stroke:#ed7a84
+
+        subgraph statsGitHub["`Stat GitHub repository
+        (Notebooks)`"]
+            locationNotebook["`Community Location`"]:::cohort
+            subgraph statsGitHubProgram["Program"]
+                programLocationNotebook["`People location`"]:::cohort
+                projectNotebook["`Projects`"]:::cohort
+                rolesNotebook["`Roles`"]:::cohort
+                feedbackNotebook["`Feedback`"]:::cohort
+                libraryNotebook["`Video Library & YouTube`"]:::cohort
+                micrograntHonorariaNotebook["`Microgrants & Honoraria`"]:::cohort
+            end
+            style statsGitHubProgram fill:#e2944e,stroke:#fff
+        end
+        style statsGitHub fill:#e2944e,stroke:#e2944e
+
+        subgraph website["Stat Website"]
+            locationHTML["`Community location`"]:::cohort
+            subgraph websiteProgram["Program"]
+                programLocationHTML["`People location`"]:::cohort
+                projectHTML["`Projects`"]:::cohort
+                rolesHTML["`Roles`"]:::cohort
+                feedbackHTML["`Feedback`"]:::cohort
+                libraryHTML["`Video Library & YouTube`"]:::cohort
+                micrograntHonorariaHTML["`Microgrants & Honoraria`"]:::cohort
+            end
+            style websiteProgram fill:#6690ce,stroke:#fff
+        end
+        style website fill:#6690ce,stroke:#6690ce
+
+        peopleYAML --> peopleCSV
+        peopleYAML --> peopleRolesCSV
+        projectYAML --> projectCSV
+        libraryYAML --> libraryCSV
+        scheduleYAML --> rolesCSV
+        metadataYAML --> rolesCSV
+        scheduleYAML --> peopleRolesCSV
+        metadataYAML --> peopleRolesCSV
+        peopleCSV --> locationNotebook
+        rolesCSV --> rolesNotebook
+        projectCSV --> projectNotebook
+        youtube --> libraryNotebook
+        libraryCSV --> libraryNotebook
+        feedbackCSV --> feedbackNotebook
+        micrograntSheet --> micrograntHonorariaNotebook
+        honorariaSheet --> micrograntHonorariaNotebook
+        micrograntCSV --> micrograntHonorariaNotebook
+        honorariaCSV --> micrograntHonorariaNotebook
+        peopleRolesCSV --> programLocationNotebook
+        projectNotebook --> projectHTML
+        locationNotebook --> locationHTML
+        rolesNotebook --> rolesHTML
+        feedbackNotebook --> feedbackHTML
+        libraryNotebook --> libraryHTML
+        micrograntHonorariaNotebook --> micrograntHonorariaHTML
+        programLocationNotebook --> programLocationHTML
+```
